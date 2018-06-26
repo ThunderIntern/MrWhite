@@ -1,0 +1,464 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Kalam|Kaushan+Script");
+
+// Variables
+@import "variables";
+// @import "bobo";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import './select2.min.css';
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+
+//css for card image
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: 30rem;
+  object-fit: contain;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.image1 {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: 20rem;
+  object-fit: contain;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.image2 {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: 15rem;
+  object-fit: contain;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  font-family: 'Kaushan Script', cursive;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.card:hover .image {
+  opacity: 0.3;
+}
+.card:hover .image1 {
+  opacity: 0.3;
+}
+.card:hover .image2 {
+  opacity: 0.3;
+}
+.card:hover .middle {
+  opacity: 1;
+}
+
+.text1 {
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+//css for navbar
+/* Add a black background color to the top navigation */
+.topnav {
+    position: relative;
+    background-color: #333;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Centered section inside the top navigation */
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+
+
+/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
+//horizontal list
+.border-awsm{
+   border-bottom: 1px solid #000;
+   float:left;
+   width:100%;
+   overflow:hidden;
+   position:relative;
+}
+.centeredmenu {
+   font-family: 'Gloria Hallelujah', cursive;
+   float:left;
+   width:100%;
+   overflow:hidden;
+   position:relative;
+}
+.centeredmenu ul {
+   clear:left;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   left:50%;
+   text-align:center;
+}
+.centeredmenu ul li {
+   display:block;
+   float:left;
+   list-style:none;
+   margin:0.1rem;
+   padding:0;
+   position:relative;
+   right:50%;
+   padding:1rem;
+}
+.centeredmenu h1 {
+  text-align:center;
+}
+.centeredmenu ul li a {
+
+   text-decoration:none;
+   line-height:1.3em;
+}
+.centeredmenu ul li a:hover {
+   background:#6C7A89;
+   color:#fff;
+}
+.centeredmenu ul li a.active,
+.centeredmenu ul li a.active:hover {
+   color:#fff;
+   background:#000;
+   font-weight:bold;
+}
+
+.card-footer {
+  font-family: 'Kalam', cursive;
+}
+
+.sidenav {
+    width: 25%;
+    position: absolute;
+    z-index: 1;
+    background-color: #eee;
+    overflow-x: hidden;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #000;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+    color: #4183D7;
+}
+
+/* Main content */
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+    color: black;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #eee;
+    padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.sidebar-area {
+    background-color: #eee;
+    position: relative;
+    width: 20%;
+}
+
+.main {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.hero{
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("/image/ca2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-bottom: 7rem;
+
+  
+}
+
+.hero h1 {
+  font-size: 5em;
+  color: white;
+  font-family: 'Kaushan Script', cursive;
+  margin-bottom: -5rem;
+}
+
+.hero .btn-awsm {
+    /* Positioning and sizing */
+    display: block;
+    width: 10rem;
+    
+    /* Padding and margins */
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Text styles */
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    
+    /* Border styles */
+    border: 2px solid white;
+    border-radius: 1rem;
+    
+}
+
+.hero .input-inner{
+  display: block;
+  width: 70%;
+  padding: 1rem;
+  z-index: 5;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -1rem;
+  font-family: 'Kalam', cursive;
+  text-decoration: none;
+  border: 2px solid white;
+}
+
+.input-inner:hover{
+  border: 2px solid #446CB3;
+}
+
+.btn-awsm:hover{
+  background-color: #D91E18;
+}
+
+.bgimg-1{
+  min-height: 30rem;
+  position:relative;
+  opacity: 0.65;
+  margin-top: 7rem;
+  margin-bottom: 0;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/image/ca3.jpg");
+
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1 {
+        background-attachment: scroll;
+    }
+}
+
+.invinsible {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.site-main {
+    width: 80%;
+}
+
+.container{
+  margin-bottom: 7rem;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .custom {
+  font-family: 'Gloria Hallelujah', cursive;
+  color:white;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.bg-awsm{
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("/image/bg-login.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
