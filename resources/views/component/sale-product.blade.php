@@ -10,15 +10,15 @@
 			<div class="col-12">
 				<div class="card-deck">
 					
-					@foreach($catalog as $catalogs)
+					@foreach($offer as $offers)
 					<div class="card invinsible text-dark col-md col-sm col-xs-6">
-						<img src="{{ $catalogs->url_gambar }}" class="image1">
+						<a href="{{ route('shop.show', $offers->barcode) }}"><img src="{{ $offers->url_gambar }}" class="image1"></a>
 						<div class="middle">
-							<p class="card-text">{{ $catalogs->deskripsi }}</p>
+							<p class="card-text">{{ $offers->deskripsi }}</p>
 						</div>
 						<div class="card-footer text-white text-center bg-danger">
-							<h4>{{ $catalogs->barcode }}</h4>
-							<h6>{{ $catalogs->harga }}</h6>
+							<h4>{{ $offers->barcode }}</h4>
+							<h6>{{ $offers->harga }}</h6>
 						</div>
 					</div>
 					@endforeach

@@ -16,6 +16,7 @@ class TblCatalog extends Migration
         //
         Schema::create('catalog', function (Blueprint $table) {
             $table->string('id_catalog');
+            $table->string('nama');
             $table->string('barcode');
             $table->double('harga');
             $table->text('deskripsi');

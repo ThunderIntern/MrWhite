@@ -7,7 +7,7 @@
 <body>
 
 @include('component.hero')
-@include('component.pomade-category')
+@include('component.category-list')
 @include('component.brand-category')
 @include('component.sale-product')
 @include('component.product-list-card-8')

@@ -14,7 +14,7 @@
 					<div class="card-deck">
 
 						<div class="card border-light mb-3 col-6">
-							<a href="#"><img src="{{ $product->url_gambar }}" class="image"></a>
+							<a href="#"><img src="{{ asset($product_detail->url_gambar) }}" class="image"></a>
 							
 						</div>
 
@@ -23,9 +23,9 @@
 							Header
 						</div>
 						<div class="card-body">
-							<h3>{{ $product->barcode }}</h3>
-							<p>{{ $product->deskripsi }}</p>
-							<p>{{ $product->harga }}</p>
+							<h3>{{ $product_detail->barcode }}</h3>
+							<p>{{ $product_detail->deskripsi }}</p>
+							<p>{{ $product_detail->harga }}</p>
 						</div>
 						<div class="card-footer">
 							<a href="#" class="btn btn-primary">Beli Sekarang</a>

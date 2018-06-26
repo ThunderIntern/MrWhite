@@ -16,7 +16,7 @@
 				<div class="card-deck">
 
 					<div class="card text-dark invinsible ">
-						<img src="{{ $products->url_gambar }}" class="image1">
+						<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ $products->url_gambar }}" class="image1"></a>
 						<div class="middle">
 							<p class="card-text">Some Text</p>
 						</div>

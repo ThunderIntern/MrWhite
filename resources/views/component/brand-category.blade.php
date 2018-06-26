@@ -11,7 +11,7 @@
 			<div class="col-md-4">
 				<div class="card-deck">
 						<div class="card invinsible text-dark col-lg col-md col-sm col-xs ">
-							<img src="/image/crew.jpeg" class="image2">
+							<a href="{{ route('shop.index') }}"><img src="/image/crew.jpeg" class="image2"></a>
 							<div class="middle">
 								<p class="card-text">{{ $brands->name }}</p>
 							</div>

@@ -14,6 +14,7 @@ class seeder_catalog extends Seeder
         \App\model_catalog::insert([
             [
                 'id_catalog' => 'cat0001',
+                'nama'=> 'baxter pomade',
                 'barcode'=> '1111',
                 'harga'=>'85000',
                 'deskripsi'=> 'lorem ipsum',
@@ -21,6 +22,7 @@ class seeder_catalog extends Seeder
             ],
             [
                 'id_catalog' => 'cat0002',
+                'nama'=> 'american crew pomade',
                 'barcode'=> '1112',
                 'harga'=>'95000',
                 'deskripsi'=> 'lorem ipsum',
@@ -28,6 +30,7 @@ class seeder_catalog extends Seeder
             ],
             [
                 'id_catalog' => 'cat0003',
+                'nama'=> 'layrite pomade',
                 'barcode'=> '1113',
                 'harga'=>'105000',
                 'deskripsi'=> 'lorem ipsum',
@@ -35,6 +38,7 @@ class seeder_catalog extends Seeder
             ],
             [
                 'id_catalog' => 'cat0004',
+                'nama'=> 'toar roby pomade',
                 'barcode'=> '1114',
                 'harga'=>'86000',
                 'deskripsi'=> 'lorem ipsum',
@@ -42,6 +46,7 @@ class seeder_catalog extends Seeder
             ],
             [
                 'id_catalog' => 'cat0005',
+                'nama'=> 'gillete shaving gel',
                 'barcode'=> '1155',
                 'harga'=>'86000',
                 'deskripsi'=> 'shave gl',
@@ -49,6 +54,7 @@ class seeder_catalog extends Seeder
             ],
             [
                 'id_catalog' => 'cat0006',
+                'nama'=> 'edge shaving gel',
                 'barcode'=> '1156',
                 'harga'=>'86000',
                 'deskripsi'=> 'shave gl',
@@ -56,6 +62,7 @@ class seeder_catalog extends Seeder
             ],
             [
                 'id_catalog' => 'cat0007',
+                'nama'=> 'nivea man facial foam',
                 'barcode'=> '1175',
                 'harga'=>'86000',
                 'deskripsi'=> 'facial foam',
@@ -63,6 +70,7 @@ class seeder_catalog extends Seeder
             ],
             [
                 'id_catalog' => 'cat0008',
+                'nama'=> 'garnier man turbolight',
                 'barcode'=> '1355',
                 'harga'=>'86000',
                 'deskripsi'=> 'moisturiser',
