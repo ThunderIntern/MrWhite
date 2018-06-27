@@ -15,8 +15,9 @@ class CatalogCategory extends Migration
     {
         Schema::create('catalog_category', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('catalog_id')->foreign('catalog_id')->references('id_catalog')->on('catalog');
-            $table->string('category_id')->foreign('category_id')->references('id_category')->on('category');
+            $table->string('catalog_id')->foreign('catalog_id')->references('id_catalog')->on('catalog')->onDelete('cascade');
+
+            $table->string('category_id')->foreign('category_id')->references('id_category')->on('category')->onDelete('cascade');
         });
     }
 

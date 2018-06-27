@@ -1,5 +1,5 @@
 
-<footer class="container-fluid bg-dark text-light py-5" style="margin-bottom: 0;">
+<footer class="container-fluid bg-dark text-light py-5" style="margin-bottom: 0; background-color: #000000;">
 	<div class="row hidden-xs">
 		<div class="col-md-12">
 			<div class="container">

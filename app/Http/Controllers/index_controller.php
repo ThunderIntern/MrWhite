@@ -9,13 +9,12 @@ use Illuminate\Http\Request;
 class index_controller extends Controller
 {
     public function index(){
-    	$catalog = model_catalog::paginate(3);
     	$product = model_catalog::inRandomOrder()->take(8)->get();
     	$recomended= "";
     	$brand = DB::table('category')-> where('jenis','=', 'brand')->paginate(6);
-    	$offer="";
+    	$offer=model_catalog::inRandomOrder()->take(3)->get();
     	$category=DB::table('category')-> where('jenis','=', 'perawatan')->get();
 
-    	return view('index', compact('catalog', 'brand', 'product','category'));    	
+    	return view('index', compact('offer', 'brand', 'product','category'));    	
     }
 }

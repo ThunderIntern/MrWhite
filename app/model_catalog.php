@@ -10,6 +10,7 @@ class model_catalog extends Model
   protected $fillable = ['id_catalog', 'barcode', 'deskripsi', 'url_gambar'];
   public $incrementing = false;
   public $timestamps = false;
+  
   public function model_category(){
   	return $this->belongsToMany('App\model_category');
   }

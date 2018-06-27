@@ -11,7 +11,7 @@
 				<div class="card-deck">
 					@foreach ($category as $categories)
 						<div class="card invinsible text-dark col-6 col-md">
-							<a href="{{ route('shop.index') }}"><img src="/image/waterbased.jpg" class="image"></a>
+							<a href="{{ route('shop.index', ['category'=>$categories->name]) }}"><img src="/image/waterbased.jpg" class="image"></a>
 							<div class="middle">
 								<p class="card-text">Some Text</p>
 							</div>

@@ -17,7 +17,7 @@ class TblBanner extends Migration
         Schema::create('banner', function (Blueprint $table) {
             $table->string('id_banner');
             $table->string('name');
-            $table->string('url_gambar');
+            $table->text('url_gambar');
             $table->date('date_show');
             $table->date('date_off');
         });

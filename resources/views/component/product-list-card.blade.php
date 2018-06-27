@@ -12,7 +12,7 @@
 								<p class="card-text">Some Text</p>
 							</div>
 							<div class="card-footer invinsible">
-								{{ $products->barcode }}
+								{{ $products->nama }}
 							</div>
 						</div>
 						

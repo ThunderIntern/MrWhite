@@ -9,7 +9,7 @@
 						<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ asset($products->url_gambar) }}" class="image2"></a>
 						<div class="middle">
 							<div class="text1">
-								{{ $products->barcode }}
+								{{ $products->nama }}
 							</div>
 						</div>
 					</div>

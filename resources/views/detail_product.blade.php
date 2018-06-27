@@ -20,15 +20,16 @@
 
 						<div class="card mb-3 col-6 invinsible">
 						<div class="card-header">
-							Header
+							<h1>{{ $product_detail->nama }}</h1>
 						</div>
 						<div class="card-body">
 							<h3>{{ $product_detail->barcode }}</h3>
 							<p>{{ $product_detail->deskripsi }}</p>
-							<p>{{ $product_detail->harga }}</p>
 						</div>
 						<div class="card-footer">
-							<a href="#" class="btn btn-primary">Beli Sekarang</a>
+							<h3>{{ $product_detail->harga }}</h3>
+
+							<a href="{{ $link->link }}" class="btn btn-primary" target="_blank">Beli Sekarang</a>
 						</div>
 					</div>
 				</div>
