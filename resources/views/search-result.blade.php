@@ -7,6 +7,8 @@
 <body>
 @include('partials._topbar')
 @component('partials._breadcrumb')
+	<li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item" aria-current="page">{{ request()->input('search') }}</li>
 @endcomponent
 @include('component.alert')
 <div class="container">
@@ -24,8 +26,8 @@
 						<p class="card-text">See Product Detail</p>
 					</div>
 					<div class="card-footer invinsible">
-						{{ $products->nama }}
-						<h6>{{ $products->harga }}</h6>
+						{{ ucwords($products->nama) }}
+						<h6>Rp. {{ $products->presentPrice() }}</h6>
 						<p>{{ $products->deskripsi }}</p>
 					</div>
 				</div>

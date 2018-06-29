@@ -9,8 +9,12 @@
 						<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ asset($products->url_gambar) }}" class="image2"></a>
 						<div class="middle">
 							<div class="text1">
-								{{ $products->nama }}
+								{{ ucwords($products->nama) }}
 							</div>
+						</div>
+						<div class="card-footer bg-transparent text-center">
+							<p>{{ $products->deskripsi }}</p>
+							<p>Rp. {{ $products->presentPrice() }}</p>
 						</div>
 					</div>
 					@endforeach

@@ -12,8 +12,8 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         Category::insert([
-			['jenis'=> 'perawatan','name'=> 'rambut', 'parent_id'=> '0',],
-            ['jenis'=> 'perawatan', 'name'=> 'wajah', 'parent_id'=> '0',],
+			['jenis'=> 'perawatan','name'=> 'Hair', 'parent_id'=> '0',],
+            ['jenis'=> 'perawatan', 'name'=> 'Face', 'parent_id'=> '0',],
             ['jenis'=> 'brand','name'=> 'baxter','parent_id'=> '1',],
             ['jenis'=> 'brand','name'=> 'american crew','parent_id'=> '1',],
             ['jenis'=> 'brand','name'=> 'layrite','parent_id'=> '1',],

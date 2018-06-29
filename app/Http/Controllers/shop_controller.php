@@ -40,10 +40,22 @@ class shop_controller extends Controller
             $product = $product->orderBy('harga')->paginate($number);
         }elseif (request()->sort == 'high') {
             $product = $product->orderBy('harga','desc')->paginate($number);
+        }elseif (request()->sort == 'atoz') {
+            $product = $product->orderBy('nama')->paginate($number);
+        }elseif (request()->sort == 'ztoa') {
+            $product = $product->orderBy('nama','desc')->paginate($number);
+        }elseif (request()->price == 'under') {
+            $product = Catalog::where('harga','<=',50000)->orderBy('harga')->paginate($number);
+        }elseif(request()->price == 'mid'){
+            $product = Catalog::where([['harga','>',50000],['harga','<=',100000]])->orderBy('harga')->paginate($number);
+        }elseif(request()->price == 'high'){
+            $product = Catalog::where([['harga','>',100000],['harga','<=',200000]])->orderBy('harga')->paginate($number);
+        }elseif(request()->price == 'over'){
+            $product = Catalog::where('harga','>',200000)->orderBy('harga')->paginate($number);
         }else{
-            $product = $product->paginate($number);
+            $product = Catalog::paginate($number);
         }
-        
+
         return view('shop', compact('product', 'categories', 'brand', 'category_name'));
     }
 

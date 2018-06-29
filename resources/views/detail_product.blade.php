@@ -9,7 +9,7 @@
 	@component('partials._breadcrumb')
 		<li class="breadcrumb-item"><a href="/">Home</a></li>
 	    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('shop.index') }}">Shop</a></li>
-	    <li class="breadcrumb-item">{{ $product_detail->nama }}</li>
+	    <li class="breadcrumb-item">{{ ucwords($product_detail->nama) }}</li>
 	@endcomponent
 	@include('component.alert')
 	<div class="bg-faded py-2">
@@ -26,14 +26,14 @@
 
 						<div class="card mb-3 col-6 invinsible">
 						<div class="card-header">
-							<h1>{{ $product_detail->nama }}</h1>
+							<h1>{{ ucwords($product_detail->nama) }}</h1>
 						</div>
 						<div class="card-body">
 							<h3>{{ $product_detail->barcode }}</h3>
 							<p>{{ $product_detail->deskripsi }}</p>
 						</div>
 						<div class="card-footer">
-							<h3>{{ $product_detail->harga }}</h3>
+							<h3>Rp. {{ $product_detail->presentPrice() }}</h3>
 
 							<a href="{{ $link->link }}" class="btn btn-primary" target="_blank">Beli Sekarang</a>
 						</div>

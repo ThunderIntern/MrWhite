@@ -13,7 +13,7 @@
 						<div class="card invinsible text-dark col-lg col-md col-sm col-xs ">
 							<a href="{{ route('shop.index', ['brands'=>$brands->name]) }}"><img src="/image/crew.jpeg" class="image2"></a>
 							<div class="middle">
-								<p class="card-text">{{ $brands->name }}</p>
+								<h1>{{ ucwords($brands->name) }}</h1>
 							</div>
 						</div>
 				</div>

@@ -13,10 +13,10 @@
 						<div class="card invinsible text-dark col-6 col-md">
 							<a href="{{ route('shop.index', ['category'=>$categories->name]) }}"><img src="/image/waterbased.jpg" class="image"></a>
 							<div class="middle">
-								<p class="card-text">Some Text</p>
+								<p class="card-text">Go Check Some Based on Category</p>
 							</div>
-							<div class="card-footer bg-transparent">
-								{{ $categories->name }}
+							<div class="card-footer bg-transparent text-center">
+								<h2>{{ ucwords($categories->name) }}</h2>
 							</div>
 						</div>
 					@endforeach

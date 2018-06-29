@@ -17,8 +17,8 @@
 							<p class="card-text">{{ $offers->deskripsi }}</p>
 						</div>
 						<div class="card-footer text-white text-center bg-danger">
-							<h4>{{ $offers->nama }}</h4>
-							<h6>{{ $offers->harga }}</h6>
+							<h4>{{ ucwords($offers->nama) }}</h4>
+							<h6>Rp. {{ $offers->presentPrice() }}</h6>
 						</div>
 					</div>
 					@endforeach
