@@ -64,6 +64,8 @@ class shop_controller extends Controller
         // ->paginate(8);
 
         $product = Catalog::search($search)->paginate(8);
+        $product = Catalog::search($search)->groupBy('barcode')->paginate(8);
+        // dd($product);
         return view('search-result', compact('product'));
     }
     /**
