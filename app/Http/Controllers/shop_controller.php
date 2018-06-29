@@ -43,12 +43,12 @@ class shop_controller extends Controller
         }else{
             $product = $product->paginate($number);
         }
-        
+
         return view('shop', compact('product', 'categories', 'brand', 'category_name'));
     }
 
     public function search(Request $request){
-        
+
         $request->validate([
             'search'=>'required|min:3'
         ]);
@@ -95,19 +95,13 @@ class shop_controller extends Controller
      */
     public function show($barcode)
     {
-<<<<<<< HEAD
-        $product_detail = model_catalog::where('barcode', $barcode)->firstOrFail();
-        $product = model_catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
-        return view('detail_product', compact('product_detail','product'));
-=======
         $product_detail = Catalog::where('barcode', $barcode)->firstOrFail();
         $product = Catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
         $link = DB::table('links')->join('catalogs','links.id','=','catalogs.id')->select('links.link')->where('barcode', $barcode)->first();
         return view('detail_product', compact('product_detail', 'product', 'link', 'type'));
->>>>>>> 431a8d834cc90b4805d94d04c1c83105612f712b
     }
 
- 
+
     /**
      * Show the form for editing the specified resource.
      *
