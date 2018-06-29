@@ -18,6 +18,8 @@ Route::get('/', 'index_controller@index')->name('landing-page');
 Route::get('/shop', 'shop_controller@index')->name('shop.index');
 Route::get('/shop/{product}', 'shop_controller@show')->name('shop.show');
 Route::get('/shop/{name}', 'shop_controller@show_category')->name('shop.category');
+Route::get('/search', 'shop_controller@search')->name('search');
+
 
 // Route::get('/list', function () {
 //     return view('list_product');

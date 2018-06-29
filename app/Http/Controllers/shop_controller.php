@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\model_catalog;
-use App\model_category;
-use App\model_catalog_category;
-use App\model_link_catalog;
+use App\Catalog;
+use App\Category;
+use App\Link;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -17,26 +16,23 @@ class shop_controller extends Controller
      */
     public function index()
     {
-        $categories = model_category::where('jenis', 'perawatan')->get();
-        $brand = model_category::where('jenis', 'brand')->get();
-        $number = 3;
+        $categories = Category::where('jenis', 'perawatan')->get();
+        $brand = Category::where('jenis', 'brand')->get();
+        $number = 6;
 
         if (request()->category) {
-            // $product = model_catalog::with('model_category')->whereHas('catalog_category', function($query){
+            // $product = Catalog::with('Category')->whereHas('catalog_category', function($query){
             //     $query->where('jenis', request()->category);
             // })->get();
-            $product = DB::table('catalog_category')->join('catalog','catalog_category.catalog_id','=','catalog.id_catalog')->join('category','category.id_category','=','catalog_category.category_id')->where('name', request()->category);
-            $category_name = optional(model_category::where('name', request()->category)->first())->name;
-            // dd($category_name);
-           
+            $product = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')->where('name', request()->category);
+            $category_name = optional(Category::where('name', request()->category)->first())->name;
         }elseif (request()->brands) {
-           $product = DB::table('catalog_category')->join('catalog','catalog_category.catalog_id','=','catalog.id_catalog')->join('category','category.id_category','=','catalog_category.category_id')->where('name', request()->brands);
-            $category_name = optional(model_category::where('name', request()->brands)->first())->name;
-            // dd($product);
+           $product = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')->where('name', request()->brands);
+            $category_name = optional(Category::where('name', request()->brands)->first())->name;
            }
         else{
 
-            $product = model_catalog::take(8);
+            $product = Catalog::take(8);
             $category_name = 'All Product';
         }
 
@@ -51,6 +47,25 @@ class shop_controller extends Controller
         return view('shop', compact('product', 'categories', 'brand', 'category_name'));
     }
 
+    public function search(Request $request){
+        
+        $request->validate([
+            'search'=>'required|min:3'
+        ]);
+
+        $search = $request->input('search');
+
+        // $product = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')
+        // ->where('jenis','like', "%$search%")
+        // ->orWhere('name','like', "%$search%")
+        // ->orWhere('deskripsi','like', "%$search%")
+        // ->orWhere('nama','like', "%$search%")
+        // ->distinct()
+        // ->paginate(8);
+
+        $product = Catalog::search($search)->paginate(8);
+        return view('search-result', compact('product'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -80,10 +95,9 @@ class shop_controller extends Controller
      */
     public function show($barcode)
     {
-        $product_detail = model_catalog::where('barcode', $barcode)->firstOrFail();
-        $product = model_catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
-        $link = DB::table('link_catalog')->join('catalog','link_catalog.id_catalog','=','catalog.id_catalog')->select('link_catalog.link')->where('barcode', $barcode)->first();
-        // $type = DB::table('catalog_category')->join('catalog','catalog_category.catalog_id','=','catalog.id_catalog')->join('category','category.id_category','=','catalog_category.category_id')->get();
+        $product_detail = Catalog::where('barcode', $barcode)->firstOrFail();
+        $product = Catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
+        $link = DB::table('links')->join('catalogs','links.id','=','catalogs.id')->select('links.link')->where('barcode', $barcode)->first();
         return view('detail_product', compact('product_detail', 'product', 'link', 'type'));
     }
 

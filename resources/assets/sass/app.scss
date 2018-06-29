@@ -448,7 +448,7 @@ body, html {
     margin-right: auto;
     
     /* Text styles */
-    color: white;
+    color: black;
     text-decoration: none;
     font-size: 1em;
     
@@ -487,6 +487,7 @@ body, html {
     margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
     
     /* Text styles */
     color: black;
@@ -499,7 +500,8 @@ body, html {
     
 }
 .btn-awsm:hover{
-  background-color: #D91E18;
+  color:white;
+  background-color: black;
 }
 
 .bgimg-1{
@@ -551,7 +553,7 @@ body, html {
 }
 
 .container{
-  margin-bottom: 7rem;
+  margin-bottom: 1rem;
 }
 
 .form-signin {

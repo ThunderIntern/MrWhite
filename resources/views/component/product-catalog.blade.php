@@ -1,4 +1,4 @@
-<div class="bg-faded py-4">
+<div class="bg-faded py-5">
 	<div class="container">
 		<div class="row">
 			<div class="centeredmenu border-awsm">
@@ -29,7 +29,7 @@
 			@endforeach
 		</div>
 		<div class="text-center">
-		    <a href="{{ route('shop.index') }}" class="btn-awsm">View more products</a>
+		    <a href="{{ route('shop.index') }}" class="btn btn-awsm">View more</a>
 		</div>
 	</div>
 </div>

@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mr. White</title>
+	<title>Mr. White | {{ $product_detail->nama }}</title>
 	<link rel="stylesheet" type="text/css" href="{{mix('css/app.css')}}">
 </head>
 <body>
 	@include('partials._topbar')
+	@component('partials._breadcrumb')
+		<li class="breadcrumb-item"><a href="/">Home</a></li>
+	    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('shop.index') }}">Shop</a></li>
+	    <li class="breadcrumb-item">{{ $product_detail->nama }}</li>
+	@endcomponent
+	@include('component.alert')
 	<div class="bg-faded py-2">
 		<div class="container">
 			<div class="row">

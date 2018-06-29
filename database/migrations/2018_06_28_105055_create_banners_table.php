@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblSettingWeb extends Migration
+class CreateBannersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class TblSettingWeb extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('setting_web', function (Blueprint $table) {
-            $table->string('id_setting');
-            $table->string('jenis');
-            $table->text('isi');
+        Schema::create('banners', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->text('url_gambar');
+            $table->date('date_show');
+            $table->date('date_off');
         });
     }
 
@@ -28,6 +29,6 @@ class TblSettingWeb extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('setting_web');
+        Schema::dropIfExists('banners');
     }
 }

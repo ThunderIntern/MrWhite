@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mr. White</title>
+	<title>Mr. White | {{ $category_name }}</title>
 	<link rel="stylesheet" type="text/css" href="{{mix('css/app.css')}}">
 </head>
 <body>
 @include('partials._topbar')
-{{-- @include('partials._sidebar') --}}
+@component('partials._breadcrumb')
+	<li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('shop.index') }}">Shop</a></li>
+@endcomponent
+@include('component.alert')
+
 <div class="products-section container">
 	<div class="sidebar">
 		<h3>By Category</h3>

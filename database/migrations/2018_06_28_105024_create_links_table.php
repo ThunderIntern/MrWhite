@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblLinkCatalog extends Migration
+class CreateLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class TblLinkCatalog extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('link_catalog', function (Blueprint $table) {
-            $table->increments('id_link');
+        Schema::create('links', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('tag');
             $table->text('link');
-            $table->string('id_catalog');
+            $table->string('catalog_id');
         });
     }
 
@@ -29,6 +28,6 @@ class TblLinkCatalog extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('link_catalog');
+        Schema::dropIfExists('links');
     }
 }
