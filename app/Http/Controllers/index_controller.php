@@ -15,6 +15,6 @@ class index_controller extends Controller
     	$offer=Catalog::inRandomOrder()->take(3)->get();
     	$category=DB::table('categories')-> where('jenis','=', 'perawatan')->get();
 
-    	return view('index', compact('offer', 'brand', 'product','category'));    	
+    	return view('index', compact('offer', 'brand', 'product','category'));
     }
 }
