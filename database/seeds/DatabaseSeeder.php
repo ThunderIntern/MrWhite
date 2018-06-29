@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
          // $this->call(seeder_banner::class);
          $this->call(seeder_link_catalog::class);
          // $this->call(seeder_setting_web::class);
+         $this->call(seeder_users::class);
     }
 }

@@ -48,8 +48,9 @@ class shop_controller extends Controller
      */
     public function show($barcode)
     {
-        $product = model_catalog::where('barcode', $barcode)->firstOrFail();
-        return view('detail_product', compact('product'));
+        $product_detail = model_catalog::where('barcode', $barcode)->firstOrFail();
+        $product = model_catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
+        return view('detail_product', compact('product_detail','product'));
     }
 
     /**

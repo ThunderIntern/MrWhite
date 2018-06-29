@@ -17,7 +17,7 @@ class TblLinkCatalog extends Migration
         Schema::create('link_catalog', function (Blueprint $table) {
             $table->increments('id_link');
             $table->string('tag');
-            $table->string('link');
+            $table->text('link');
             $table->string('id_catalog');
         });
     }
