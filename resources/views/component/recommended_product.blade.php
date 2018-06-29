@@ -1,4 +1,4 @@
-<div class="bg-faded py-2">
+<div class="bg-faded py-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -9,7 +9,7 @@
 						<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ asset($products->url_gambar) }}" class="image2"></a>
 						<div class="middle">
 							<div class="text1">
-								{{ $products->barcode }}
+								{{ $products->nama }}
 							</div>
 						</div>
 					</div>

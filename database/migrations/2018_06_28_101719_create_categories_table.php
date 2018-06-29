@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblSettingWeb extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class TblSettingWeb extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('setting_web', function (Blueprint $table) {
-            $table->string('id_setting');
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('jenis');
-            $table->text('isi');
+            $table->string('name');
+            $table->string('parent_id');
         });
     }
 
@@ -28,6 +28,6 @@ class TblSettingWeb extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('setting_web');
+        Schema::dropIfExists('categories');
     }
 }

@@ -1,4 +1,4 @@
-<div class="bg-faded py-4">
+<div class="bg-faded py-5">
 	<div class="container">
 		<div class="row">
 			<div class="centeredmenu border-awsm">
@@ -18,15 +18,18 @@
 					<div class="card text-dark invinsible ">
 						<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ $products->url_gambar }}" class="image1"></a>
 						<div class="middle">
-							<p class="card-text">Some Text</p>
+							<p class="card-text">{{ $products->barcode }}</p>
 						</div>
 						<div class="card-footer bg-transparent">
-							{{ $products->barcode }}
+							{{ $products->nama }}
 						</div>
 					</div>
 				</div>
 			</div>
 			@endforeach
+		</div>
+		<div class="text-center">
+		    <a href="{{ route('shop.index') }}" class="btn btn-awsm">View more</a>
 		</div>
 	</div>
 </div>
