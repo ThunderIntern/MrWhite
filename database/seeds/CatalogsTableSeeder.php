@@ -44,7 +44,7 @@ class CatalogsTableSeeder extends Seeder
                 'url_gambar'=> 'image/oilbased.jpg'
             ],
             [
-                'nama'=> 'gillete shaving gel',
+                'nama'=> 'gillette shaving gel',
                 'barcode'=> rand(1111,4444),
                 'harga'=>rand(50000, 150000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),

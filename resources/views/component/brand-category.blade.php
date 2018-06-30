@@ -8,13 +8,10 @@
 	<div class="container">
 		<div class="row">
 			@foreach ($brand as $brands)
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<div class="card-deck">
 						<div class="card invinsible text-dark col-lg col-md col-sm col-xs ">
-							<a href="{{ route('shop.index', ['brands'=>$brands->name]) }}"><img src="/image/crew.jpeg" class="image2"></a>
-							<div class="middle">
-								<p class="card-text">{{ $brands->name }}</p>
-							</div>
+							<a href="{{ route('shop.index', ['brands'=>$brands->name]) }}"><img src="/image/{{ $brands->name }}.jpeg" class="image2"></a>
 						</div>
 				</div>
 			</div>

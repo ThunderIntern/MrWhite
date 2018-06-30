@@ -18,10 +18,13 @@
 					<div class="card text-dark invinsible ">
 						<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ $products->url_gambar }}" class="image1"></a>
 						<div class="middle">
-							<p class="card-text">{{ $products->barcode }}</p>
+							<p class="card-text">{{ $products->deskripsi }}</p>
 						</div>
-						<div class="card-footer bg-transparent">
-							{{ $products->nama }}
+						<div class="card-footer bg-transparent text-center">
+							<a href="{{ route('shop.show', $products->barcode) }}">
+								<p>{{ ucwords($products->nama) }}</p>
+								<p>Rp. {{ $products->presentPrice() }}</p>
+							</a>
 						</div>
 					</div>
 				</div>

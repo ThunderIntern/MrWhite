@@ -40,8 +40,20 @@ class shop_controller extends Controller
             $product = $product->orderBy('harga')->paginate($number);
         }elseif (request()->sort == 'high') {
             $product = $product->orderBy('harga','desc')->paginate($number);
+        }elseif (request()->sort == 'atoz') {
+            $product = $product->orderBy('nama')->paginate($number);
+        }elseif (request()->sort == 'ztoa') {
+            $product = $product->orderBy('nama','desc')->paginate($number);
+        }elseif (request()->price == 'under') {
+            $product = Catalog::where('harga','<=',50000)->orderBy('harga')->paginate($number);
+        }elseif(request()->price == 'mid'){
+            $product = Catalog::where([['harga','>',50000],['harga','<=',100000]])->orderBy('harga')->paginate($number);
+        }elseif(request()->price == 'high'){
+            $product = Catalog::where([['harga','>',100000],['harga','<=',200000]])->orderBy('harga')->paginate($number);
+        }elseif(request()->price == 'over'){
+            $product = Catalog::where('harga','>',200000)->orderBy('harga')->paginate($number);
         }else{
-            $product = $product->paginate($number);
+            $product = Catalog::paginate($number);
         }
 
         return view('shop', compact('product', 'categories', 'brand', 'category_name'));
@@ -98,7 +110,7 @@ class shop_controller extends Controller
     {
         $product_detail = Catalog::where('barcode', $barcode)->firstOrFail();
         $product = Catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
-        $link = DB::table('links')->join('catalogs','links.id','=','catalogs.id')->select('links.link')->where('barcode', $barcode)->first();
+        $link = DB::table('links')->join('catalogs','links.catalog_id','=','catalogs.id')->select('links.link')->where('barcode', $barcode)->first();
         return view('detail_product', compact('product_detail', 'product', 'link', 'type'));
     }
 

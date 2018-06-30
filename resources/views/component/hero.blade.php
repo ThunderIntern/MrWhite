@@ -6,7 +6,6 @@
     <form action="{{ route('search') }}">
        <input class="input-inner" type="search" placeholder="Find Our Product Now..." name="search" id="search" value="{{ request()->input('search') }}" >
         <button class="btn btn-awsm" type="submit">Search</button>
-        {{-- <a href="{{ route('search') }}" class="btn-awsm" type="submit">Search</a> --}}
     </form>
   </div>
 </section>

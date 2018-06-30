@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Catalog extends Model
 {
-    
+    public function presentPrice(){
+    	return number_format($this->harga, 0, '', '.');
+    }
+
 	use SearchableTrait;
 
     /**
@@ -25,7 +28,7 @@ class Catalog extends Model
         'columns' => [
             'catalogs.nama' => 10,
             'catalogs.deskripsi' => 10,
-            // 'categories.jenis' => 10,
+            'categories.jenis' => 10,
             'categories.name' => 10,
         ],
         'joins' => [
@@ -34,6 +37,7 @@ class Catalog extends Model
         ],
     ];
 
+    
     public function categories(){
   	return $this->belongsToMany('App\Category');
   }
