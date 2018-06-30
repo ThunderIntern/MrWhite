@@ -6,7 +6,6 @@
     Data Produk
   @endslot
 @endcomponent
-
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -23,7 +22,7 @@
                   <table id="dataProduk" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                     <thead class="thead-dark">
                       <tr>
-                        <th>ID Catalog</th>
+                        <th>Barcode</th>
                         <th>Nama</th>
                         <th>Harga</th>
                         <th>Gambar</th>
@@ -32,14 +31,13 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach ($product as $products)
                       <tr>
-                        <td>pro001</td>
-                        <td>Aisisis</td>
-                        <td>bro</td>
-                        <td>asals</td>
-                        <td><img src="{{URL::to('img/card-2.jpg')}}" width=100px/></td>
-                        <td>Rambut</td>
-                        <td>war</td>
+                        <td>{{$products->barcode}}</td>
+                        <td>{{$products->nama}}</td>
+                        <td>{{ $products->harga }}</td>
+                        <td><img src="{{ URL::to($products->url_gambar) }}"width=100px/></td>
+                        <td>{{$products->tag}}</td>
                         <td>
                           <div class='btn-group' role='group' aria-label='...'>
                             <a data-toggle="modal" href="#edit" class="btn btn-link btn-info btn-just-icon" title="lihat"><i class="material-icons">remove_red_eye</i></a>
@@ -48,6 +46,7 @@
                           </div>
                         </td>
                       </tr>
+                      @endforeach
                     </tbody>
                   </table>
                   </div>

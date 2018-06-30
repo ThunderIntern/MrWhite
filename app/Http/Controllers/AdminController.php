@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Catalog;
+use App\Category;
+use App\Link;
 use App\ModelUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +16,7 @@ class AdminController extends Controller
             return redirect('login')->with('alert','Kamu harus login dulu');
         }
         else{
+
             return view('admin/dashboard');
         }
     }
@@ -22,7 +25,8 @@ class AdminController extends Controller
             return redirect('login')->with('alert','Kamu harus login dulu');
         }
         else{
-            return view('admin/katalog/dataProduk');
+            $product = Catalog->get();
+            return view('admin/katalog/dataProduk', compact('product'));
         }
     }
     public function dataKategori(){

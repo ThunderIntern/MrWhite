@@ -96,10 +96,6 @@ class shop_controller extends Controller
      */
     public function show($barcode)
     {
-<<<<<<< HEAD
-=======
-
->>>>>>> 9f89bfbb4757de07c36115fda00475000960bd9d
         $product_detail = Catalog::where('barcode', $barcode)->firstOrFail();
         $product = Catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
         $link = DB::table('links')->join('catalogs','links.id','=','catalogs.id')->select('links.link')->where('barcode', $barcode)->first();

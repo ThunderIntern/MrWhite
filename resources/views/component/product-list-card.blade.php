@@ -15,10 +15,10 @@
 								{{ $products->nama }}
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			@endforeach
 		</div>
-	</div>	
+	</div>
 </section>
