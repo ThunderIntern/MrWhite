@@ -21,7 +21,7 @@ class CategoriesTableSeeder extends Seeder
             ['jenis'=> 'bahan','name'=> 'wax','parent_id'=> '1',],
             ['jenis'=> 'bahan','name'=> 'oilbased','parent_id'=> '1',],
             ['jenis'=> 'brand','name'=> 'nivea','parent_id'=> '2',],
-            ['jenis'=> 'brand','name'=> 'gillete','parent_id'=> '2',],
+            ['jenis'=> 'brand','name'=> 'gillette','parent_id'=> '2',],
             ['jenis'=> 'brand','name'=> 'edge','parent_id'=> '2',],
             ['jenis'=> 'brand','name'=> 'garnier','parent_id'=> '2',],
         ]);

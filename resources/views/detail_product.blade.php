@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mr. White | {{ $product_detail->nama }}</title>
+	<title>Mr. White | {{ ucwords($product_detail->nama) }}</title>
 	<link rel="stylesheet" type="text/css" href="{{mix('css/app.css')}}">
 </head>
 <body>
@@ -20,7 +20,7 @@
 					<div class="card-deck">
 
 						<div class="card border-light mb-3 col-6">
-							<a href="#"><img src="{{ asset($product_detail->url_gambar) }}" class="image"></a>
+							<a href="#"><img src="{{ asset($product_detail->url_gambar) }}" class="image1"></a>
 							
 						</div>
 

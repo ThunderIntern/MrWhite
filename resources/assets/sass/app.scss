@@ -27,6 +27,19 @@
         line-height: 2;
         margin-bottom: 20px;
     }
+    li{
+      color: #000000;
+      list-style: none;
+    }
+    a{
+      color: #000000;
+    }
+    h5{
+      font-weight: bolder;
+    }
+}
+.sidebar a:hover{
+  color: #F5D76E;
 }
 
 .products-section {
@@ -52,6 +65,14 @@
 .products-header {
     display: flex;
     justify-content: space-between;
+    li{
+      list-style: none;
+     display:block;
+     position:relative;
+    }
+    a{
+      color: black;
+    }
 }
 
 .product-section {
@@ -209,6 +230,14 @@
   text-align: center;
 }
 
+.card a{
+  text-decoration: none;
+  color: #000000;
+}
+
+.card a:hover{
+  color: #F5D76E;
+}
 //css for navbar
 /* Add a black background color to the top navigation */
 .topnav {
@@ -283,18 +312,17 @@
    width:100%;
    overflow:hidden;
    position:relative;
-}
-.centeredmenu ul {
-   clear:left;
-   float:left;
-   list-style:none;
-   margin:0;
-   padding:0;
-   position:relative;
-   left:50%;
-   text-align:center;
-}
-.centeredmenu ul li {
+   ul {
+     clear:left;
+     float:left;
+     list-style:none;
+     margin:0;
+     padding:0;
+     position:relative;
+     left:50%;
+     text-align:center;
+  }
+  ul li {
    display:block;
    float:left;
    list-style:none;
@@ -303,25 +331,26 @@
    position:relative;
    right:50%;
    padding:1rem;
-}
-.centeredmenu h1 {
-  text-align:center;
-}
-.centeredmenu ul li a {
+  }
+  h1 {
+    text-align:center;
+  }
+  ul li a {
 
-   text-decoration:none;
-   line-height:1.3em;
-}
-.centeredmenu ul li a:hover {
-   background:#6C7A89;
-   color:#fff;
+     text-decoration:none;
+     line-height:1.3em;
+  }
+  ul li a:hover {
+     background:#6C7A89;
+     color:#fff;
+  }
+  ul li a.active:hover {
+     color:#fff;
+     background:#000;
+     font-weight:bold;
+  }
 }
 .centeredmenu ul li a.active,
-.centeredmenu ul li a.active:hover {
-   color:#fff;
-   background:#000;
-   font-weight:bold;
-}
 
 .card-footer {
   font-family: 'Kalam', cursive;

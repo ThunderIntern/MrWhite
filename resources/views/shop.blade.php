@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mr. White | {{ $category_name }}</title>
+	<title>Mr. White | {{ ucwords($category_name) }}</title>
 	<link rel="stylesheet" type="text/css" href="{{mix('css/app.css')}}">
 </head>
 <body>
@@ -53,8 +53,10 @@
 						<p class="card-text">Some Text</p>
 					</div>
 					<div class="card-footer invinsible">
-						<h5>{{ ucwords($products->nama) }}</h5>
-						<h6>Rp. {{ number_format($products->harga, 0, '', '.') }}</h6>
+						<a href="{{ route('shop.show', $products->barcode) }}">
+							<h5>{{ ucwords($products->nama) }}</h5>
+							<h6>Rp. {{ number_format($products->harga, 0, '', '.') }}</h6>
+						</a>
 					</div>
 				</div>
 			@empty

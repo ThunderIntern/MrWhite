@@ -23,8 +23,8 @@
 						<div class="card-footer bg-transparent text-center">
 							<a href="{{ route('shop.show', $products->barcode) }}">
 								<p>{{ ucwords($products->nama) }}</p>
-							</a>
 								<p>Rp. {{ $products->presentPrice() }}</p>
+							</a>
 						</div>
 					</div>
 				</div>

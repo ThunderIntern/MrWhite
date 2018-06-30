@@ -8,14 +8,11 @@
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<div class="card-deck">
+				<div class="card-group">
 					@foreach ($category as $categories)
 						<div class="card invinsible text-dark col-6 col-md">
-							<a href="{{ route('shop.index', ['category'=>$categories->name]) }}"><img src="/image/waterbased.jpg" class="image"></a>
+							<a href="{{ route('shop.index', ['category'=>$categories->name]) }}"><img src="/image/{{ $categories->name }}.jpg" class="image1"></a>
 							<div class="middle">
-								<p class="card-text">Go Check Some Based on Category</p>
-							</div>
-							<div class="card-footer bg-transparent text-center">
 								<h2>{{ ucwords($categories->name) }}</h2>
 							</div>
 						</div>
