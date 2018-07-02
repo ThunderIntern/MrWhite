@@ -7,7 +7,7 @@
 <div class="sidebar-wrapper">
     <div class="user">
         <div class="photo">
-            <img src="{{Session::get('foto')}}" />
+            <img src="{{ URL::To(Session::get('foto')) }}" />
         </div>
         <div class="user-info">
           <a class="nav-link" href="/index">

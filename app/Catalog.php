@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Category;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,8 +38,12 @@ class Catalog extends Model
         ],
     ];
 
-    
-    public function categories(){
-  	return $this->belongsToMany('App\Category');
+
+
+  public function links(){
+    return $this->hasMany(Link::class);
+  }
+  public function categories(){
+    return $this->belongsToMany(Category::class);
   }
 }

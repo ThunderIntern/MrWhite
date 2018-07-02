@@ -25,10 +25,13 @@ class AdminController extends Controller
             return redirect('login')->with('alert','Kamu harus login dulu');
         }
         else{
-            $product = Catalog->get();
+            $product = Catalog::with('links','categories')->get();
             return view('admin/katalog/dataProduk', compact('product'));
         }
     }
+
+
+
     public function dataKategori(){
         if(!Session::get('login')){
             return redirect('login')->with('alert','Kamu harus login dulu');
