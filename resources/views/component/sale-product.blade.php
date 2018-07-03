@@ -1,4 +1,4 @@
-<section>
+<section class="py-5">
 <div class="bg-faded py-2">
 	<div class="container">
 		<div class="row">
@@ -11,12 +11,12 @@
 				<div class="card-group">
 					
 					@foreach($offer as $offers)
-					<div class="card invinsible text-dark col-md col-sm col-xs-6">
+					<div class="card text-dark col-md col-sm col-xs-6">
 						<a href="{{ route('shop.show', $offers->barcode) }}"><img src="{{ $offers->url_gambar }}" class="image1"></a>
 						<div class="middle">
 							<p>{{ $offers->deskripsi }}</p>
 						</div>
-						<div class="card-footer text-white text-center" style="background-color: #EF4836; ">
+						<div class="card-footer text-white text-center" {{-- style="background-color: #EF4836; " --}}>
 							<a href="{{ route('shop.show', $offers->barcode) }}">
 								<h4>{{ ucwords($offers->nama) }}</h4>
 								<h6>Rp. {{ $offers->presentPrice() }}</h6>

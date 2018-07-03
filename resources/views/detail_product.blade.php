@@ -12,10 +12,9 @@
 	    <li class="breadcrumb-item">{{ ucwords($product_detail->nama) }}</li>
 	@endcomponent
 	@include('component.alert')
-	<div class="bg-faded py-2">
+	<div class="bg-faded pt-5">
 		<div class="container">
 			<div class="row">
-
 				<div class="col-12">
 					<div class="card-deck">
 
@@ -38,8 +37,8 @@
 							<a href="{{ $link->link }}" class="btn btn-primary" target="_blank">Beli Sekarang</a>
 						</div>
 					</div>
-				</div>
 
+				</div>
 			</div>
 		</div>
 	</div>

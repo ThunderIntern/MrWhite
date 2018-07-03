@@ -10412,12 +10412,6 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
 .sidebar h3 {
   font-weight: bold;
   margin-bottom: 16px;
@@ -10442,7 +10436,7 @@ a.text-dark:focus {
 }
 
 .sidebar a:hover {
-  color: #F5D76E;
+  color: #19B5FE;
 }
 
 .products-section {
@@ -10561,11 +10555,47 @@ a.text-dark:focus {
   margin-bottom: 16px;
 }
 
+.dropdown-menu {
+  border: none;
+}
+
+.navbar-laravel {
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.breadcrumb-item li {
+  color: #000000;
+  list-style: none;
+}
+
+.breadcrumb-item a {
+  color: #000000;
+}
+
+.breadcrumb-item a:hover {
+  color: #19B5FE;
+}
+
+.list-unstyled li {
+  color: #fff;
+  list-style: none;
+}
+
+.list-unstyled a {
+  color: #fff;
+}
+
+.list-unstyled a:hover {
+  color: #19B5FE;
+}
+
 .image {
+  height: 30rem;
+  width: 100%;
   opacity: 1;
   display: block;
-  width: 100%;
-  height: 30rem;
   -o-object-fit: contain;
      object-fit: contain;
   -webkit-transition: .5s ease;
@@ -10575,10 +10605,10 @@ a.text-dark:focus {
 }
 
 .image1 {
+  height: 20rem;
+  width: 100%;
   opacity: 1;
   display: block;
-  width: 100%;
-  height: 20rem;
   -o-object-fit: contain;
      object-fit: contain;
   -webkit-transition: .5s ease;
@@ -10588,12 +10618,38 @@ a.text-dark:focus {
 }
 
 .image2 {
+  height: 15rem;
+  width: 100%;
   opacity: 1;
   display: block;
-  width: 100%;
-  height: 15rem;
   -o-object-fit: contain;
      object-fit: contain;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.image3 {
+  height: 30rem;
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+  opacity: 1;
+  display: block;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.image4 {
+  height: 20rem;
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+  opacity: 1;
+  display: block;
   -webkit-transition: .5s ease;
   transition: .5s ease;
   -webkit-backface-visibility: hidden;
@@ -10665,7 +10721,7 @@ a.text-dark:focus {
 }
 
 .card a:hover {
-  color: #F5D76E;
+  color: #19B5FE;
 }
 
 /* Add a black background color to the top navigation */
@@ -10742,6 +10798,7 @@ a.text-dark:focus {
   width: 100%;
   overflow: hidden;
   position: relative;
+  margin-bottom: 4rem;
 }
 
 .centeredmenu {
@@ -10853,7 +10910,7 @@ a.text-dark:focus {
 
 .dropdown-container {
   display: none;
-  background-color: #eee;
+  background-color: #fff;
   padding-left: 8px;
 }
 
@@ -10925,7 +10982,6 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin-bottom: 7rem;
 }
 
 .hero h1 {

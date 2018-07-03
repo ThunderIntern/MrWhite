@@ -10,172 +10,90 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import './select2.min.css';
-// @import './component/sidebar';
+@import './component/_shop.scss';
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-.sidebar {
-    h3 {
-        font-weight: bold;
-        margin-bottom: 16px;
-    }
 
-    ul {
-        line-height: 2;
-        margin-bottom: 20px;
-    }
-    li{
+
+.breadcrumb-item{
+  li{
       color: #000000;
       list-style: none;
     }
     a{
       color: #000000;
     }
-    h5{
-      font-weight: bolder;
-    }
-}
-.sidebar a:hover{
-  color: #F5D76E;
 }
 
-.products-section {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    margin: 80px auto 80px;
-
-    .sidebar li.active {
-        font-weight: 500;
-    }
-
-    .products {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 60px;
-
-        .product-price {
-          color: #f1f1f1;
-        }
-    }
+.breadcrumb-item a:hover{
+  color: #19B5FE;
 }
 
-.products-header {
-    display: flex;
-    justify-content: space-between;
-    li{
+.list-unstyled{
+  li{
+      color: #fff;
       list-style: none;
-     display:block;
-     position:relative;
     }
     a{
-      color: black;
+      color: #fff;
     }
 }
 
-.product-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 120px;
-    padding: 100px 0 120px;
-
-    .selected {
-        border: 1px solid #979797;
-    }
-}
-
-.product-section-images {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 20px;
-    margin-top: 20px;
-}
-
-.product-section-thumbnail {
-    display: flex;
-    align-items: center;
-    border: 1px solid lightgray;
-    min-height: 66px;
-    cursor: pointer;
-
-    &:hover {
-        border: 1px solid #979797;
-    }
-}
-
-.product-section-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #979797;
-    padding: 30px;
-    text-align: center;
-    height: 400px;
-
-    img {
-        opacity: 0;
-        transition: opacity .10s ease-in-out;
-        max-height: 100%;
-    }
-
-    img.active {
-        opacity: 1;
-    }
-}
-
-.product-section-information {
-
-    p {
-        margin-bottom: 16px;
-    }
-
-}
-
-.product-section-title {
-
-}
-
-.product-section-subtitle {
-    font-size: 20px;
-    font-weight: bold;
-    color: #f1f1f1;
-}
-
-.product-section-price {
-    font-size: 38px;
-    color: red;
-    margin-bottom: 16px;
+.list-unstyled a:hover{
+  color: #19B5FE;
 }
 
 
 //css for card image
 .image {
+  height: 30rem;
+  width: 100%;
   opacity: 1;
   display: block;
-  width: 100%;
-  height: 30rem;
   object-fit: contain;
   transition: .5s ease;
   backface-visibility: hidden;
 }
 
 .image1 {
+  height: 20rem;
+  width: 100%;
   opacity: 1;
   display: block;
-  width: 100%;
-  height: 20rem;
   object-fit: contain;
   transition: .5s ease;
   backface-visibility: hidden;
 }
 .image2 {
+  height: 15rem;
+  width: 100%;
   opacity: 1;
   display: block;
-  width: 100%;
-  height: 15rem;
   object-fit: contain;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.image3 {
+  height: 30rem;
+  object-fit: fill;
+  width: 100%;
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.image4{
+  height: 20rem;
+  object-fit:fill;
+  width: 100%;
+  opacity: 1;
+  display: block;
   transition: .5s ease;
   backface-visibility: hidden;
 }
@@ -236,7 +154,7 @@
 }
 
 .card a:hover{
-  color: #F5D76E;
+  color: #19B5FE;
 }
 //css for navbar
 /* Add a black background color to the top navigation */
@@ -305,6 +223,7 @@
    width:100%;
    overflow:hidden;
    position:relative;
+   margin-bottom: 4rem;
 }
 .centeredmenu {
    font-family: 'Gloria Hallelujah', cursive;
@@ -402,7 +321,7 @@
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
     display: none;
-    background-color: #eee;
+    background-color: #fff;
     padding-left: 8px;
 }
 
@@ -452,7 +371,6 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin-bottom: 7rem;
 
   
 }
@@ -629,3 +547,5 @@ body, html {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+

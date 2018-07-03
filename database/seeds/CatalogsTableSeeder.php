@@ -18,56 +18,56 @@ class CatalogsTableSeeder extends Seeder
             [
                 'nama'=> 'baxter pomade',
                 'barcode'=> rand(1111,4444),
-                'harga'=>rand(50000, 150000),
+                'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'url_gambar'=> 'image/baxter.jpg'
             ],
             [
                 'nama'=> 'american crew pomade',
                 'barcode'=> rand(1111,4444),
-                'harga'=>rand(50000, 150000),
+                'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'url_gambar'=> 'image/crew.jpeg'
             ],
             [
                 'nama'=> 'layrite pomade',
                 'barcode'=> rand(1111,4444),
-                'harga'=>rand(50000, 150000),
+                'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'url_gambar'=> 'image/layrite.jpg'
             ],
             [
                 'nama'=> 'toar roby pomade',
                 'barcode'=> rand(1111,4444),
-                'harga'=>rand(50000, 150000),
+                'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'url_gambar'=> 'image/oilbased.jpg'
             ],
             [
                 'nama'=> 'gillette shaving gel',
                 'barcode'=> rand(1111,4444),
-                'harga'=>rand(50000, 150000),
+                'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'url_gambar'=> 'image/shave.jpg'
             ],
             [
                 'nama'=> 'edge shaving gel',
                 'barcode'=> rand(1111,4444),
-                'harga'=>rand(50000, 150000),
+                'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'url_gambar'=> 'image/shave2.jpg'
             ],
             [
                 'nama'=> 'nivea man facial foam',
                 'barcode'=> rand(1111,4444),
-                'harga'=>rand(50000, 150000),
+                'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'url_gambar'=> 'image/foam.jpg'
             ],
             [
                 'nama'=> 'garnier man turbolight',
                 'barcode'=> rand(1111,4444),
-                'harga'=>rand(50000, 150000),
+                'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'url_gambar'=> 'image/moisturiser.jpg'
             ],

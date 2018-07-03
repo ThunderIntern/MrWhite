@@ -1,4 +1,4 @@
-<section>
+<section class="py-5">
 <div class="bg-faded py-5">
 	<div class="container">
 		<div class="row">
@@ -11,7 +11,7 @@
 				<div class="card-group">
 					@foreach ($category as $categories)
 						<div class="card invinsible text-dark col-6 col-md">
-							<a href="{{ route('shop.index', ['category'=>$categories->name]) }}"><img src="/image/{{ $categories->name }}.jpg" class="image1"></a>
+							<a href="{{ route('shop.index', ['category'=>$categories->name]) }}"><img src="/image/{{ $categories->name }}.jpg" class="image4"></a>
 							<div class="middle">
 								<h2>{{ ucwords($categories->name) }}</h2>
 							</div>

@@ -5,7 +5,12 @@ use App\Catalog;
 use App\Category;
 use App\Link;
 use App\ModelUser;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
+=======
+use App\Banner;
+use App\Setting;
+>>>>>>> af3483da995044737c6ed0086049bd647e1bf77c
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -20,6 +25,7 @@ class AdminController extends Controller
 
             return view('admin/dashboard');
         }
+
     }
     public function dataProduk(){
         if(!Session::get('login')){
@@ -112,5 +118,15 @@ class AdminController extends Controller
     public function logout(){
         Session::put('login',FALSE);
         return redirect('login')->with('alert','Kamu sudah logout');
+    }
+
+    public function webSetting(){
+        $setting = Setting::get();
+        return view('\admin\webSetting\homepage', compact('setting'));
+    }
+
+    public function banner(){
+        $banner = Banner::get();
+        return view('\admin\webSetting\banner', compact('banner'));
     }
 }
