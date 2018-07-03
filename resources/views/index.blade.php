@@ -7,15 +7,15 @@
 </head>
 <body>
 @include('component.hero')
-{{-- @foreach ($setting as $settings)
-	@include('component.{{ $settings->isi }}')
-@endforeach --}}
+@foreach ($setting as $settings)
+	@include("component." . $settings['isi'])
+@endforeach
 
-@include('component.category-list')
+{{-- @include('component.category-list')
 @include('component.brand-category')
 @include('component.sale-product')
 @include('component.banner')
-@include('component.product-catalog')
+@include('component.product-catalog') --}}
 @include('partials._footer')
 <script type="text/javascript" src="{{mix('js/app.js')}} "></script>
 

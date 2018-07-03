@@ -5,6 +5,7 @@ use App\Catalog;
 use App\Category;
 use App\Link;
 use App\ModelUser;
+use App\Banner;
 use App\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -95,5 +96,10 @@ class AdminController extends Controller
     public function webSetting(){
         $setting = Setting::get();
         return view('\admin\webSetting\homepage', compact('setting'));
+    }
+
+    public function banner(){
+        $banner = Banner::get();
+        return view('\admin\webSetting\banner', compact('banner'));
     }
 }
