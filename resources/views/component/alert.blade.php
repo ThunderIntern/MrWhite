@@ -1,4 +1,4 @@
-<div class="container" style="margin-bottom: 0rem; ">
+<div class="container py-2" style="margin-bottom: 0rem; ">
 	@if (session()->has('success_message'))
 		<div class="alert alert-success alert-dismissible fade show" role="alert">
 			{{ session()->get('success_message') }}

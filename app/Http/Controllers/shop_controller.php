@@ -25,6 +25,7 @@ class shop_controller extends Controller
             //     $query->where('jenis', request()->category);
             // })->get();
             $product = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')->where('name', request()->category);
+
             $category_name = optional(Category::where('name', request()->category)->first())->name;
         }elseif (request()->brands) {
            $product = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')->where('name', request()->brands);
@@ -35,14 +36,15 @@ class shop_controller extends Controller
             $product = Catalog::take(8);
             $category_name = 'All Product';
         }
+        // dd($product);
 
-        if (request()->sort == 'low') {
+        if (request()->sort == 'Low to High') {
             $product = $product->orderBy('harga')->paginate($number);
-        }elseif (request()->sort == 'high') {
+        }elseif (request()->sort == 'High to Low') {
             $product = $product->orderBy('harga','desc')->paginate($number);
-        }elseif (request()->sort == 'atoz') {
+        }elseif (request()->sort == 'A to Z') {
             $product = $product->orderBy('nama')->paginate($number);
-        }elseif (request()->sort == 'ztoa') {
+        }elseif (request()->sort == 'Z to A') {
             $product = $product->orderBy('nama','desc')->paginate($number);
         }elseif (request()->price == 'under') {
             $product = Catalog::where('harga','<=',50000)->orderBy('harga')->paginate($number);
@@ -52,8 +54,9 @@ class shop_controller extends Controller
             $product = Catalog::where([['harga','>',100000],['harga','<=',200000]])->orderBy('harga')->paginate($number);
         }elseif(request()->price == 'over'){
             $product = Catalog::where('harga','>',200000)->orderBy('harga')->paginate($number);
-        }else{
-            $product = Catalog::paginate($number);
+        }
+    else{
+            $product = $product->paginate($number);
         }
 
         return view('shop', compact('product', 'categories', 'brand', 'category_name'));

@@ -19,6 +19,7 @@ Route::get('/shop', 'shop_controller@index')->name('shop.index');
 Route::get('/shop/{product}', 'shop_controller@show')->name('shop.show');
 Route::get('/shop/{name}', 'shop_controller@show_category')->name('shop.category');
 Route::get('/search', 'shop_controller@search')->name('search');
+Route::get('admin/webSetting/homepage','AdminController@webSetting')->name('web.setting');
 
 
 // Route::get('/list', function () {
@@ -38,5 +39,4 @@ Route::get('admin', ['uses' => 'AdminController@index', 'as' => 'admin.dashboard
 Route::get('admin/katalog/dataProduk', ['as' => 'admin.dataProduk', function(){return view('\admin\katalog\dataProduk');}]);
 Route::get('admin/katalog/dataKategori', ['as' => 'admin.dataKategori', function(){return view('\admin\katalog\dataKategori');}]);
 Route::get('admin/katalog/produkBaru', ['as' => 'admin.produkBaru', function(){return view('\admin\katalog\produkBaru');}]);
-Route::get('admin/webSetting/homepage', ['as' => 'admin.homepage', function(){return view('\admin\webSetting\homepage');}]);
 Route::get('admin/webSetting/component', ['as' => 'admin.component', function(){return view('\admin\webSetting\component');}]);

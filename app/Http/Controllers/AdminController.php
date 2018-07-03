@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ModelUser;
+use App\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -16,6 +17,7 @@ class AdminController extends Controller
         else{
             return view('admin/dashboard');
         }
+
     }
     public function login(){
         return view('login');
@@ -39,5 +41,10 @@ class AdminController extends Controller
     public function logout(){
         Session::put('login',FALSE);
         return redirect('login')->with('alert','Kamu sudah logout');
+    }
+
+    public function webSetting(){
+        $setting = Setting::get();
+        return view('\admin\webSetting\homepage', compact('setting'));
     }
 }

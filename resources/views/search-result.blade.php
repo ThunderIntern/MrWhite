@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Mr. White | Search {{ request()->input('search')}}</title>
+	<link rel="icon" type="image/png" href="image/logo2.png">
 	<link rel="stylesheet" type="text/css" href="{{mix('css/app.css')}}">
 </head>
 <body>
