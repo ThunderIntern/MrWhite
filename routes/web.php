@@ -36,7 +36,9 @@ Route::get('/login', 'AdminController@login');
 Route::post('/loginPost', 'AdminController@loginPost')->name('login-post');
 Route::get('/logout', 'AdminController@logout');
 Route::get('admin', ['uses' => 'AdminController@index', 'as' => 'admin.dashboard']);
-Route::get('admin/katalog/dataProduk', ['as' => 'admin.dataProduk', function(){return view('\admin\katalog\dataProduk');}]);
-Route::get('admin/katalog/dataKategori', ['as' => 'admin.dataKategori', function(){return view('\admin\katalog\dataKategori');}]);
-Route::get('admin/katalog/produkBaru', ['as' => 'admin.produkBaru', function(){return view('\admin\katalog\produkBaru');}]);
-Route::get('admin/webSetting/component', ['as' => 'admin.component', function(){return view('\admin\webSetting\component');}]);
+
+Route::get('admin/katalog/dataProduk', ['uses' => 'AdminController@dataProduk','as' => 'admin.dataProduk']);
+Route::get('admin/katalog/dataKategori', ['uses' => 'AdminController@dataKategori','as' => 'admin.dataKategori']);
+Route::get('admin/katalog/produkBaru', ['uses' => 'AdminController@produkBaru','as' => 'admin.produkBaru']);
+Route::get('admin/webSetting/homepage', ['uses' => 'AdminController@homePage','as' => 'admin.homepage']);
+Route::get('admin/webSetting/component', ['uses' => 'AdminController@component','as' => 'admin.component']);

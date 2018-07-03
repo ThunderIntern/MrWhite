@@ -129,19 +129,17 @@
 
     var table = $('#dataProduk').DataTable();
 
-
-
-    // Delete a record
-    table.on('click', '.remove', function(e) {
-      $tr = $(this).closest('tr');
-      table.row($tr).remove().draw();
-      e.preventDefault();
-    });
-
-    //Like record
-    table.on('click', '.like', function() {
-      alert('You clicked on Like button');
-    });
+  });
+  $(document).on('click','.show-modal', function(){
+    $('#id').text($(this).data('id'));
+    $('#barc').text($(this).data('barcode'));
+    $('#nama').text($(this).data('nama'));
+    $('#harga').text($(this).data('harga'));
+    $('#desc').text($(this).data('deskripsi'));
+    $('#tag').text($(this).data('tag'));
+    $('#link').text($(this).data('link'));
+    $('#gambar').val($(this).data('gambar')).src;
+    $('#show').modal('show');
   });
 </script>
 

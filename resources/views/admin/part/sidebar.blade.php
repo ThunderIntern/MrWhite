@@ -1,18 +1,18 @@
 <div class="wrapper">
 <div class="sidebar" data-color="azure" data-background-color="black" data-image="/image/sidebar-1.jpg">
 <div class="logo">
-    <a href="#" class="logo-mini photo"><img src="{{URL::to('image/logoMrWhite.png')}}" /></a>
-    <a href="#" class="simple-text logo-normal"><strong>Mr. White</strong></a>
+    <a href="{{route('landing-page')}}" class="logo-mini photo"><img src="{{URL::to('image/logoMrWhite.png')}}" /></a>
+    <a href="{{route('landing-page')}}" class="simple-text logo-normal"><strong>Mr. White</strong></a>
 </div>
 <div class="sidebar-wrapper">
     <div class="user">
         <div class="photo">
-            <img src="{{URL::to('image/kiki.jpg')}}" />
+            <img src="{{ URL::To(Session::get('foto')) }}" />
         </div>
         <div class="user-info">
           <a class="nav-link" href="/index">
             <span>
-              <strong>Kiki Rizki Amalinda</strong>
+              <strong>{{Session::get('nama')}}</strong>
             </span>
           </a>
         </div>
