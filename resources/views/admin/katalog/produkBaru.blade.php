@@ -1,168 +1,137 @@
+@extends('admin.part.layout', ['title'=>'Produk Baru'])
+@section('content')
+<div class="main-panel">
+@component('admin/part/navbar')
+  @slot('header')
+    Produk Baru
+  @endslot
+@endcomponent
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header card-header-rose card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Produk Baru</h4>
+            </div>
+          </div>
+          <div class="card-body ">
+            <form method="get" action="/" class="form-horizontal">
+              <div class="row">
+                <label class="col-sm-2 col-form-label">Nama Produk</label>
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <input type="text" class="form-control">
+                    <span class="bmd-help">*Wajib diisi</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <input type="password" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label">Placeholder</label>
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="placeholder">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label">Disabled</label>
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <input type="text" class="form-control" value="Disabled input here.." disabled>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label">Static control</label>
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <p class="form-control-static"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a3cbc6cfcfcce3c0d1c6c2d7cad5c68ed7cace8dc0ccce">[email&#160;protected]</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label label-checkbox">Checkboxes and radios</label>
+                <div class="col-sm-10 checkbox-radios">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value=""> First Checkbox
+                      <span class="form-check-sign">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value=""> Second Checkbox
+                      <span class="form-check-sign">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" value="option2" checked> First Radio
+                      <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" value="option1"> Second Radio
+                      <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label label-checkbox">Inline checkboxes</label>
+                <div class="col-sm-10 checkbox-radios">
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value=""> a
+                      <span class="form-check-sign">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value=""> b
+                      <span class="form-check-sign">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value=""> c
+                      <span class="form-check-sign">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset='utf-8' />
-<link href='../fullcalendar.min.css' rel='stylesheet' />
-<link href='../fullcalendar.print.min.css' rel='stylesheet' media='print' />
-<script type="text/javascript" src="{{URL::to('js/jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{URL::to('js/popper.min.js')}}"></script>
-<script type="text/javascript" src="{{URL::to('js/bootstrap-material-design.min.js')}}"></script>
 
-<!-- plugin for line charts -->
-<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-
-<script type="text/javascript" src="{{URL::to('js/perfect-scrollbar.jquery.min.js')}}"></script>
-<!--  Google Maps Plugin  -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
-<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-<script type="text/javascript" src="{{URL::to('js/moment.min.js')}}"></script>
-<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-<script type="text/javascript" src="{{URL::to('js/bootstrap-datetimepicker.min.js')}}"></script>
-
-<!--	Plugin for the Sliders, full documentation here: https://refreshless.com/nouislider/ -->
-<script type="text/javascript" src="{{URL::to('js/nouislider.min.js')}}"></script>
-<!--	Plugin for Select, full documentation here: https://silviomoreto.github.io/bootstrap-select -->
-<script type="text/javascript" src="{{URL::to('js/bootstrap-selectpicker.js')}}"></script>
-
-<!--	Plugin for Tags, full documentation here: https://xoxco.com/projects/code/tagsinput/  -->
-<script type="text/javascript" src="{{URL::to('js/bootstrap-tagsinput.js')}}"></script>
-
-<!--	Plugin for Fileupload, full documentation here: https://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script type="text/javascript" src="{{URL::to('js/bjasny-bootstrap.min.js')}}"></script>
-<!-- Plugins for presentation and navigation  -->
-<script type="text/javascript" src="{{URL::to('js/modernizr.js')}}"></script>
-
-<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-<script type="text/javascript" src="{{URL::to('js/material-dashboard.js')}}"></script>
-
-
-
-<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-
-<!-- Library for adding dinamically elements -->
-<script type="text/javascript" src="{{URL::to('js/arrive.min.js')}}"></script>
-
-<!-- Forms Validations Plugin -->
-<script type="text/javascript" src="{{URL::to('js/jquery.validate.min.js')}}"></script>
-
-<!--  Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/ -->
-<script type="text/javascript" src="{{URL::to('js/chartist.min.js')}}"></script>
-
-<!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-<script type="text/javascript" src="{{URL::to('js/jquery.bootstrap-wizard.js')}}"></script>
-
-<!--  Notifications Plugin, full documentation here: https://bootstrap-notify.remabledesigns.com/    -->
-<script type="text/javascript" src="{{URL::to('js/bootstrap-notify.js')}}"></script>
-
-<!-- Vector Map plugin, full documentation here: https://jvectormap.com/documentation/ -->
-<script type="text/javascript" src="{{URL::to('js/jquery-jvectormap.js')}}"></script>
-
-<!--  Plugin for Select, full documentation here: https://silviomoreto.github.io/bootstrap-select -->
-<script type="text/javascript" src="{{URL::to('js/jquery.select-bootstrap.js')}}"></script>
-
-<!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
-<script type="text/javascript" src="{{URL::to('js/jquery.datatables.js')}}"></script>
-
-<!-- Sweet Alert 2 plugin, full documentation here: https://limonte.github.io/sweetalert2/ -->
-<script type="text/javascript" src="{{URL::to('js/sweetalert2.js')}}"></script>
-
-<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-<script type="text/javascript" src="{{URL::to('js/fullcalendar.min.js')}}"></script><script>
-
-  $(document).ready(function() {
-
-    $('#calendar').fullCalendar({
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay,listWeek'
-      },
-      defaultDate: '2018-03-12',
-      navLinks: true, // can click day/week names to navigate views
-      editable: true,
-      eventLimit: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2018-03-01',
-        },
-        {
-          title: 'Long Event',
-          start: '2018-03-07',
-          end: '2018-03-10'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2018-03-09T16:00:00'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2018-03-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2018-03-11',
-          end: '2018-03-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2018-03-12T10:30:00',
-          end: '2018-03-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2018-03-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2018-03-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2018-03-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2018-03-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2018-03-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2018-03-28'
-        }
-      ]
-    });
-
-  });
-
-</script>
-<style>
-
-  body {
-    margin: 40px 10px;
-    padding: 0;
-    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-    font-size: 14px;
-  }
-
-  #calendar {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-</style>
-</head>
-<body>
-
-  <div id='calendar'></div>
-
-</body>
-</html>
+@stop

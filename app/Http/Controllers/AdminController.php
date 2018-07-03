@@ -5,6 +5,7 @@ use App\Catalog;
 use App\Category;
 use App\Link;
 use App\ModelUser;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -25,19 +26,37 @@ class AdminController extends Controller
             return redirect('login')->with('alert','Kamu harus login dulu');
         }
         else{
+            $category = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')->groupBy('jenis')->get();
             $product = Catalog::with('links','categories')->get();
-            return view('admin/katalog/dataProduk', compact('product'));
+            return view('admin/katalog/dataProduk', compact('product','category'));
         }
     }
 
-
+    /**
+     * Display the specified resource.
+     *
+     * @param  string  $barcode
+     * @return \Illuminate\Http\Response
+     */
+    public function show($barcode)
+    {
+        $category = Catalog::with('links','categories','cata_cate')->where('barcode',$barcode)->get();
+        return view('admin/katalog/dataProduk', compact('category'));
+    }
 
     public function dataKategori(){
         if(!Session::get('login')){
             return redirect('login')->with('alert','Kamu harus login dulu');
         }
         else{
-            return view('admin/katalog/dataKategori');
+
+            $jenis = Category::where('parent_id','>','0')->groupBy('jenis')->get();
+            $hair_bahan = Category::where('parent_id',1)->where('jenis',$jenis[0]->jenis)->get();
+            $hair_brand = Category::where('parent_id',1)->where('jenis',$jenis[1]->jenis)->get();
+            $face_bahan = Category::where('parent_id',2)->where('jenis',$jenis[0]->jenis)->get();
+            $face_brand = Category::where('parent_id',2)->where('jenis',$jenis[1]->jenis)->get();
+            // dd($hair);
+            return view('admin/katalog/dataKategori', compact('jenis','hair_bahan','hair_brand','face_bahan','face_brand'));
         }
     }
     public function produkBaru(){
@@ -45,7 +64,12 @@ class AdminController extends Controller
             return redirect('login')->with('alert','Kamu harus login dulu');
         }
         else{
-            return view('admin/katalog/produkBaru');
+            $jenis = Category::where('parent_id','>','0')->groupBy('jenis')->get();
+            $hair_bahan = Category::where('parent_id',1)->where('jenis',$jenis[0]->jenis)->get();
+            $hair_brand = Category::where('parent_id',1)->where('jenis',$jenis[1]->jenis)->get();
+            $face_bahan = Category::where('parent_id',2)->where('jenis',$jenis[0]->jenis)->get();
+            $face_brand = Category::where('parent_id',2)->where('jenis',$jenis[1]->jenis)->get();
+            return view('admin/katalog/produkBaru', compact('jenis','hair_bahan','hair_brand','face_bahan','face_brand'));
         }
     }
     public function homePage(){
