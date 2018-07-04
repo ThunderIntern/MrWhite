@@ -20,21 +20,19 @@
 
 						<div class="card border-light mb-3 col-6">
 							<a href="#"><img src="{{ asset($product_detail->url_gambar) }}" class="image1"></a>
-							
 						</div>
 
-						<div class="card mb-3 col-6 invinsible">
+						<div class="card mb-3 col-6 invinsible font-detail">
 						<div class="card-header">
 							<h1>{{ ucwords($product_detail->nama) }}</h1>
 						</div>
 						<div class="card-body">
-							<h3>{{ $product_detail->barcode }}</h3>
+							{{-- <h3>{{ $product_detail->barcode }}</h3> --}}
 							<p>{{ $product_detail->deskripsi }}</p>
 						</div>
 						<div class="card-footer">
 							<h3>Rp. {{ $product_detail->presentPrice() }}</h3>
-
-							<a href="{{ $link->link }}" class="btn btn-primary" target="_blank">Beli Sekarang</a>
+							<a href="{{ $link->link }}" class="btn btn-primary" style="color: white;" target="_blank">Beli Sekarang</a>
 						</div>
 					</div>
 

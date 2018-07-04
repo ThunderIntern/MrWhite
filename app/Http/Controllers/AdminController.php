@@ -102,4 +102,19 @@ class AdminController extends Controller
         $banner = Banner::get();
         return view('\admin\webSetting\banner', compact('banner'));
     }
+
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        // $banner_detail = Banner::where('id', $id)->firstOrFail();
+        // $product = Catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
+        // $link = DB::table('links')->join('catalogs','links.catalog_id','=','catalogs.id')->select('links.link')->where('barcode', $barcode)->first();
+        // return redirect()->back()->with('banner_detail');
+    }
 }

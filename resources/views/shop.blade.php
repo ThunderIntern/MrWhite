@@ -35,9 +35,6 @@
 			@forelse($product as $products)
 				<div class="product card invinsible">
 					<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ $products->url_gambar }}" class="image1"></a>
-					<div class="middle">
-						
-					</div>
 					<div class="card-footer invinsible">
 						<a href="{{ route('shop.show', $products->barcode) }}">
 							<h5>{{ ucwords($products->nama) }}</h5>

@@ -12,7 +12,7 @@
 						</div>
 						<div class="card-footer bg-transparent text-center">
 							<a href="{{ route('shop.show', $products->barcode) }}">
-								<p>{{ $products->deskripsi }}</p>
+								{{-- <p>{{ $products->deskripsi }}</p> --}}
 								<p>Rp. {{ $products->presentPrice() }}</p>
 							</a>
 						</div>
