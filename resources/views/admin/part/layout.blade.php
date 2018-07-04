@@ -157,6 +157,13 @@
     $('#tag').text($(this).data('tag'));
     $('#link').text($(this).data('link'));
     $('#gambar').val($(this).data('gambar')).src;
+    
+    //punya banner 
+    $('#banner_id').text($(this).data('id'));
+    $('#banner_name').text($(this).data('name'));
+    $('#banner_pic').text($(this).data('url_gambar'));
+    $('#tampil').text($(this).data('date_show'));
+    $('#sudah').text($(this).data('date_off'));
     $('#show').modal('show');
   });
 </script>

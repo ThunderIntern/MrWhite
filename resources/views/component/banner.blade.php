@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-12">
 				<div class="card invinsible">
-					<img src="{{ asset($banner->url_gambar) }}" class="image3">
+					<img src="{{ asset("image/" . $banner->url_gambar) }}" class="image3">
 				</div>
 			</div>
 		</div>

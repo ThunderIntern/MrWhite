@@ -24,6 +24,11 @@ class CategoriesTableSeeder extends Seeder
             ['jenis'=> 'brand','name'=> 'gillette','parent_id'=> '2',],
             ['jenis'=> 'brand','name'=> 'edge','parent_id'=> '2',],
             ['jenis'=> 'brand','name'=> 'garnier','parent_id'=> '2',],
+            ['jenis'=> 'bahan','name'=> 'soap','parent_id'=> '2',],
+            ['jenis'=> 'bahan','name'=> 'lotion','parent_id'=> '2',],
+            ['jenis'=> 'bahan','name'=> 'oil','parent_id'=> '2',],
+            ['jenis'=> 'bahan','name'=> 'gel','parent_id'=> '2',],
+            ['jenis'=> 'bahan','name'=> 'foam','parent_id'=> '2',],
         ]);
     }
 }

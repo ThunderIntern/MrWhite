@@ -121,6 +121,7 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function store(Request $request)
     {
         $catalog = new Catalog();
@@ -145,4 +146,58 @@ class AdminController extends Controller
         // $category->name = $request->bahan;
         // return redirect()->back();
     }
+=======
+    public function store(Request $request){
+        $data = new Banner;
+        $data->name = $request->name;
+        $data->url_gambar = $request->url_gambar;
+        $data->date_show = $request->date_show;
+        $data->date_off = $request->date_off;
+
+        $data->save();
+        return redirect()->back();
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $banner = Banner::find($id);
+        return view('\admin\webSetting\banner',compact('banner','id'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $banner= Banner::find($id);
+        $banner->name=$request->get('name');
+        $banner->url_gambar=$request->get('url_gambar');
+        $banner->date_show=$request->get('date_show');
+        $banner->date_off=$request->get('date_off');
+
+        $banner->save();
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+>>>>>>> 4ea1807acc1bf59690de9627182dcf7e2abe9609
 }

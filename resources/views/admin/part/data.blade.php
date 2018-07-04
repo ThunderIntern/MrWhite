@@ -10,3 +10,6 @@ data-namaCategories="{{ $categories->name }}"
 
 data-tag="{{ $products->links[0]->tag }}"
 data-link="{{ $products->links[0]->link }}"
+
+
+
