@@ -1,107 +1,131 @@
+@extends('admin.part.layout', ['title'=>'Kategori'])
+@section('content')
+<div class="main-panel">
+@component('admin/part/navbar')
+  @slot('header')
+    Data Kategori
+  @endslot
+@endcomponent
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      @foreach($jenis as $jeniss)
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">{{ucwords($jeniss->jenis)}}</h4>
+          </div>
+            <div class="card-body">
+              <ul class="nav nav-pills nav-pills-warning" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#{{$jeniss->jenis}}1" role="tablist">
+                    Hair
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#{{$jeniss->jenis}}2" role="tablist">
+                    Face
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content tab-space">
+                <div class="tab-pane active" id="{{$jeniss->jenis}}1">
+                  <div class="material-datatables">
+                    <table class="table-kategori table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                      <thead class="thead-dark text-center">
+                        <tr>
+                            <th>
+                              {{ucwords($jeniss->jenis)}}
+                            </th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @if($jeniss->jenis=="bahan")
+                          @foreach($hair_bahan as $hairs)
+                          <tr>
+                            <td>{{$hairs->name}}</td>
+                            <td>
+                              <div class='btn-group d-flex justify-content-end' role='group' aria-label='...'>
+                                <a data-toggle="modal" href="#modal-show" class="show-modal btn btn-link btn-info btn-just-icon" title="lihat"><i class="material-icons">remove_red_eye</i></a>
+                                <a data-toggle="modal" href="#edit" class="btn btn-link btn-success btn-just-icon" title="edit"><i class="material-icons">edit</i></a>
+                                <button type="button" id="delete" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons" title="delete">delete</i></button>
+                              </div>
+                            </td>
+                          </tr>
+                          @endforeach
+                        @elseif($jeniss->jenis=="brand")
+                          @foreach($hair_brand as $hairs)
+                          <tr>
+                            <td>{{$hairs->name}}</td>
+                            <td>
+                              <div class='btn-group d-flex justify-content-end' role='group' aria-label='...'>
+                                <a data-toggle="modal" href="#modal-show" class="show-modal btn btn-link btn-info btn-just-icon" title="lihat"><i class="material-icons">remove_red_eye</i></a>
+                                <a data-toggle="modal" href="#edit" class="btn btn-link btn-success btn-just-icon" title="edit"><i class="material-icons">edit</i></a>
+                                <button type="button" id="delete" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons" title="delete">delete</i></button>
+                              </div>
+                            </td>
+                          </tr>
+                          @endforeach
+                        @endif
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane" id="{{$jeniss->jenis}}2">
+                  <div class="material-datatables">
+                    <table class="table-kategori table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                      <thead class="thead-dark text-center">
+                        <tr>
+                            <th>
+                              {{ucwords($jeniss->jenis)}}
+                            </th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @if($jeniss->jenis=="bahan")
+                          @foreach($face_bahan as $hairs)
+                          <tr>
+                            <td>{{$hairs->name}}</td>
+                            <td>
+                              <div class='btn-group d-flex justify-content-end' role='group' aria-label='...'>
+                                <a data-toggle="modal" href="#modal-show" class="show-modal btn btn-link btn-info btn-just-icon" title="lihat"><i class="material-icons">remove_red_eye</i></a>
+                                <a data-toggle="modal" href="#edit" class="btn btn-link btn-success btn-just-icon" title="edit"><i class="material-icons">edit</i></a>
+                                <button type="button" id="delete" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons" title="delete">delete</i></button>
+                              </div>
+                            </td>
+                          </tr>
+                          @endforeach
+                        @elseif($jeniss->jenis=="brand")
+                          @foreach($face_brand as $hairs)
+                          <tr>
+                            <td>{{$hairs->name}}</td>
+                            <td>
+                              <div class='btn-group d-flex justify-content-end' role='group' aria-label='...'>
+                                <a data-toggle="modal" href="#modal-show" class="show-modal btn btn-link btn-info btn-just-icon" title="lihat"><i class="material-icons">remove_red_eye</i></a>
+                                <a data-toggle="modal" href="#edit" class="btn btn-link btn-success btn-just-icon" title="edit"><i class="material-icons">edit</i></a>
+                                <button type="button" id="delete" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons" title="delete">delete</i></button>
+                              </div>
+                            </td>
+                          </tr>
+                          @endforeach
+                        @endif
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endforeach
+      </div>
+    </div>
+  </div>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset='utf-8' />
-<link href="https://fullcalendar.io/releases/fullcalendar/3.9.0/fullcalendar.min.css" rel='stylesheet' />
-<link href="https://fullcalendar.io/releases/fullcalendar/3.9.0/fullcalendar.print.min.css" rel='stylesheet' media='print' />
-<script src="https://fullcalendar.io/releases/fullcalendar/3.9.0/lib/moment.min.js"></script>
-<script src="https://fullcalendar.io/releases/fullcalendar/3.9.0/lib/jquery.min.js"></script>
-<script src="https://fullcalendar.io/releases/fullcalendar/3.9.0/fullcalendar.min.js"></script>
-<script>
 
-  $(document).ready(function() {
-
-    $('#calendar').fullCalendar({
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay,listWeek'
-      },
-      defaultDate: '2018-03-12',
-      navLinks: true, // can click day/week names to navigate views
-      editable: true,
-      eventLimit: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2018-03-01',
-        },
-        {
-          title: 'Long Event',
-          start: '2018-03-07',
-          end: '2018-03-10'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2018-03-09T16:00:00'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2018-03-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2018-03-11',
-          end: '2018-03-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2018-03-12T10:30:00',
-          end: '2018-03-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2018-03-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2018-03-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2018-03-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2018-03-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2018-03-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2018-03-28'
-        }
-      ]
-    });
-
-  });
-
-</script>
-<style>
-
-  body {
-    margin: 40px 10px;
-    padding: 0;
-    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-    font-size: 14px;
-  }
-
-  #calendar {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-</style>
-</head>
-<body>
-
-  <div id='calendar'></div>
-
-</body>
-</html>
+@stop

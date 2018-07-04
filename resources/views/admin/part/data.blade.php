@@ -5,8 +5,8 @@ data-harga="{{ $products->presentPrice() }}"
 data-deskripsi="{{ $products->deskripsi }}"
 data-gambar="{{ $products->url_gambar }}"
 
-data-jenis="{{ $products->jenis }}"
-data-namaCategories="{{ $products->name }}"
+data-jenis="{{ $categories->jenis }}"
+data-namaCategories="{{ $categories->name }}"
 
 data-tag="{{ $products->links[0]->tag }}"
 data-link="{{ $products->links[0]->link }}"

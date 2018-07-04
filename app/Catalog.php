@@ -46,4 +46,7 @@ class Catalog extends Model
   public function categories(){
     return $this->belongsToMany(Category::class);
   }
+  public function cata_cate(){
+    return $this->belongsToMany(cata_cate::class);
+  }
 }

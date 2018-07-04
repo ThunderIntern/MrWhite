@@ -37,8 +37,11 @@
                         <td>{{ucwords($products->nama)}}</td>
                         <td>Rp. {{ $products->presentPrice() }}</td>
                         <td><img src="{{ URL::to($products->url_gambar) }}"width=100px/></td>
-                        <td>{{ucwords($products->links[0]->tag)}}</td>
+                        <td>{{ucwords($products->links[0]->tag) }}</td>
                         <td>
+                          @foreach ($category as $categories)
+                            {{$categories->name}}
+                          @endforeach
                           <div class='btn-group' role='group' aria-label='...'>
                             <a data-toggle="modal" href="#" class="show-modal btn btn-link btn-info btn-just-icon" title="lihat" @include('admin.part.data')><i class="material-icons">remove_red_eye</i></a>
                             <a data-toggle="modal" href="#edit" class="btn btn-link btn-success btn-just-icon" title="edit"><i class="material-icons">edit</i></a>
@@ -59,7 +62,7 @@
 
 <!-- Modal Show -->
 <div class="modal fade" id="show" role="dialog">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg" role="document">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -106,6 +109,16 @@
             <p class="col-sm-3">Link </p>
             <p class="col-sm-1">:</p>
             <b class="col-sm-8" href id=link></b>
+          </div>
+          <div class="row">
+            <p class="col-sm-3">Jenis </p>
+            <p class="col-sm-1">:</p>
+            <b class="col-sm-8" href id=jenis></b>
+          </div>
+          <div class="row">
+            <p class="col-sm-3">Kategori </p>
+            <p class="col-sm-1">:</p>
+            <b class="col-sm-8" href id=namaCategories></b>
           </div>
         </div>
       </div>
