@@ -19,7 +19,7 @@
 					<div class="card-deck">
 
 						<div class="card border-light mb-3 col-6">
-							<a href="#"><img src="{{ asset($product_detail->url_gambar) }}" class="image1"></a>
+							<a href="#"><img src="{{ asset("image/" . $product_detail->url_gambar) }}" class="image1"></a>
 						</div>
 
 						<div class="card mb-3 col-6 invinsible font-detail">

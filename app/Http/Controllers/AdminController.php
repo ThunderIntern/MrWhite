@@ -5,12 +5,9 @@ use App\Catalog;
 use App\Category;
 use App\Link;
 use App\ModelUser;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
-=======
 use App\Banner;
 use App\Setting;
->>>>>>> af3483da995044737c6ed0086049bd647e1bf77c
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -130,18 +127,62 @@ class AdminController extends Controller
         return view('\admin\webSetting\banner', compact('banner'));
     }
 
-
-        /**
-     * Display the specified resource.
+    /**
+     * Store a newly created resource in storage.
      *
-     * @param  string  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        // $banner_detail = Banner::where('id', $id)->firstOrFail();
-        // $product = Catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
-        // $link = DB::table('links')->join('catalogs','links.catalog_id','=','catalogs.id')->select('links.link')->where('barcode', $barcode)->first();
-        // return redirect()->back()->with('banner_detail');
+    public function store(Request $request){
+        $data = new Banner;
+        $data->name = $request->name;
+        $data->url_gambar = $request->url_gambar;
+        $data->date_show = $request->date_show;
+        $data->date_off = $request->date_off;
+
+        $data->save();
+        return redirect()->back();
     }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $banner = Banner::find($id);
+        return view('\admin\webSetting\banner',compact('banner','id'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $banner= Banner::find($id);
+        $banner->name=$request->get('name');
+        $banner->url_gambar=$request->get('url_gambar');
+        $banner->date_show=$request->get('date_show');
+        $banner->date_off=$request->get('date_off');
+
+        $banner->save();
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
 }

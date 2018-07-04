@@ -20,56 +20,56 @@ class CatalogsTableSeeder extends Seeder
                 'barcode'=> rand(1111,4444),
                 'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'url_gambar'=> 'image/baxter.jpg'
+                'url_gambar'=> 'baxter.jpg'
             ],
             [
                 'nama'=> 'american crew pomade',
                 'barcode'=> rand(1111,4444),
                 'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'url_gambar'=> 'image/crew.jpeg'
+                'url_gambar'=> 'crew.jpeg'
             ],
             [
                 'nama'=> 'layrite pomade',
                 'barcode'=> rand(1111,4444),
                 'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'url_gambar'=> 'image/layrite.jpg'
+                'url_gambar'=> 'layrite.jpg'
             ],
             [
                 'nama'=> 'toar roby pomade',
                 'barcode'=> rand(1111,4444),
                 'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'url_gambar'=> 'image/oilbased.jpg'
+                'url_gambar'=> 'oilbased.jpg'
             ],
             [
                 'nama'=> 'gillette shaving gel',
                 'barcode'=> rand(1111,4444),
                 'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'url_gambar'=> 'image/shave.jpg'
+                'url_gambar'=> 'shave.jpg'
             ],
             [
                 'nama'=> 'edge shaving gel',
                 'barcode'=> rand(1111,4444),
                 'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'url_gambar'=> 'image/shave2.jpg'
+                'url_gambar'=> 'shave2.jpg'
             ],
             [
                 'nama'=> 'nivea man facial foam',
                 'barcode'=> rand(1111,4444),
                 'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'url_gambar'=> 'image/foam.jpg'
+                'url_gambar'=> 'foam.jpg'
             ],
             [
                 'nama'=> 'garnier man turbolight',
                 'barcode'=> rand(1111,4444),
                 'harga'=>rand(30000, 300000),
                 'deskripsi'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'url_gambar'=> 'image/moisturiser.jpg'
+                'url_gambar'=> 'moisturiser.jpg'
             ],
         ]);
         $product = Catalog::find(1);
@@ -95,17 +95,21 @@ class CatalogsTableSeeder extends Seeder
         $product = Catalog::find(5);
         $product->categories()->attach(2);
         $product->categories()->attach(10);
+        $product->categories()->attach(16);
 
         $product = Catalog::find(6);
         $product->categories()->attach(2);
         $product->categories()->attach(11);
+        $product->categories()->attach(16);
         
         $product = Catalog::find(7);
         $product->categories()->attach(2);
         $product->categories()->attach(9);
+        $product->categories()->attach(17);
         
         $product = Catalog::find(8);
         $product->categories()->attach(2);
         $product->categories()->attach(12);
+        $product->categories()->attach(13);
     }
 }
