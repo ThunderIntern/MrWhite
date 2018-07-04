@@ -5,12 +5,9 @@ use App\Catalog;
 use App\Category;
 use App\Link;
 use App\ModelUser;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
-=======
 use App\Banner;
 use App\Setting;
->>>>>>> af3483da995044737c6ed0086049bd647e1bf77c
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -22,7 +19,6 @@ class AdminController extends Controller
             return redirect('login')->with('alert','Kamu harus login dulu');
         }
         else{
-
             return view('admin/dashboard');
         }
 
@@ -36,18 +32,6 @@ class AdminController extends Controller
             $product = Catalog::with('links','categories')->get();
             return view('admin/katalog/dataProduk', compact('product','category'));
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  string  $barcode
-     * @return \Illuminate\Http\Response
-     */
-    public function show($barcode)
-    {
-        $category = Catalog::with('links','categories','cata_cate')->where('barcode',$barcode)->get();
-        return view('admin/katalog/dataProduk', compact('category'));
     }
 
     public function dataKategori(){
@@ -75,6 +59,7 @@ class AdminController extends Controller
             $hair_brand = Category::where('parent_id',1)->where('jenis',$jenis[1]->jenis)->get();
             $face_bahan = Category::where('parent_id',2)->where('jenis',$jenis[0]->jenis)->get();
             $face_brand = Category::where('parent_id',2)->where('jenis',$jenis[1]->jenis)->get();
+            // dd($hair);
             return view('admin/katalog/produkBaru', compact('jenis','hair_bahan','hair_brand','face_bahan','face_brand'));
         }
     }
@@ -128,5 +113,36 @@ class AdminController extends Controller
     public function banner(){
         $banner = Banner::get();
         return view('\admin\webSetting\banner', compact('banner'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $catalog = new Catalog();
+        $category = new Category();
+        $link = new Link();
+        $cata_cate = new cata_cate();
+        $catalog->nama = $request->nama;
+        $catalog->barcode = $request->barcode;
+        $catalog->harga = $request->harga;
+        $catalog->deskripsi = $request->deskripsi;
+        $catalog->barcode = $request->barcode;
+        $file = $request->file('gambar');
+        $fileName = $file->getClientOriginalName();
+        $url_gambar = $fileName;
+        $request->file('gambar')->move("image/", $fileName);
+        $catalog->url_gambar = ($url_gambar);
+        $catalog->save();
+
+        $perawatan = $request->perawatan;
+        
+        // $category->name = $request->brand;
+        // $category->name = $request->bahan;
+        // return redirect()->back();
     }
 }

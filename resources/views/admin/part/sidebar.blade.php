@@ -62,9 +62,9 @@
                 </p>
             </a>
 
-            <div class="collapse {{ set_show('admin.homepage') }}{{ set_show('admin.component') }}" id="websetting">
+            <div class="collapse {{ set_show('web.setting') }}{{ set_show('admin.component') }}{{ set_show('banner') }}" id="websetting">
                 <ul class="nav">
-                    <li class="nav-item {{ set_active('admin.homepage') }}">
+                    <li class="nav-item {{ set_active('web.setting') }}">
                         <a class="nav-link" href="{{URL::to('admin/webSetting/homepage')}}">
                           <span class="sidebar-mini"> H </span>
                           <span class="sidebar-normal"> Homepage </span>
@@ -76,7 +76,7 @@
                           <span class="sidebar-normal"> Component </span>
                         </a>
                     </li>
-                    <li class="nav-item {{ set_active('admin.component') }}">
+                    <li class="nav-item {{ set_active('banner') }}">
                         <a class="nav-link" href="{{URL::to('admin/webSetting/banner')}}">
                           <span class="sidebar-mini"> B </span>
                           <span class="sidebar-normal"> Banner </span>
