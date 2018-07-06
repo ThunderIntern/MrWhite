@@ -157,15 +157,46 @@
     $('#tag').text($(this).data('tag'));
     $('#link').text($(this).data('link'));
     $('#gambar').val($(this).data('gambar')).src;
-    
-    //punya banner 
+
+    //punya banner
     $('#banner_id').text($(this).data('id'));
     $('#banner_name').text($(this).data('name'));
-    $('#banner_pic').text($(this).data('url_gambar'));
+    $('#banner_pic').text($(this).data('gambar'));
     $('#tampil').text($(this).data('date_show'));
     $('#sudah').text($(this).data('date_off'));
     $('#show').modal('show');
   });
+
+
+</script>
+
+<!-- Edit Modal -->
+<script>
+$(document).on('click','.edit-modal', function(){
+  // $('#id').text($(this).data('id'));
+  // $('#barc').text($(this).data('barcode'));
+  // $('#nama').text($(this).data('nama'));
+  // $('#harga').text($(this).data('harga'));
+  // $('#desc').text($(this).data('deskripsi'));
+  // $('#tag').text($(this).data('tag'));
+  // $('#link').text($(this).data('link'));
+  // $('#gambar').val($(this).data('gambar')).src;
+
+  //punya banner
+  $('#ban_id').val($(this).data('id'));
+  $('#ban_name').val($(this).data('name'));
+  $('#ban_pic').src($(this).data('gambar'));
+  $('#shwdate').val($(this).data('date_show').getDate());
+  $('#offdate').val($(this).data('date_off'));
+  $('#edit').modal('show');
+});
+</script>
+<!-- Delete Modal -->
+<script>
+$(document).on('click','.delete-modal', function(){
+  $('#banid').val($(this).data('id'));
+  $('#delete').modal('show');
+});
 </script>
 
 <!-- Store -->
@@ -257,7 +288,7 @@ function readURL(input) {
 </script>
 
 <!-- Sweet Alert 2 -->
-<script>
+<!-- <script>
   $('#delete').click(function() {
     swal({
       title: "Are you sure?",
@@ -278,7 +309,7 @@ function readURL(input) {
         }
       });
     });
-</script>
+</script> -->
 
 <!-- Calendar -->
 <script>

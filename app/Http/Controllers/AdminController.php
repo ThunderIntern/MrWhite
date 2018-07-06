@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Catalog;
 use App\Category;
 use App\Link;
+use App\cata_cate;
 use App\ModelUser;
 use Illuminate\Support\Facades\DB;
 use App\Banner;
@@ -16,7 +17,7 @@ class AdminController extends Controller
 {
   public function index(){
         if(!Session::get('login')){
-            return redirect('login')->with('alert','Kamu harus login dulu');
+            return redirect('login')->with('alert','Anda harus login dulu');
         }
         else{
             return view('admin/dashboard');
@@ -25,7 +26,7 @@ class AdminController extends Controller
     }
     public function dataProduk(){
         if(!Session::get('login')){
-            return redirect('login')->with('alert','Kamu harus login dulu');
+            return redirect('login')->with('alert','Anda harus login dulu');
         }
         else{
             $category = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')->groupBy('jenis')->get();
@@ -36,7 +37,7 @@ class AdminController extends Controller
 
     public function dataKategori(){
         if(!Session::get('login')){
-            return redirect('login')->with('alert','Kamu harus login dulu');
+            return redirect('login')->with('alert','Anda harus login dulu');
         }
         else{
 
@@ -51,7 +52,7 @@ class AdminController extends Controller
     }
     public function produkBaru(){
         if(!Session::get('login')){
-            return redirect('login')->with('alert','Kamu harus login dulu');
+            return redirect('login')->with('alert','Anda harus login dulu');
         }
         else{
             $jenis = Category::where('parent_id','>','0')->groupBy('jenis')->get();
@@ -59,13 +60,14 @@ class AdminController extends Controller
             $hair_brand = Category::where('parent_id',1)->where('jenis',$jenis[1]->jenis)->get();
             $face_bahan = Category::where('parent_id',2)->where('jenis',$jenis[0]->jenis)->get();
             $face_brand = Category::where('parent_id',2)->where('jenis',$jenis[1]->jenis)->get();
-            // dd($hair);
-            return view('admin/katalog/produkBaru', compact('jenis','hair_bahan','hair_brand','face_bahan','face_brand'));
+            $product = Catalog::orderBy('id','DESC')->first();
+            $products = $product->id+1;
+            return view('admin/katalog/produkBaru', compact('jenis','hair_bahan','hair_brand','face_bahan','face_brand','products'));
         }
     }
     public function homePage(){
         if(!Session::get('login')){
-            return redirect('login')->with('alert','Kamu harus login dulu');
+            return redirect('login')->with('alert','Anda harus login dulu');
         }
         else{
             return view('admin/webSetting/homepage');
@@ -73,7 +75,7 @@ class AdminController extends Controller
     }
     public function component(){
         if(!Session::get('login')){
-            return redirect('login')->with('alert','Kamu harus login dulu');
+            return redirect('login')->with('alert','Anda harus login dulu');
         }
         else{
             return view('admin/webSetting/component');
@@ -134,6 +136,10 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9b30e0a5209871a2b0c622fdc5a21b7b32068388
     public function store(Request $request)
     {
         $catalog = new Catalog();
@@ -151,14 +157,55 @@ class AdminController extends Controller
         $request->file('gambar')->move("image/", $fileName);
         $catalog->url_gambar = ($url_gambar);
         $catalog->save();
+        $id_cat = $request->id_catalog;
+        $insert = [
+          $request->perawatan,
+          $request->hba,
+          $request->hbr
+        ];
 
-        $perawatan = $request->perawatan;
-        
+        $product = Catalog::find($id_cat);
+        $product->categories()->attach($insert);
+        // $product->categories()->attach($hba);
+        // $product->categories()->attach($hbr);
+        // $product->save();
+
+
+        // $cata_cate->catalog_id = $request->id_catalog;
+        // $cata_cate->category_id = $request->perawatan;
+        // $cata_cate->catalog_id = $request->id_catalog;
+        // $cata_cate->category_id = $request->hba;
+        // $cata_cate->catalog_id = $request->id_catalog;
+        // $cata_cate->category_id = $request->hbr;
+        // $cata_cate->save();
         // $category->name = $request->brand;
         // $category->name = $request->bahan;
+<<<<<<< HEAD
+        return redirect()->back();
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    // public function store(Request $request){
+    //     $data = new Banner;
+    //     $data->name = $request->name;
+    //     $data->url_gambar = $request->url_gambar;
+    //     $data->date_show = $request->date_show;
+    //     $data->date_off = $request->date_off;
+    //
+    //     $data->save();
+    //     return redirect()->back();
+    // }
+=======
         // return redirect()->back();
     }
 
+>>>>>>> 9b30e0a5209871a2b0c622fdc5a21b7b32068388
     /**
      * Show the form for editing the specified resource.
      *
@@ -201,5 +248,8 @@ class AdminController extends Controller
         //
     }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 9b30e0a5209871a2b0c622fdc5a21b7b32068388
 }
