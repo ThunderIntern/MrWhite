@@ -3,11 +3,13 @@
 	<ul class="pl-0">
 		<a href="{{ route('shop.index')}}">All Product</a>
 		<h5>Category</h5>
-		@foreach ($categories as $category)
-		<li>
-			<button class="dropdown-btn"><a href="{{ route('shop.index', ['category'=>$category->name]) }}">{{ ucwords($category->name) }}</a></button>
-		</li>
-		@endforeach
+		<div class="dropdown-btn">
+			@foreach ($categories as $category)
+			<li ">
+				<a href="{{ route('shop.index', ['category'=>$category->name]) }}">{{ ucwords($category->name) }}</a>
+			</li>
+			@endforeach
+		</div>
 
 		<h5>Brand</h5>
 		<div class="dropdown-btn">

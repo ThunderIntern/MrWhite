@@ -16,14 +16,14 @@
 				<div class="card-deck">
 
 					<div class="card text-dark invinsible ">
-						<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ "image/" . $products->url_gambar }}" class="image1"></a>
+						<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ URL::to('image/', $products->url_gambar) }}" class="image1"></a>
 						<div class="middle">
 							<p class="card-text">{{ $products->deskripsi }}</p>
 						</div>
-						<div class="card-footer bg-transparent text-center">
+						<div class="card-footer text-white bg-transparent text-center">
 							<a href="{{ route('shop.show', $products->barcode) }}">
-								<p>{{ ucwords($products->nama) }}</p>
-								<p>Rp. {{ $products->presentPrice() }}</p>
+								<h4>{{ ucwords($products->nama) }}</h4>
+								<h6>Rp. {{ $products->presentPrice() }}</h6>
 							</a>
 						</div>
 					</div>

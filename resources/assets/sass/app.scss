@@ -185,7 +185,7 @@
   color: #000000;
 }
 
-.card a:hover{
+.card-footer a:hover{
   color: #19B5FE;
 }
 //css for navbar
@@ -306,6 +306,7 @@ ul li a.active:hover {
 
 .card-footer {
   font-family: 'Kalam', cursive;
+  margin-bottom: 2rem;
 }
 
 .sidenav {

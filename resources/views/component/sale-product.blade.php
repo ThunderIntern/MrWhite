@@ -12,7 +12,7 @@
 					
 					@foreach($offer as $offers)
 					<div class="card invinsible text-dark col-md col-sm col-xs-6">
-						<a href="{{ route('shop.show', $offers->barcode) }}"><img src="{{ "image/" . $offers->url_gambar }}" class="image1"></a>
+						<a href="{{ route('shop.show', $offers->barcode) }}"><img src="{{ URL::to('image/',$offers->url_gambar) }}" class="image1"></a>
 						<div class="middle">
 							<p>{{ $offers->deskripsi }}</p>
 						</div>
