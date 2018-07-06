@@ -30,6 +30,7 @@ Route::get('/detail', function () {
 Route::get('/simple', 'catalogController@create');
 Route::resource('admin','AdminController');
 Route::resource('banner','BannerController');
+Route::resource('homepage','HomepageController');
 //admin
 Route::resource('admin','AdminController');
 Route::get('/login', 'AdminController@login');
@@ -42,3 +43,4 @@ Route::get('admin/katalog/produkBaru', ['uses' => 'AdminController@produkBaru','
 Route::get('admin/webSetting/component', ['uses' => 'AdminController@component','as' => 'admin.component']);
 Route::get('admin/webSetting/homepage','AdminController@webSetting')->name('web.setting');
 Route::get('admin/webSetting/banner','BannerController@index')->name('banner');
+Route::get('admin/webSetting/preview','PreviewController@index')->name('preview');

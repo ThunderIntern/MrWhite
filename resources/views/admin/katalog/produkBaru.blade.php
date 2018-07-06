@@ -141,7 +141,7 @@
                 <div class="col-sm-10 checkbox-radios">
                   <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                      <input id="bukalapak" class="form-check-input" type="checkbox" value=""> Bukalapak
+                      <input id="bukalapak" class="form-check-input" name="bukalapak" type="checkbox" value="Bukalapak"> Bukalapak
                       <span class="form-check-sign">
                         <span class="check"></span>
                       </span>
@@ -149,23 +149,7 @@
                   </div>
                   <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                      <input id="shopee" class="form-check-input" type="checkbox" value=""> Shopee
-                      <span class="form-check-sign">
-                        <span class="check"></span>
-                      </span>
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input id="lazada" class="form-check-input" type="checkbox" value=""> Lazada
-                      <span class="form-check-sign">
-                        <span class="check"></span>
-                      </span>
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input id="tokopedia" class="form-check-input" type="checkbox" value=""> Tokopedia
+                      <input id="tokopedia" class="form-check-input" name="tokopedia" type="checkbox" value="Tokopedia"> Tokopedia
                       <span class="form-check-sign">
                         <span class="check"></span>
                       </span>
@@ -177,25 +161,7 @@
                 <label class="col-sm-2 col-form-label">Link Bukalapak</label>
                 <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="text" class="form-control">
-                    <span class="bmd-help">*Wajib diisi</span>
-                  </div>
-                </div>
-              </div>
-              <div id="shopeee" class="row" style="display:none">
-                <label class="col-sm-2 col-form-label">Link Shopee</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <input type="text" class="form-control">
-                    <span class="bmd-help">*Wajib diisi</span>
-                  </div>
-                </div>
-              </div>
-              <div id="lazadaa" class="row" style="display:none">
-                <label class="col-sm-2 col-form-label">Link Lazada</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <input type="text" class="form-control">
+                    <input type="text" name="bukalapakk" class="form-control">
                     <span class="bmd-help">*Wajib diisi</span>
                   </div>
                 </div>
@@ -204,7 +170,7 @@
                 <label class="col-sm-2 col-form-label">Link Tokopedia</label>
                 <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="text" class="form-control">
+                    <input type="text" name="tokopediaa" class="form-control">
                     <span class="bmd-help">*Wajib diisi</span>
                   </div>
                 </div>

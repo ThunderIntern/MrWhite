@@ -33,9 +33,8 @@
 						<div class="card-footer bg-transparent">
 							<h3>Rp. {{ $product_detail->presentPrice() }}</h3>
 						</div>
-						
-						<p href="{{ $link->link }}" class="btn btn-awsm" target="_blank">Beli Sekarang</p>
-					</div>
+
+						</div>
 
 				</div>
 			</div>

@@ -154,6 +154,7 @@ class AdminController extends Controller
          $request->file('gambar')->move("image/", $fileName);
          $catalog->url_gambar = ($url_gambar);
          $catalog->save();
+
          $id_cat = $request->id_catalog;
          $insert = [
            $request->perawatan,
@@ -163,20 +164,11 @@ class AdminController extends Controller
 
          $product = Catalog::find($id_cat);
          $product->categories()->attach($insert);
-         // $product->categories()->attach($hba);
-         // $product->categories()->attach($hbr);
-         // $product->save();
 
-
-         // $cata_cate->catalog_id = $request->id_catalog;
-         // $cata_cate->category_id = $request->perawatan;
-         // $cata_cate->catalog_id = $request->id_catalog;
-         // $cata_cate->category_id = $request->hba;
-         // $cata_cate->catalog_id = $request->id_catalog;
-         // $cata_cate->category_id = $request->hbr;
-         // $cata_cate->save();
-         // $category->name = $request->brand;
-         // $category->name = $request->bahan;
+         $link->tag = $request->bukalapak;
+         $link->link = $request->bukalapakk;
+         $link->catalog_id = $id_cat;
+         $link->save();
          return redirect()->back();
      }
 }

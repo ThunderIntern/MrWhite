@@ -214,30 +214,6 @@ $(document).ready(function() {
   });
 });
 $(document).ready(function() {
-  $("#shopee").change(function () {
-      if (this.checked) {
-          //menampilkan a text box
-          $("#shopeee").show();
-      } else {
-          //hide the text box
-          $("#shopeee").hide();
-      }
-
-  });
-});
-$(document).ready(function() {
-  $("#lazada").change(function () {
-      if (this.checked) {
-          //menampilkan a text box
-          $("#lazadaa").show();
-      } else {
-          //hide the text box
-          $("#lazadaa").hide();
-      }
-
-  });
-});
-$(document).ready(function() {
   $("#tokopedia").change(function () {
       if (this.checked) {
           //menampilkan a text box

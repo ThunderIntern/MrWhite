@@ -70,12 +70,6 @@
                           <span class="sidebar-normal"> Homepage </span>
                         </a>
                     </li>
-                    <li class="nav-item {{ set_active('admin.component') }}">
-                        <a class="nav-link" href="{{URL::to('admin/webSetting/component')}}">
-                          <span class="sidebar-mini"> C </span>
-                          <span class="sidebar-normal"> Component </span>
-                        </a>
-                    </li>
                     <li class="nav-item {{ set_active('banner') }}">
                         <a class="nav-link" href="{{URL::to('admin/webSetting/banner')}}">
                           <span class="sidebar-mini"> B </span>
