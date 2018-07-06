@@ -10,7 +10,7 @@
 			<h1>Top Brand</h1>
 		</div>
 	</div>
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+{{-- 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		<div class="row carousel-inner w-100 mx-auto">
 			@foreach ($brand as $brands)
 			<div class="carousel-item col-md {{ $loop->first ? 'active' : '' }}">
@@ -29,6 +29,13 @@
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
 		</a>
-	</div>
+	</div> --}}
+		<div class="owl-carousel owl-theme">
+			@foreach ($brand as $brands)
+			<div class="item">
+				<a href="{{ route('shop.index', ['brands'=>$brands->name]) }}"><img src="/image/{{ $brands->name }}.jpeg" class="image1"></a>
+			</div>
+			@endforeach
+		</div>
 </div>
 </section>

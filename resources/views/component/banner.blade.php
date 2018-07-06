@@ -3,9 +3,10 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-12">
 				<div class="card invinsible">
-					<img src="{{ asset("image/" . $banner->url_gambar) }}" class="image3">
+					<a href="{{ $banner->url_link }}" target="_blank"><img src="{{ asset("image/" . $banner->url_gambar) }}" class="image3"></a>
 				</div>
 			</div>
 		</div>
+		
 	</div>
 </section>

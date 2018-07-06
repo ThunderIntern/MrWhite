@@ -108,8 +108,21 @@ class AdminController extends Controller
     }
 
     public function webSetting(){
-        $setting = Setting::get();
+        $setting = Setting::orderBy('position')->get();
+        // dd($setting);
         return view('\admin\webSetting\homepage', compact('setting'));
+    }
+
+    public function row_changes(){
+      $position = request()->position;
+      $i = 1;
+
+      foreach ($position as $key => $value) {
+        $sql = Setting::where('id', $value)->update(['position'=>$i]);
+        
+        $sql->save();
+        $i++;
+      }
     }
 
     public function banner(){
@@ -123,7 +136,10 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9b30e0a5209871a2b0c622fdc5a21b7b32068388
     public function store(Request $request)
     {
         $catalog = new Catalog();
@@ -164,6 +180,7 @@ class AdminController extends Controller
         // $cata_cate->save();
         // $category->name = $request->brand;
         // $category->name = $request->bahan;
+<<<<<<< HEAD
         return redirect()->back();
     }
 
@@ -184,6 +201,11 @@ class AdminController extends Controller
     //     $data->save();
     //     return redirect()->back();
     // }
+=======
+        // return redirect()->back();
+    }
+
+>>>>>>> 9b30e0a5209871a2b0c622fdc5a21b7b32068388
     /**
      * Show the form for editing the specified resource.
      *
@@ -226,4 +248,8 @@ class AdminController extends Controller
         //
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b30e0a5209871a2b0c622fdc5a21b7b32068388
 }

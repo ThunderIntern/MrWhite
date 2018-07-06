@@ -12,7 +12,7 @@
 					@foreach ($category as $categories)
 						<div class="card invinsible text-dark col-6 col-md">
 							<a href="{{ route('shop.index', ['category'=>$categories->name]) }}"><img src="/image/{{ $categories->name }}.jpg" class="image4"></a>
-							<div class="middle">
+							<div class="middle2">
 								<h2>{{ ucwords($categories->name) }}</h2>
 							</div>
 						</div>
