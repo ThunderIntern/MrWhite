@@ -1,9 +1,9 @@
-@extends('admin.part.layout', ['title'=>'Katalog'])
+@extends('admin.part.layout', ['title'=>'Web Setting'])
 @section('content')
 <div class="main-panel">
 @component('admin/part/navbar')
   @slot('header')
-    Data Produk
+    Home Page
   @endslot
 @endcomponent
 
@@ -20,12 +20,13 @@
 						<div>
 							<div class="card-body">
 								<div class="material-datatables">
-									<table class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+									<table id="dataProduk" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
 										<thead class="thead-dark">
 											<tr>
 												<th>ID</th>
 												<th>Jenis</th>
 												<th>Isi</th>
+                        <th>Action</th>
 											</tr>
 										</thead>
 										<tbody style="color: #000;">
@@ -34,6 +35,18 @@
 													<td>{{ $settings->id }}</td>
 													<td>{{ $settings->jenis }}</td>
 													<td>{{ $settings->isi }}</td>
+                          <td>
+                            <div class='btn-group' role='group' aria-label='...'>
+                              <a data-toggle="modal" href="#" class="show-modal btn btn-link btn-info btn-just-icon" title="preview"><i class="material-icons">remove_red_eye</i></a>
+                              <div class="togglebutton">
+                                <label>
+                                  <input type="checkbox" checked="">
+                                  <span class="toggle"></span>
+                                  
+                                </label>
+                              </div>
+                            </div>
+                          </td>
 												</tr>
 											@endforeach
 										</tbody>

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Catalog extends Model
 {
+    protected $table = 'catalogs';
+    protected $fillable = ['id', 'nama', 'barcode', 'harga', 'deskripsi', 'url_gambar'];
     public $timestamps = false;
     public function presentPrice(){
     	return number_format($this->harga, 0, '', '.');

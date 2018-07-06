@@ -26,22 +26,20 @@
                         <th>Nama</th>
                         <th>Harga</th>
                         <th>Gambar</th>
-                        <th>Tersedia Di</th>
+                        <!-- <th>Tersedia Di</th> -->
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       @foreach ($product as $products)
+
                       <tr>
                         <td>{{$products->barcode}}</td>
                         <td>{{ucwords($products->nama)}}</td>
                         <td>Rp. {{ $products->presentPrice() }}</td>
-                        <td><img src="{{ URL::to($products->url_gambar) }}"width=100px/></td>
-                        <td>{{ucwords($products->links[0]->tag) }}</td>
+                        <td><img src="{{ URL::to('image/',$products->url_gambar) }}"width=100px/></td>
+                        <!-- <td>{{ucwords($products->links[0]->tag) }}</td> -->
                         <td>
-                          @foreach ($category as $categories)
-                            {{$categories->name}}
-                          @endforeach
                           <div class='btn-group' role='group' aria-label='...'>
                             <a data-toggle="modal" href="#" class="show-modal btn btn-link btn-info btn-just-icon" title="lihat" @include('admin.part.data')><i class="material-icons">remove_red_eye</i></a>
                             <a data-toggle="modal" href="#edit" class="btn btn-link btn-success btn-just-icon" title="edit"><i class="material-icons">edit</i></a>

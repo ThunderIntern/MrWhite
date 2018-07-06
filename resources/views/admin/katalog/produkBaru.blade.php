@@ -20,6 +20,15 @@
             <form method="post" action="{{route('admin.store')}}" class="form-horizontal" enctype="multipart/form-data">
               {{ csrf_field() }}
               <div class="row">
+                <label class="col-sm-2 col-form-label">ID Katalog</label>
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="id_catalog" value="{{$products}}">
+                    <span class="bmd-help">*Wajib diisi</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
                 <label class="col-sm-2 col-form-label">Nama Produk</label>
                 <div class="col-sm-10">
                   <div class="form-group">
@@ -73,7 +82,7 @@
                 <div class="col-sm-10 checkbox-radios">
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input perawatan" type="radio" name="perawatan" value="hair" onClick="javascript:return yourfunction(1)" checked>Hair
+                      <input class="form-check-input perawatan" type="radio" name="perawatan" value="1" onClick="javascript:return yourfunction(1)" checked>Hair
                       <span class="circle">
                         <span class="check"></span>
                       </span>
@@ -81,7 +90,7 @@
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input perawatan" type="radio" name="perawatan" value="face" onClick="javascript:return yourfunction(2)">Face
+                      <input class="form-check-input perawatan" type="radio" name="perawatan" value="2" onClick="javascript:return yourfunction(2)">Face
                       <span class="circle">
                         <span class="check"></span>
                       </span>
@@ -92,18 +101,18 @@
               <div class="row">
                 <label class="col-sm-2 col-form-label">Brand</label>
                 <div id="brand_hair" class="col-sm-10">
-                  <select class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select">
+                  <select name="hbr" class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select">
                     <option disabled selected>Pilih salah satu</option>
                     @foreach($hair_brand as $hba)
-                    <option value="{{$hba->name}}">{{ucwords($hba->name)}}</option>
+                    <option value="{{$hba->id}}">{{ucwords($hba->name)}}</option>
                     @endforeach
                   </select>
                 </div>
                 <div id="brand_face" class="col-sm-10" style="display:none">
-                  <select class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select" >
+                  <select name="fbr" class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select" >
                     <option disabled selected>Pilih salah satu</option>
                     @foreach($face_brand as $hba)
-                    <option value="{{$hba->name}}">{{ucwords($hba->name)}}</option>
+                    <option value="{{$hba->id}}">{{ucwords($hba->name)}}</option>
                     @endforeach
                   </select>
                 </div>
@@ -111,18 +120,18 @@
               <div class="row">
                 <label class="col-sm-2 col-form-label">Bahan</label>
                 <div id="bahan_hair" class="col-sm-10">
-                  <select class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select">
+                  <select name="hba" class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select">
                     <option disabled selected>Pilih salah satu</option>
                     @foreach($hair_bahan as $hba)
-                    <option value="{{$hba->name}}">{{ucwords($hba->name)}}</option>
+                    <option value="{{$hba->id}}">{{ucwords($hba->name)}}</option>
                     @endforeach
                   </select>
                 </div>
                 <div id="bahan_face" class="col-sm-10" style="display:none">
                   <select class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select">
-                    <option disabled selected>Pilih salah satu</option>
+                    <option name="fba" disabled selected>Pilih salah satu</option>
                     @foreach($face_bahan as $hba)
-                    <option value="{{$hba->name}}">{{ucwords($hba->name)}}</option>
+                    <option value="{{$hba->id}}">{{ucwords($hba->name)}}</option>
                     @endforeach
                   </select>
                 </div>

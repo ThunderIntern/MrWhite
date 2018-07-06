@@ -17,13 +17,13 @@ class seeder_users extends Seeder
               'email' => 'kikirizkiamalinda@mrwhite.com',
               'password'=> '123456789',
               'nama'=> 'Kiki Rizki Amalinda',
-              'foto'=> 'image/kiki.jpg',
+              'foto'=> 'kiki.jpg',
           ],
           [
               'email' => 'tririzkiherlambang@mrwhite.com',
               'password'=> '123456789',
               'nama'=> 'Tri Rizki Herlambang',
-              'foto'=> 'image/bams.jpg',
+              'foto'=> 'bams.jpg',
             ],
         ]);
     }
