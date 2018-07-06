@@ -20,9 +20,12 @@ Route::get('/shop/{product}', 'shop_controller@show')->name('shop.show');
 Route::get('/shop/{name}', 'shop_controller@show_category')->name('shop.category');
 Route::get('/search', 'shop_controller@search')->name('search');
 
+<<<<<<< HEAD
 Route::get('admin/webSetting/homepage','AdminController@webSetting')->name('web.setting');
 Route::resource('admin','AdminController');
 Route::resource('banner','BannerController');
+=======
+>>>>>>> d81867894150cb0ec419632b8444b8cac83abdc5
 // Route::get('/list', function () {
 //     return view('list_product');
 // });
@@ -31,7 +34,8 @@ Route::get('/detail', function () {
 });
 
 Route::get('/simple', 'catalogController@create');
-
+Route::resource('admin','AdminController');
+Route::resource('banner','BannerController');
 //admin
 Route::resource('admin','AdminController');
 Route::get('/login', 'AdminController@login');

@@ -26,11 +26,7 @@
 												<th>ID</th>
 												<th>Jenis</th>
 												<th>Isi</th>
-<<<<<<< HEAD
-                        <th>Action</th>
-=======
 												<th>Urutan</th>
->>>>>>> 9b30e0a5209871a2b0c622fdc5a21b7b32068388
 											</tr>
 										</thead>
 										<tbody id="row_position" style="color: #000;">
@@ -39,24 +35,8 @@
 													<td>{{ $settings->id }}</td>
 													<td>{{ $settings->jenis }}</td>
 													<td>{{ $settings->isi }}</td>
-<<<<<<< HEAD
-                          <td>
-                            <div class='btn-group' role='group' aria-label='...'>
-                              <a data-toggle="modal" href="#" class="show-modal btn btn-link btn-info btn-just-icon" title="preview"><i class="material-icons">remove_red_eye</i></a>
-                              <div class="togglebutton">
-                                <label>
-                                  <input type="checkbox" checked="">
-                                  <span class="toggle"></span>
-                                  
-                                </label>
-                              </div>
-                            </div>
-                          </td>
-=======
 													<form action="#">
 														<td><input type="" name="" value="" placeholder="{{ $settings->position }}"></td>
-													
->>>>>>> 9b30e0a5209871a2b0c622fdc5a21b7b32068388
 												</tr>
 											@endforeach
 										</tbody>
@@ -70,10 +50,10 @@
 				</div><!--  end card  -->
 			</div> <!-- end col-md-12 -->
 		</div> <!-- end row -->
-		
 
 
-		
+
+
 	</div>
 </div>
 <!-- Modal Edit -->
