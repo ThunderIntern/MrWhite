@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Catalog extends Model
 {
+    public $timestamps = false;
     public function presentPrice(){
     	return number_format($this->harga, 0, '', '.');
     }

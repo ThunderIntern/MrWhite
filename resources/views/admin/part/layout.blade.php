@@ -168,6 +168,94 @@
   });
 </script>
 
+<!-- Store -->
+<script>
+$(document).ready(function() {
+  $("#bukalapak").change(function () {
+      if (this.checked) {
+          //menampilkan a text box
+          $("#bukalapakk").show();
+      } else {
+          //hide the text box
+          $("#bukalapakk").hide();
+      }
+
+  });
+});
+$(document).ready(function() {
+  $("#shopee").change(function () {
+      if (this.checked) {
+          //menampilkan a text box
+          $("#shopeee").show();
+      } else {
+          //hide the text box
+          $("#shopeee").hide();
+      }
+
+  });
+});
+$(document).ready(function() {
+  $("#lazada").change(function () {
+      if (this.checked) {
+          //menampilkan a text box
+          $("#lazadaa").show();
+      } else {
+          //hide the text box
+          $("#lazadaa").hide();
+      }
+
+  });
+});
+$(document).ready(function() {
+  $("#tokopedia").change(function () {
+      if (this.checked) {
+          //menampilkan a text box
+          $("#tokopediaa").show();
+      } else {
+          //hide the text box
+          $("#tokopediaa").hide();
+      }
+
+  });
+});
+</script>
+
+<!-- Perawatan -->
+<script>
+function yourfunction(radioid) {
+  if(radioid == 1) {
+   	document.getElementById('brand_hair').style.display = 'block';
+    document.getElementById('brand_face').style.display = 'none';
+    document.getElementById('bahan_hair').style.display = 'block';
+    document.getElementById('bahan_face').style.display = 'none';
+  }
+  else if(radioid == 2) {
+    document.getElementById('brand_hair').style.display = 'none';
+    document.getElementById('brand_face').style.display = 'block';
+    document.getElementById('bahan_hair').style.display = 'none';
+    document.getElementById('bahan_face').style.display = 'block';
+  }
+}
+</script>
+<!-- input gambar -->
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#showgambar').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#inputgambar").change(function () {
+        readURL(this);
+    });
+</script>
+
 <!-- Sweet Alert 2 -->
 <script>
   $('#delete').click(function() {
