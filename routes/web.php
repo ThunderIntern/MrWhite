@@ -20,6 +20,9 @@ Route::get('/shop/{product}', 'shop_controller@show')->name('shop.show');
 Route::get('/shop/{name}', 'shop_controller@show_category')->name('shop.category');
 Route::get('/search', 'shop_controller@search')->name('search');
 
+
+Route::resource('admin','AdminController');
+Route::resource('banner','BannerController');
 // Route::get('/list', function () {
 //     return view('list_product');
 // });

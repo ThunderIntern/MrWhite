@@ -22,11 +22,13 @@ class index_controller extends Controller
 
     	$now = Carbon::today();
     	$banner = Banner::whereDate('date_off','>=', $now)->WhereDate('date_show','<=',$now)->first();
+        $count = Banner::count();
+
         if ($banner) {
-            return view('index', compact('offer', 'brand', 'product','category','banner','setting'));
+            return view('index', compact('offer', 'brand', 'product','category','banner','setting','count'));
         }else {
             $banner = Banner::whereDate('date_off','<=', $now)->orWhereDate('date_show','>=',$now)->first();
-            return view('index', compact('offer', 'brand', 'product','category','banner','setting'));
+            return view('index', compact('offer', 'brand', 'product','category','banner','setting','count'));
         }
     }
 }
