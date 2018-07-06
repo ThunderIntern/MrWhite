@@ -19,13 +19,6 @@ Route::get('/shop', 'shop_controller@index')->name('shop.index');
 Route::get('/shop/{product}', 'shop_controller@show')->name('shop.show');
 Route::get('/shop/{name}', 'shop_controller@show_category')->name('shop.category');
 Route::get('/search', 'shop_controller@search')->name('search');
-<<<<<<< HEAD
-
-Route::get('admin/webSetting/homepage','AdminController@webSetting')->name('web.setting');
-Route::resource('admin','AdminController');
-Route::resource('banner','BannerController');
-=======
->>>>>>> 9b30e0a5209871a2b0c622fdc5a21b7b32068388
 
 // Route::get('/list', function () {
 //     return view('list_product');
@@ -35,7 +28,8 @@ Route::get('/detail', function () {
 });
 
 Route::get('/simple', 'catalogController@create');
-
+Route::resource('admin','AdminController');
+Route::resource('banner','BannerController');
 //admin
 Route::resource('admin','AdminController');
 Route::get('/login', 'AdminController@login');
