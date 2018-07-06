@@ -13,7 +13,7 @@ use Carbon\Carbon;
 class index_controller extends Controller
 {
     public function index(){
-        $setting = Setting::get();
+        $setting = Setting::orderBy('position')->get();
         $product = Catalog::inRandomOrder()->take(8)->get();
         $recomended= "";
         $brand = DB::table('categories')-> where('jenis','=', 'brand')->inRandomOrder()->paginate(6);
@@ -22,7 +22,6 @@ class index_controller extends Controller
 
     	$now = Carbon::today();
     	$banner = Banner::whereDate('date_off','>=', $now)->WhereDate('date_show','<=',$now)->first();
-        // dd($banner);
         if ($banner) {
             return view('index', compact('offer', 'brand', 'product','category','banner','setting'));
         }else {

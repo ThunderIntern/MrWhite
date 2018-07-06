@@ -23,17 +23,18 @@
 						</div>
 
 						<div class="card mb-3 col-6 invinsible font-detail">
-						<div class="card-header">
+						<div class="card-header bg-transparent">
 							<h1>{{ ucwords($product_detail->nama) }}</h1>
 						</div>
 						<div class="card-body">
 							{{-- <h3>{{ $product_detail->barcode }}</h3> --}}
 							<p>{{ $product_detail->deskripsi }}</p>
 						</div>
-						<div class="card-footer">
+						<div class="card-footer bg-transparent">
 							<h3>Rp. {{ $product_detail->presentPrice() }}</h3>
-							<a href="{{ $link->link }}" class="btn btn-primary" style="color: white;" target="_blank">Beli Sekarang</a>
 						</div>
+						
+						<p href="{{ $link->link }}" class="btn btn-awsm" target="_blank">Beli Sekarang</p>
 					</div>
 
 				</div>

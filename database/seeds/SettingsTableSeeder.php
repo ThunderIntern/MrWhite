@@ -16,22 +16,27 @@ class SettingsTableSeeder extends Seeder
         	[
 			'jenis'=> 'category',
 			'isi'=> 'category-list',
+            'position'=>'1'
         	],
         	[
 			'jenis'=> 'brand',
 			'isi'=> 'brand-category',
+            'position'=>'2'
         	],
         	[
 			'jenis'=> 'sale',
 			'isi'=> 'sale-product',
+            'position'=>'3'
         	],
         	[
 			'jenis'=> 'banner',
 			'isi'=> 'banner',
+            'position'=>'4'
         	],
         	[
 			'jenis'=> 'catalog',
 			'isi'=> 'product-catalog',
+            'position'=>'5'
         	],
         ]);
     }

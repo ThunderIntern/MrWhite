@@ -12,7 +12,7 @@
 					<div class="col-md-4 col-sm-4">
 						<h4>About Us</h4>
 						<ul class="list-unstyled">
-							<li><h6>Kunjungi Kami di:</h6></li>
+							<li><h6>Visit Us:</h6></li>
 							<li><h6>Letjen Sutoyo 102, Blimbing</h6></li>
 							<li><h6>Malang-Jawa Timur</h6></li>
 						</ul>
@@ -26,7 +26,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<span>&copy; Mr. White</span>
+						<span>&copy; Mr. White 2018</span>
 					</div>
 				</div>
 				

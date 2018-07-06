@@ -118,8 +118,21 @@ class AdminController extends Controller
     }
 
     public function webSetting(){
-        $setting = Setting::get();
+        $setting = Setting::orderBy('position')->get();
+        // dd($setting);
         return view('\admin\webSetting\homepage', compact('setting'));
+    }
+
+    public function row_changes(){
+      $position = request()->position;
+      $i = 1;
+
+      foreach ($position as $key => $value) {
+        $sql = Setting::where('id', $value)->update(['position'=>$i]);
+        
+        $sql->save();
+        $i++;
+      }
     }
 
     public function banner(){

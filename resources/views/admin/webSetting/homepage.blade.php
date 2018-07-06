@@ -26,18 +26,24 @@
 												<th>ID</th>
 												<th>Jenis</th>
 												<th>Isi</th>
+												<th>Urutan</th>
 											</tr>
 										</thead>
-										<tbody style="color: #000;">
+										<tbody id="row_position" style="color: #000;">
 											@foreach ($setting as $settings)
-												<tr>
+												<tr id="{{ $settings->id }}">
 													<td>{{ $settings->id }}</td>
 													<td>{{ $settings->jenis }}</td>
 													<td>{{ $settings->isi }}</td>
+													<form action="#">
+														<td><input type="" name="" value="" placeholder="{{ $settings->position }}"></td>
+													
 												</tr>
 											@endforeach
 										</tbody>
 									</table>
+									<input type="button" name="Submit" placeholder="Submit">Submit
+									</form>
 								</div>
 							</div>
 						</div>
@@ -45,6 +51,10 @@
 				</div><!--  end card  -->
 			</div> <!-- end col-md-12 -->
 		</div> <!-- end row -->
+		
+
+
+		
 	</div>
 </div>
 <!-- Modal Edit -->

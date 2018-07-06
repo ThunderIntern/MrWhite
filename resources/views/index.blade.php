@@ -6,10 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="{{mix('css/app.css')}}">
 </head>
 <body>
-@include('component.hero')
-@foreach ($setting as $settings)
+	@include('component.hero')
+	@foreach ($setting as $settings)
 	@include("component." . $settings['isi'])
-@endforeach
+	@endforeach
 
 {{-- @include('component.category-list')
 @include('component.brand-category')
@@ -17,7 +17,7 @@
 @include('component.banner')
 @include('component.product-catalog') --}}
 @include('partials._footer')
-<script type="text/javascript" src="{{mix('js/app.js')}} "></script>
 
+<script type="text/javascript" src="{{mix('js/app.js')}} "></script>
 </body>
 </html>

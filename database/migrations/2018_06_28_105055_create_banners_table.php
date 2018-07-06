@@ -17,6 +17,7 @@ class CreateBannersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('url_gambar');
+            $table->text('url_link');
             $table->date('date_show');
             $table->date('date_off');
         });

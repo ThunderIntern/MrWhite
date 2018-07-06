@@ -21,6 +21,7 @@ Route::get('/shop/{name}', 'shop_controller@show_category')->name('shop.category
 Route::get('/search', 'shop_controller@search')->name('search');
 Route::get('admin/webSetting/homepage','AdminController@webSetting')->name('web.setting');
 Route::get('admin/webSetting/banner','AdminController@banner')->name('banner');
+Route::get('web-setting','AdminController@row_changes');
 Route::resource('admin','AdminController');
 
 // Route::get('/list', function () {

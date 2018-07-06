@@ -20,8 +20,7 @@
 	<div>
 		<div class="products-header">
 			<h1> {{ ucwords($category_name) }}</h1>
-			<div class="dropdown">
-				
+			<div class="dropdown d-none d-sm-block d-md-block">
 				<a href="#" class="dropdown-toggle label-sort" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><strong>Sort By: {{ request()->sort }}</strong></a>
 				<ul class="dropdown-menu">
 					<li><a href="{{ route('shop.index',['category'=>request()->category, 'sort'=> 'Low to High']) }}">Low to High</a></li>
@@ -31,9 +30,9 @@
 				</ul>
 			</div>
 		</div>
-		<div class="products text-center">
+		<div class="products text-center ">
 			@forelse($product as $products)
-				<div class="product card invinsible">
+				<div class="product col-xs col-sm col-md d-block card invinsible">
 					<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ "image/" . $products->url_gambar }}" class="image1"></a>
 					<div class="card-footer invinsible">
 						<a href="{{ route('shop.show', $products->barcode) }}">

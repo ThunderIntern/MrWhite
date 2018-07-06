@@ -1,7 +1,7 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Kalam|Kaushan+Script|Chela+One|Permanent+Marker|Boogaloo|Cabin");
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Markazi+Text|Kalam|Kaushan+Script|Chela+One|Permanent+Marker|Boogaloo|Cabin");
 
 // Variables
 @import "variables";
@@ -11,7 +11,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import './select2.min.css';
 @import './component/_shop.scss';
-
+@import './component/_pagination.scss';
+@import './component/_search.scss';
+@import '~owl.carousel/dist/assets/owl.carousel.css';
+@import '~owl.carousel/dist/assets/owl.theme.default.css';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+// @import '~flickity/css/flickity';
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -22,12 +27,12 @@
 .breadcrumb-item{
   font-family: 'Cabin', cursive;
   li{
-      color: #000000;
-      list-style: none;
-    }
-    a{
-      color: #000000;
-    }
+    color: #000000;
+    list-style: none;
+  }
+  a{
+    color: #000000;
+  }
 }
 
 .breadcrumb-item a:hover{
@@ -36,12 +41,12 @@
 
 .list-unstyled{
   li{
-      color: #fff;
-      list-style: none;
-    }
-    a{
-      color: #fff;
-    }
+    color: #fff;
+    list-style: none;
+  }
+  a{
+    color: #fff;
+  }
 }
 
 .list-unstyled a:hover{
@@ -80,8 +85,9 @@
 }
 
 .image3 {
-  height: 30rem;
+  max-height: 30rem;
   object-fit: fill;
+  height: auto !important;
   width: 100%;
   opacity: 1;
   display: block;
@@ -90,9 +96,9 @@
 }
 
 .image4{
-  height: 20rem;
-  object-fit:fill;
   width: 100%;
+  height: 20rem !important;
+  object-fit:fill;
   opacity: 1;
   display: block;
   transition: .5s ease;
@@ -110,6 +116,21 @@
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
+
+}
+
+.middle2{
+  font-family: 'Chela One', cursive;
+  transition: .5s ease;
+  color: #000;
+  opacity: 0;
+  position: absolute;
+  font-size: 24px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  top: 50%;
+  left: 50%;
 }
 
 .overlay {
@@ -134,8 +155,17 @@
 }
 .card:hover .image2 {
   opacity: 0.4;
+
+}.card:hover .image3 {
+  opacity: 0.7;
+}
+.card:hover .image4 {
+  opacity: 0.4;
 }
 .card:hover .middle {
+  opacity: 1;
+}
+.card:hover .middle2 {
   opacity: 1;
 }
 
@@ -161,9 +191,9 @@
 //css for navbar
 /* Add a black background color to the top navigation */
 .topnav {
-    position: relative;
-    background-color: #333;
-    overflow: hidden;
+  position: relative;
+  background-color: #333;
+  overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
@@ -220,30 +250,30 @@
 
 //horizontal list
 .border-awsm{
-   border-bottom: 1px solid #000;
-   float:left;
-   width:100%;
-   overflow:hidden;
-   position:relative;
-   margin-bottom: 4rem;
+ border-bottom: 1px solid #000;
+ float:left;
+ width:100%;
+ overflow:hidden;
+ position:relative;
+ margin-bottom: 4rem;
 }
 .centeredmenu {
-   font-family: 'Gloria Hallelujah', cursive;
+ font-family: 'Markazi Text', cursive;
+ float:left;
+ width:100%;
+ overflow:hidden;
+ position:relative;
+ ul {
+   clear:left;
    float:left;
-   width:100%;
-   overflow:hidden;
+   list-style:none;
+   margin:0;
+   padding:0;
    position:relative;
-   ul {
-     clear:left;
-     float:left;
-     list-style:none;
-     margin:0;
-     padding:0;
-     position:relative;
-     left:50%;
-     text-align:center;
-  }
-  ul li {
+   left:50%;
+   text-align:center;
+ }
+ ul li {
    display:block;
    float:left;
    list-style:none;
@@ -252,24 +282,25 @@
    position:relative;
    right:50%;
    padding:1rem;
-  }
-  h1 {
-    text-align:center;
-  }
-  ul li a {
+ }
+ h1 {
+  text-align:center;
+  font-size: 36pt;
+}
+ul li a {
 
-     text-decoration:none;
-     line-height:1.3em;
-  }
-  ul li a:hover {
-     background:#6C7A89;
-     color:#fff;
-  }
-  ul li a.active:hover {
-     color:#fff;
-     background:#000;
-     font-weight:bold;
-  }
+ text-decoration:none;
+ line-height:1.3em;
+}
+ul li a:hover {
+ background:#6C7A89;
+ color:#fff;
+}
+ul li a.active:hover {
+ color:#fff;
+ background:#000;
+ font-weight:bold;
+}
 }
 .centeredmenu ul li a.active,
 
@@ -278,82 +309,82 @@
 }
 
 .sidenav {
-    width: 25%;
-    position: absolute;
-    z-index: 1;
-    background-color: #eee;
-    overflow-x: hidden;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  width: 25%;
+  position: absolute;
+  z-index: 1;
+  background-color: #eee;
+  overflow-x: hidden;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 /* Style the sidenav links and the dropdown button */
 .sidenav a, .dropdown-btn {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 12px;
-    color: #000;
-    display: block;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #000;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
 }
 
 
 /* On mouse-over */
 .sidenav a:hover, .dropdown-btn:hover {
-    color: #4183D7;
+  color: #4183D7;
 }
 
 /* Main content */
 .main {
-    margin-left: 200px; /* Same as the width of the sidenav */
-    font-size: 20px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
 }
 
 /* Add an active class to the active dropdown button */
 .active {
-    color: black;
+  color: black;
 }
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
-    display: none;
-    background-color: #fff;
-    padding-left: 8px;
+  display: none;
+  background-color: #fff;
+  padding-left: 8px;
 }
 
 /* Optional: Style the caret down icon */
 .fa-caret-down {
-    float: right;
-    padding-right: 8px;
+  float: right;
+  padding-right: 8px;
 }
 
 /* Some media queries for responsiveness */
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 .sidebar-area {
-    background-color: #eee;
-    position: relative;
-    width: 20%;
+  background-color: #eee;
+  position: relative;
+  width: 20%;
 }
 
 .main {
-    margin-left: 140px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
 }
 
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 body, html {
@@ -385,26 +416,26 @@ body, html {
 }
 
 .hero .btn-awsm {
-    /* Positioning and sizing */
-    display: block;
-    width: 10rem;
-    
-    /* Padding and margins */
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    
-    /* Text styles */
-    color: black;
-    text-decoration: none;
-    font-size: 1em;
-    
-    /* Border styles */
-    border: 2px solid white;
-    border-radius: 1rem;
-    
+  /* Positioning and sizing */
+  display: block;
+  width: 10rem;
+
+  /* Padding and margins */
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Text styles */
+  color: black;
+  text-decoration: none;
+  font-size: 1em;
+
+  /* Border styles */
+  border: 2px solid white;
+  border-radius: 1rem;
+
 }
 
 .hero .input-inner{
@@ -416,9 +447,16 @@ body, html {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: -1rem;
-  font-family: 'Kalam', cursive;
+  font-family: 'Boogaloo', cursive;
+  font-size: 24px;
   text-decoration: none;
   border: 2px solid white;
+}
+
+
+
+.hero-inner{
+  font-family: 'Kalam', cursive;
 }
 
 .input-inner:hover{
@@ -426,27 +464,27 @@ body, html {
 }
 
 .btn-awsm {
-    /* Positioning and sizing */
-    display: block;
-    width: 10rem;
-    
-    /* Padding and margins */
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    
-    /* Text styles */
-    color: black;
-    text-decoration: none;
-    font-size: 1em;
-    
-    /* Border styles */
-    border: 2px solid gray;
-    border-radius: 1rem;
-    
+  /* Positioning and sizing */
+  display: block;
+  width: 10rem;
+
+  /* Padding and margins */
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+
+  /* Text styles */
+  color: black;
+  text-decoration: none;
+  font-size: 1em;
+
+  /* Border styles */
+  border: 2px solid gray;
+  border-radius: 1rem;
+
 }
 .btn-awsm:hover{
   color:white;
@@ -487,9 +525,9 @@ body, html {
 
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
-    .bgimg-1 {
-        background-attachment: scroll;
-    }
+  .bgimg-1 {
+    background-attachment: scroll;
+  }
 }
 
 .invinsible {
@@ -498,7 +536,7 @@ body, html {
 }
 
 .site-main {
-    width: 80%;
+  width: 80%;
 }
 
 .container{
@@ -560,3 +598,51 @@ body, html {
   }
 }
 
+.carousel-control-prev-icon {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVGhD7de9K0VhHMDxK1IM/gGULBiEhcEmBgaDibzskpcSg8FAkUkSJZuULFaDFMrCQDEqxaBMyEvk7fsrp063n3vPLdd9ntvvW5/l1n3u86tzz3NOzLIsy7IsK/vKwwjWUC0f+FgxDvD14xje1YhbBEOIO3hVJ14QHsK7QYbwifghvBpkFNoAAS8GGYe2+TDnB5mAtvF498iHkyW7nDQPuMQRtrGOBUxiAHKzaEYtSlGItNaN3/7Yf+0Z1zjFLjaxjGnIgduLNjSgAJFrwiu0H820DUSqAvLH1RZxgVwlZUhYDs6hLeCSLiSsHNoXXTOIhOXiAtqXXdKHpNXhCdoCrqhCpNrxDm2RTNtDSvVDWyjd3nADuensYwurmIEc0PIelHKz0H4sKrlEr3CCHcgZsIQpDKMHraiH3GiKkJbkdrwCbZPxZNNykNagBCmdwP+RDCOPC9rmw7x4jJdhFqENEPDmxUqGmYc2hPBmkKAxfMD7QaQOPML7QaRKnCEYRB5tvE3e7uZwiBb5wLIsy7Isy8q2YrFvCWbvZzzzLV8AAAAASUVORK5CYII=");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGmSURBVGhD7dbLKwVRHMDxq1goj4WU8spCkQVlQSywlJKd18JKKVaSshCl2MjCY8eSsvEHyKPsZEexU1KIkJWU1/enpm46986c+5g5p863Pou7OTO/7syZE3O5XC6XyxVOOZjDHbZRBSvrxk+cV/TDuoYQP4hnC/mwpkSDiDNUwIqSDSIe0A7j8xtEvKMXRhdkEPGJERhb0EHENyZhZDqDeBYh35+sJ9tmDdrQhzHMYhU7OMYF5EX+gupm/awjY8N0YRqbOMIl3qC6cDYsI+1kCHkBVRcI0zzS6gCqhaMwhZQqggn/hkd2s2Fo1wrVglH6QBO06oFqsagtQatOqBaKmmzzWpVDtVCUzlEI7a6hWjAKt0j5uL8A1aJhu0ctUq4UT1AtHpZHNCDtKjGAGWxgDye4wjNUF8+UFzQilPJQhnrIAVK2bflwTUAOkSs4hOpGk5EnoRlGpXuMv0EdjEtnEDldy+NsZEEHOUUJjC3IIPsogNH5DbKGXBhfokHkNDsKaxrE/yHk+NMCq6qGfNy8IXZRDCuTs9I4Ov5+uVwul8vlykax2C8aeFFiIUl65wAAAABJRU5ErkJggg==");
+}
+
+.sale{
+  font-family:'Kaushan Script', cursive;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+.gallery {
+  background: #EEE;
+}
+
+.gallery-cell {
+  width: 28%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  counter-increment: gallery-cell;
+}
+
+.gallery-cell.is-selected {
+  background: #ED2;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.item:hover .image1{
+  opacity: 0.4;
+}

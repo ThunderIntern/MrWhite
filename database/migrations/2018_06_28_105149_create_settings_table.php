@@ -17,6 +17,8 @@ class CreateSettingsTable extends Migration
             $table->increments('id');
             $table->string('jenis');
             $table->text('isi');
+            $table->integer('position');
+            $table->timestamps();
         });
     }
 
