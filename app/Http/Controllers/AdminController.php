@@ -134,7 +134,6 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function store(Request $request)
     {
         $catalog = new Catalog();
@@ -159,17 +158,7 @@ class AdminController extends Controller
         // $category->name = $request->bahan;
         // return redirect()->back();
     }
-=======
-    public function store(Request $request){
-        $data = new Banner;
-        $data->name = $request->name;
-        $data->url_gambar = $request->url_gambar;
-        $data->date_show = $request->date_show;
-        $data->date_off = $request->date_off;
 
-        $data->save();
-        return redirect()->back();
-    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -212,5 +201,5 @@ class AdminController extends Controller
         //
     }
 
->>>>>>> 4ea1807acc1bf59690de9627182dcf7e2abe9609
+
 }
