@@ -37,7 +37,10 @@
 			</div>
 		</div>
 		@empty
-		<div class="text-left">No Item Found</div>
+		<div class="card invinsible text-left col-md-12">
+			<img src="image/result.jpg" class="image2" style="opacity: 1;">
+		    <a href="{{ route('shop.index') }}" class="btn btn-awsm">Back to Shop</a>
+		</div>
 		@endforelse
 	</div>
 	<div>

@@ -42,7 +42,7 @@
 					</div>
 				</div>
 			@empty
-			<div class="text-left">No Item Found</div>
+			<div class="text-center">No Item Found</div>
 			@endforelse
 
 		</div>

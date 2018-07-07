@@ -137,7 +137,7 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-<<<<<<< HEAD
+
      public function store(Request $request)
      {
          $catalog = new Catalog();
@@ -172,50 +172,6 @@ class AdminController extends Controller
          $link->save();
          return redirect()->back();
      }
-=======
-    public function store(Request $request)
-    {
-        $catalog = new Catalog();
-        $category = new Category();
-        $link = new Link();
-        $cata_cate = new cata_cate();
-        $catalog->nama = $request->nama;
-        $catalog->barcode = $request->barcode;
-        $catalog->harga = $request->harga;
-        $catalog->deskripsi = $request->deskripsi;
-        $catalog->barcode = $request->barcode;
-        $file = $request->file('gambar');
-        $fileName = $file->getClientOriginalName();
-        $url_gambar = $fileName;
-        $request->file('gambar')->move("image/", $fileName);
-        $catalog->url_gambar = ($url_gambar);
-        $catalog->save();
-        $id_cat = $request->id_catalog;
-        $insert = [
-          $request->perawatan,
-          $request->hba,
-          $request->hbr
-        ];
-
-        $product = Catalog::find($id_cat);
-        $product->categories()->attach($insert);
-        // $product->categories()->attach($hba);
-        // $product->categories()->attach($hbr);
-        // $product->save();
-
-
-        // $cata_cate->catalog_id = $request->id_catalog;
-        // $cata_cate->category_id = $request->perawatan;
-        // $cata_cate->catalog_id = $request->id_catalog;
-        // $cata_cate->category_id = $request->hba;
-        // $cata_cate->catalog_id = $request->id_catalog;
-        // $cata_cate->category_id = $request->hbr;
-        // $cata_cate->save();
-        // $category->name = $request->brand;
-        // $category->name = $request->bahan;
-
-        return redirect()->back();
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -277,5 +233,5 @@ class AdminController extends Controller
     {
         //
     }
->>>>>>> 232b61c82dab656bea50bd9e05551d4c53cf64fd
+
 }
