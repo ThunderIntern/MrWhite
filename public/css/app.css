@@ -16157,8 +16157,7 @@ html {
   width: 10rem;
   /* Padding and margins */
   padding: 1rem;
-  margin-top: 1rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   margin-left: auto;
   margin-right: auto;
   /* Text styles */
@@ -16199,8 +16198,7 @@ html {
   width: 10rem;
   /* Padding and margins */
   padding: 1rem;
-  margin-top: 1rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   margin-left: auto;
   margin-right: auto;
   background-color: white;

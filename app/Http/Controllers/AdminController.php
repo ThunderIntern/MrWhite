@@ -137,6 +137,10 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a8e16e4e4400640efc5760743b72da150ecd3670
      public function store(Request $request)
      {
          $catalog = new Catalog();
@@ -192,6 +196,7 @@ class AdminController extends Controller
          }
          return redirect()->back();
      }
+<<<<<<< HEAD
 
     /**
      * Show the form for editing the specified resource.
@@ -237,6 +242,8 @@ class AdminController extends Controller
 
         return redirect('admin/katalog/dataProduk');
     }
+=======
+>>>>>>> a8e16e4e4400640efc5760743b72da150ecd3670
 
     /**
      * Update the specified resource in storage.
@@ -280,4 +287,8 @@ class AdminController extends Controller
         $deletelink->delete();
         return redirect()->back();
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a8e16e4e4400640efc5760743b72da150ecd3670
 }

@@ -8,11 +8,6 @@
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
-
-	</div>
-</section>
-=======
 	</div>
 	@else{
 		<div>
@@ -21,4 +16,3 @@
 	@endif
 		
 </section>
->>>>>>> 232b61c82dab656bea50bd9e05551d4c53cf64fd

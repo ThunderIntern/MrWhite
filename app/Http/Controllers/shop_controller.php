@@ -113,8 +113,10 @@ class shop_controller extends Controller
     {
         $product_detail = Catalog::where('barcode', $barcode)->firstOrFail();
         $product = Catalog::where('barcode','!=', $barcode)->inRandomOrder()->take(4)->get();
-        $link = DB::table('links')->join('catalogs','links.catalog_id','=','catalogs.id')->select('links.link')->where('barcode', $barcode)->first();
-        return view('detail_product', compact('product_detail', 'product', 'link', 'type'));
+        $link = DB::table('links')->join('catalogs','links.catalog_id','=','catalogs.id')->select('links.link')->addSelect('links.tag')->where('barcode', $barcode)->get();
+        $count_link = DB::table('links')->join('catalogs','links.catalog_id','=','catalogs.id')->select('links.link')->addSelect('links.tag')->where('barcode', $barcode)->count();
+        // dd($link);
+        return view('detail_product', compact('product_detail', 'product', 'link', 'type', 'count_link'));
     }
 
 
