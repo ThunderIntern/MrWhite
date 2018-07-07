@@ -33,9 +33,14 @@
 						<div class="card-footer bg-transparent">
 							<h3>Rp. {{ $product_detail->presentPrice() }}</h3>
 						</div>
-						@foreach ($link as $links)
-							<p><a href="{{ $links->link }}" class="btn btn-awsm" target="_blank">Beli di {{ ucwords($links->tag) }}</a></p>
-						@endforeach
+						@if ($count_link >0)
+							@foreach ($link as $links)
+								<p><a href="{{ $links->link }}" class="btn btn-awsm" target="_blank">Beli di {{ ucwords($links->tag) }}</a></p>
+							@endforeach
+						@else
+							<div>
+							</div>
+						@endif
 					</div>
 
 				</div>
