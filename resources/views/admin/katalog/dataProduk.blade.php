@@ -38,15 +38,11 @@
                         <td>{{ucwords($products->nama)}}</td>
                         <td>Rp. {{ $products->presentPrice() }}</td>
                         <td><img src="{{ URL::to('image/',$products->url_gambar) }}"width=100px/></td>
-<<<<<<< HEAD
-=======
-                        {{-- <!-- <td>{{ucwords($products->links[0]->tag) }}</td> --> --}}
->>>>>>> 232b61c82dab656bea50bd9e05551d4c53cf64fd
                         <td>
                           <div class='btn-group' role='group' aria-label='...'>
                             <a data-toggle="modal" href="#" class="show-modal btn btn-link btn-info btn-just-icon" title="lihat" @include('admin.part.data')><i class="material-icons">remove_red_eye</i></a>
-                            <a data-toggle="modal" href="#edit" class="btn btn-link btn-success btn-just-icon" title="edit"><i class="material-icons">edit</i></a>
-                            <button type="button" id="delete" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons" title="delete">delete</i></button>
+                            <a href='{{URL::to("admin/katalog/editProduk/{$products->id}")}}' class="btn btn-link btn-success btn-just-icon" title="edit"><i class="material-icons">edit</i></a>
+                            <a data-toggle="modal" href="#delete" class="delete-modal btn btn-link btn-danger btn-just-icon" title="delete" data-id="{{ $products->id }}"><i class="material-icons" title="delete">delete</i></button>
                           </div>
                         </td>
                       </tr>
@@ -129,6 +125,34 @@
           <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
         </div>
       </div>
+  </div>
+</div>
+
+
+<!-- Modal Delete -->
+<div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      <form action="{{route('admin.destroy','test')}}" method="post">
+      		{{method_field('delete')}}
+      		{{csrf_field()}}
+	      <div class="modal-body">
+				<p class="text-center">
+					Are you sure you want to delete this?
+				</p>
+	      		<input type="hidden" name="id" id="banid">
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+	        <button type="submit" class="btn btn-warning">Yes, Delete</button>
+	      </div>
+      </form>
+    </div>
   </div>
 </div>
 

@@ -189,6 +189,19 @@ $(document).on('click','.edit-modal', function(){
   $('#shwdate').val($(this).data('date_show').getDate());
   $('#offdate').val($(this).data('date_off'));
   $('#edit').modal('show');
+
+  $('#nama').val($(this).data('name'));
+  $('#editface').modal('show');
+});
+$(document).on('click','.edit-face', function(){
+  $('#idface').val($(this).data('id'));
+  $('#namaface').val($(this).data('name'));
+  $('#editface').modal('show');
+});
+$(document).on('click','.edit-hair', function(){
+  $('#idhair').val($(this).data('id'));
+  $('#namahair').val($(this).data('name'));
+  $('#edithair').modal('show');
 });
 </script>
 <!-- Delete Modal -->
@@ -196,6 +209,16 @@ $(document).on('click','.edit-modal', function(){
 $(document).on('click','.delete-modal', function(){
   $('#banid').val($(this).data('id'));
   $('#delete').modal('show');
+});
+$(document).on('click','.delete-hair', function(){
+  $('#hairperawatan').val($(this).data('parent'));
+  $('#hairid').val($(this).data('id'));
+  $('#deletehair').modal('show');
+});
+$(document).on('click','.delete-face', function(){
+  $('#faceperawatan').val($(this).data('parent'));
+  $('#faceid').val($(this).data('id'));
+  $('#deleteface').modal('show');
 });
 </script>
 

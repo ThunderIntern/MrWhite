@@ -104,7 +104,7 @@ class AdminController extends Controller
     }
     public function logout(){
         Session::put('login',FALSE);
-        return redirect('login')->with('alert','Kamu sudah logout');
+        return redirect('login')->with('alert','Anda sudah logout');
     }
 
     public function webSetting(){
@@ -137,7 +137,6 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-<<<<<<< HEAD
      public function store(Request $request)
      {
          $catalog = new Catalog();
@@ -159,26 +158,53 @@ class AdminController extends Controller
          $id_cat = $request->id_catalog;
          $insert = [
            $request->perawatan,
-           $request->hba,
-           $request->hbr
+           $request->ba,
+           $request->br
          ];
 
          $product = Catalog::find($id_cat);
          $product->categories()->attach($insert);
 
-         $link->tag = $request->bukalapak;
-         $link->link = $request->bukalapakk;
-         $link->catalog_id = $id_cat;
-         $link->save();
+         if(empty($request->tokopedia)){
+             $link->tag = $request->bukalapak;
+             $link->link = $request->bukalapakk;
+             $link->catalog_id = $id_cat;
+             $link->save();
+         }
+         elseif(empty($request->bukalapak)){
+             $link->tag = $request->tokopedia;
+             $link->link = $request->tokopedia;
+             $link->catalog_id = $id_cat;
+             $link->save();
+         }
+         else{
+             $bukalapak = new Link();
+             $bukalapak->tag = $request->bukalapak;
+             $bukalapak->link = $request->bukalapakk;
+             $bukalapak->catalog_id = $id_cat;
+             $bukalapak->save();
+
+             $tokopedia = new Link();
+             $tokopedia->tag = $request->tokopedia;
+             $tokopedia->link = $request->tokopediaa;
+             $tokopedia->catalog_id = $id_cat;
+             $tokopedia->save();
+         }
          return redirect()->back();
      }
-=======
-    public function store(Request $request)
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request)
     {
-        $catalog = new Catalog();
-        $category = new Category();
-        $link = new Link();
-        $cata_cate = new cata_cate();
+        $id = $request->id_catalog;
+        $catalog = Catalog::where('id', $id)->first();
+        $link = Link::where('id', $id)->first();
         $catalog->nama = $request->nama;
         $catalog->barcode = $request->barcode;
         $catalog->harga = $request->harga;
@@ -189,63 +215,27 @@ class AdminController extends Controller
         $url_gambar = $fileName;
         $request->file('gambar')->move("image/", $fileName);
         $catalog->url_gambar = ($url_gambar);
-        $catalog->save();
+        $catalog->update();
+
         $id_cat = $request->id_catalog;
         $insert = [
           $request->perawatan,
-          $request->hba,
-          $request->hbr
+          $request->ba,
+          $request->br
         ];
 
         $product = Catalog::find($id_cat);
-        $product->categories()->attach($insert);
-        // $product->categories()->attach($hba);
-        // $product->categories()->attach($hbr);
-        // $product->save();
+        $product->categories()->sync($insert);
 
+        if(empty($request->bukalapakk)){
 
-        // $cata_cate->catalog_id = $request->id_catalog;
-        // $cata_cate->category_id = $request->perawatan;
-        // $cata_cate->catalog_id = $request->id_catalog;
-        // $cata_cate->category_id = $request->hba;
-        // $cata_cate->catalog_id = $request->id_catalog;
-        // $cata_cate->category_id = $request->hbr;
-        // $cata_cate->save();
-        // $category->name = $request->brand;
-        // $category->name = $request->bahan;
+        }
+        $link->tag = $request->bukalapak;
+        $link->link = $request->bukalapakk;
+        $link->catalog_id = $id_cat;
+        $link->update();
 
-        return redirect()->back();
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-    // public function store(Request $request){
-    //     $data = new Banner;
-    //     $data->name = $request->name;
-    //     $data->url_gambar = $request->url_gambar;
-    //     $data->date_show = $request->date_show;
-    //     $data->date_off = $request->date_off;
-    //
-    //     $data->save();
-    //     return redirect()->back();
-    // }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $banner = Banner::find($id);
-        return view('\admin\webSetting\banner',compact('banner','id'));
+        return redirect('admin/katalog/dataProduk');
     }
 
     /**
@@ -255,27 +245,39 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function edit($id)
     {
-        $banner= Banner::find($id);
-        $banner->name=$request->get('name');
-        $banner->url_gambar=$request->get('url_gambar');
-        $banner->date_show=$request->get('date_show');
-        $banner->date_off=$request->get('date_off');
+        $catalog = Catalog::find($id);
+        $category = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')
+                    ->where('catalog_category.catalog_id',$id)
+                    ->where('categories.jenis','brand')
+                    ->groupBy('jenis')->get();
+        $link = Link::where('catalog_id',$id)->first();
+        $jenis = Category::where('parent_id','>','0')->groupBy('jenis')->get();
+        $hair_bahan = Category::where('parent_id',1)->where('jenis',$jenis[0]->jenis)->get();
+        $hair_brand = Category::where('parent_id',1)->where('jenis',$jenis[1]->jenis)->get();
+        $face_bahan = Category::where('parent_id',2)->where('jenis',$jenis[0]->jenis)->get();
+        $face_brand = Category::where('parent_id',2)->where('jenis',$jenis[1]->jenis)->get();
 
-        $banner->save();
-        return redirect()->back();
+
+        return view('admin/katalog/editProduk', compact('catalog','cata_cate','category','link','hair_bahan','hair_brand','face_bahan','face_brand'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
+        $deletecat = Catalog::where('id', $id)->first();
+        $deletecat->delete();
+        $deletecate = cata_cate::where('catalog_id', $id)->first();
+        $deletecate->delete();
+        $deletelink = Link::where('id', $id)->first();
+        $deletelink->delete();
+        return redirect()->back();
     }
->>>>>>> 232b61c82dab656bea50bd9e05551d4c53cf64fd
 }

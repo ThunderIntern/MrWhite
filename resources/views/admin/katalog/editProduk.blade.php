@@ -1,9 +1,9 @@
-@extends('admin.part.layout', ['title'=>'Produk Baru'])
+@extends('admin.part.layout', ['title'=>'Katalog'])
 @section('content')
 <div class="main-panel">
 @component('admin/part/navbar')
   @slot('header')
-    Produk Baru
+    Data Produk
   @endslot
 @endcomponent
 <div class="content">
@@ -13,17 +13,18 @@
         <div class="card ">
           <div class="card-header card-header-rose card-header-text">
             <div class="card-text">
-              <h4 class="card-title">Produk Baru</h4>
+              <h4 class="card-title">Edit Produk</h4>
             </div>
           </div>
           <div class="card-body ">
-            <form method="post" action="{{route('admin.store')}}" class="form-horizontal" enctype="multipart/form-data">
+            <form method="post" action="{{route('admin.update',$catalog->id)}}" class="form-horizontal" enctype="multipart/form-data">
               {{ csrf_field() }}
+              {{method_field('patch')}}
               <div class="row">
                 <label class="col-sm-2 col-form-label">ID Katalog</label>
                 <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="id_catalog" value="{{$products}}">
+                    <input type="text" class="form-control" name="id_catalog" value="{{$catalog->id}}">
                     <span class="bmd-help">*Wajib diisi</span>
                   </div>
                 </div>
@@ -32,7 +33,7 @@
                 <label class="col-sm-2 col-form-label">Nama Produk</label>
                 <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="nama">
+                    <input type="text" class="form-control" name="nama" value="{{$catalog->nama}}">
                     <span class="bmd-help">*Wajib diisi</span>
                   </div>
                 </div>
@@ -41,7 +42,7 @@
                 <label class="col-sm-2 col-form-label">Barcode</label>
                 <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="barcode">
+                    <input type="text" class="form-control" name="barcode" value="{{$catalog->barcode}}">
                     <span class="bmd-help">*Wajib diisi</span>
                   </div>
                 </div>
@@ -50,7 +51,7 @@
                 <label class="col-sm-2 col-form-label">Harga</label>
                 <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="harga">
+                    <input type="text" class="form-control" name="harga" value="{{$catalog->harga}}">
                     <span class="bmd-help">*Wajib diisi</span>
                   </div>
                 </div>
@@ -59,7 +60,7 @@
                 <label class="col-sm-2 col-form-label">Deskripsi</label>
                 <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="deskripsi">
+                    <input type="text" class="form-control" name="deskripsi" value="{{$catalog->deskripsi}}">
                     <span class="bmd-help">*Wajib diisi</span>
                   </div>
                 </div>
@@ -68,7 +69,7 @@
                 <div class="col-md-4 col-sm-4 ml-auto mr-auto">
                   <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                     <div class="fileinput-new thumbnail">
-                      <img src="{{URL::to('image/image_placeholder.jpg')}}" id="showgambar" alt="...">
+                      <img src='{{URL::to("image/{$catalog->url_gambar}")}}' id="showgambar" alt="...">
                     </div>
                     <div class="fileinput-preview fileinput-exists thumbnail"></div>
                     <div>

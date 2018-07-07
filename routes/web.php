@@ -20,9 +20,6 @@ Route::get('/shop/{product}', 'shop_controller@show')->name('shop.show');
 Route::get('/shop/{name}', 'shop_controller@show_category')->name('shop.category');
 Route::get('/search', 'shop_controller@search')->name('search');
 
-
-Route::resource('admin','AdminController');
-Route::resource('banner','BannerController');
 // Route::get('/list', function () {
 //     return view('list_product');
 // });
@@ -34,6 +31,7 @@ Route::get('/simple', 'catalogController@create');
 Route::resource('admin','AdminController');
 Route::resource('banner','BannerController');
 Route::resource('homepage','HomepageController');
+Route::resource('category','CategoryController');
 //admin
 Route::resource('admin','AdminController');
 Route::get('/login', 'AdminController@login');
@@ -43,7 +41,7 @@ Route::get('admin', ['uses' => 'AdminController@index', 'as' => 'admin.dashboard
 Route::get('admin/katalog/dataProduk', ['uses' => 'AdminController@dataProduk','as' => 'admin.dataProduk']);
 Route::get('admin/katalog/dataKategori', ['uses' => 'AdminController@dataKategori','as' => 'admin.dataKategori']);
 Route::get('admin/katalog/produkBaru', ['uses' => 'AdminController@produkBaru','as' => 'admin.produkBaru']);
-Route::get('admin/webSetting/component', ['uses' => 'AdminController@component','as' => 'admin.component']);
+Route::get('admin/katalog/editProduk/{id}', ['uses' => 'AdminController@edit','as' => 'admin.dataProduk']);
 Route::get('admin/webSetting/homepage','AdminController@webSetting')->name('web.setting');
 Route::get('admin/webSetting/banner','BannerController@index')->name('banner');
 Route::get('admin/webSetting/preview','PreviewController@index')->name('preview');
