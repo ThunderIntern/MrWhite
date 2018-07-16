@@ -7,6 +7,35 @@
   @endslot
 @endcomponent
 <div class="content">
+{{-- part alert --}}
+@if(Session::has('error'))
+<div class = "row">
+  <div class = "col-md-12 text-center">
+    <div class="alert alert-danger" alert-{{
+      Session::get('message.alert') }}>
+      <button type="button" class="close" data-dismiss="alert">X</button>
+      <strong>{{
+        Session::get('error')
+      }}
+      </strong>
+    </div>
+  </div>
+</div>
+@endif
+@if(Session::has('success'))
+<div class = "row">
+  <div class = "col-md-12 text-center">
+    <div class="alert alert-success" alert-{{
+      Session::get('message.alert') }}>
+      <button type="button" class="close" data-dismiss="alert">X</button>
+      <strong>{{
+        Session::get('success')
+      }}
+      </strong>
+    </div>
+  </div>
+</div>
+@endif
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -20,15 +49,6 @@
             <form method="post" action="{{route('admin.store')}}" class="form-horizontal" enctype="multipart/form-data">
               {{ csrf_field() }}
               <div class="row">
-                <label class="col-sm-2 col-form-label">ID Katalog</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="id_catalog" value="{{$products}}">
-                    <span class="bmd-help">*Wajib diisi</span>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
                 <label class="col-sm-2 col-form-label">Nama Produk</label>
                 <div class="col-sm-10">
                   <div class="form-group">
@@ -39,19 +59,20 @@
               </div>
               <div class="row">
                 <label class="col-sm-2 col-form-label">Barcode</label>
-                <div class="col-sm-10">
+                <div class="col-sm-2">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="barcode">
-                    <span class="bmd-help">*Wajib diisi</span>
+                    <input type="text" class="form-control" name="barcode" onkeypress="return hanyaAngka(event)">
+                    <span class="bmd-help">*Hanya Angka</span>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <label class="col-sm-2 col-form-label">Harga</label>
-                <div class="col-sm-10">
+                <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rp</label>
+                <div class="col-sm-2">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="harga">
-                    <span class="bmd-help">*Wajib diisi</span>
+                    <input type="text" class="form-control" name="harga" onkeypress="return hanyaAngka(event)">
+                    <span class="bmd-help">*Hanya Angka</span>
                   </div>
                 </div>
               </div>
@@ -59,7 +80,7 @@
                 <label class="col-sm-2 col-form-label">Deskripsi</label>
                 <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="deskripsi">
+                    <textarea type="text" class="form-control" name="deskripsi"></textarea>
                     <span class="bmd-help">*Wajib diisi</span>
                   </div>
                 </div>
@@ -80,22 +101,16 @@
               <div class="row">
                 <label class="col-sm-2 col-form-label label-checkbox">Kategori Perawatan</label>
                 <div class="col-sm-10 checkbox-radios">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input perawatan" type="radio" name="perawatan" value="1" onClick="javascript:return yourfunction(1)" checked>Hair
-                      <span class="circle">
-                        <span class="check"></span>
-                      </span>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input perawatan" type="radio" name="perawatan" value="2" onClick="javascript:return yourfunction(2)">Face
-                      <span class="circle">
-                        <span class="check"></span>
-                      </span>
-                    </label>
-                  </div>
+                  @foreach($perawatan as $per)
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input perawatan" type="radio" name="perawatan" value="{{$per->id}}" onClick="javascript:return yourfunction({{$per->id}})" {{ $per->id == '1' ? 'checked' : '' }}>{{$per->name}}
+                        <span class="circle">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  @endforeach
                 </div>
               </div>
               <div class="row">
@@ -138,10 +153,10 @@
               </div>
               <div class="row">
                 <label class="col-sm-2 col-form-label label-checkbox">Store</label>
-                <div class="col-sm-10 checkbox-radios">
+                <div class="col-sm-10 checkbox-radios" name="store">
                   <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                      <input id="bukalapak" class="form-check-input" name="bukalapak" type="checkbox" value="Bukalapak"> Bukalapak
+                      <input id="bukalapak" class="form-check-input" name="bukalapak" type="checkbox" value="bukalapak"> Bukalapak
                       <span class="form-check-sign">
                         <span class="check"></span>
                       </span>
@@ -149,7 +164,7 @@
                   </div>
                   <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                      <input id="tokopedia" class="form-check-input" name="tokopedia" type="checkbox" value="Tokopedia"> Tokopedia
+                      <input id="tokopedia" class="form-check-input" name="tokopedia" type="checkbox" value="tokopedia"> Tokopedia
                       <span class="form-check-sign">
                         <span class="check"></span>
                       </span>
@@ -157,21 +172,23 @@
                   </div>
                 </div>
               </div>
-              <div id="bukalapakk" class="row" style="display:none">
-                <label class="col-sm-2 col-form-label">Link Bukalapak</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <input type="text" name="bukalapakk" class="form-control">
-                    <span class="bmd-help">*Wajib diisi</span>
+              <div name="linkss">
+                <div id="bukalapakk" class="row" style="display:none">
+                  <label class="col-sm-2 col-form-label">Link Bukalapak</label>
+                  <div class="col-sm-10">
+                    <div class="form-group">
+                      <input type="text" name="bukalapakk" class="form-control">
+                      <span class="bmd-help">*Wajib diisi</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div id="tokopediaa" class="row" style="display:none">
-                <label class="col-sm-2 col-form-label">Link Tokopedia</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <input type="text" name="tokopediaa" class="form-control">
-                    <span class="bmd-help">*Wajib diisi</span>
+                <div id="tokopediaa" class="row" style="display:none">
+                  <label class="col-sm-2 col-form-label">Link Tokopedia</label>
+                  <div class="col-sm-10">
+                    <div class="form-group">
+                      <input type="text" name="tokopediaa" class="form-control">
+                      <span class="bmd-help">*Wajib diisi</span>
+                    </div>
                   </div>
                 </div>
               </div>

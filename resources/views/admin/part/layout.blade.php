@@ -4,6 +4,7 @@
     <title>
       {{$title}} - MrWhite
     </title>
+    <link rel="icon" type="image/png" href="{{URL::to('image/logo2.png')}}">
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
@@ -154,8 +155,6 @@
     $('#nama').text($(this).data('nama'));
     $('#harga').text($(this).data('harga'));
     $('#desc').text($(this).data('deskripsi'));
-    $('#tag').text($(this).data('tag'));
-    $('#link').text($(this).data('link'));
     $('#gambar').val($(this).data('gambar')).src;
 
     //punya banner
@@ -173,14 +172,6 @@
 <!-- Edit Modal -->
 <script>
 $(document).on('click','.edit-modal', function(){
-  // $('#id').text($(this).data('id'));
-  // $('#barc').text($(this).data('barcode'));
-  // $('#nama').text($(this).data('nama'));
-  // $('#harga').text($(this).data('harga'));
-  // $('#desc').text($(this).data('deskripsi'));
-  // $('#tag').text($(this).data('tag'));
-  // $('#link').text($(this).data('link'));
-  // $('#gambar').val($(this).data('gambar')).src;
 
   //punya banner
   $('#ban_id').val($(this).data('id'));
@@ -192,16 +183,6 @@ $(document).on('click','.edit-modal', function(){
 
   $('#nama').val($(this).data('name'));
   $('#editface').modal('show');
-});
-$(document).on('click','.edit-face', function(){
-  $('#idface').val($(this).data('id'));
-  $('#namaface').val($(this).data('name'));
-  $('#editface').modal('show');
-});
-$(document).on('click','.edit-hair', function(){
-  $('#idhair').val($(this).data('id'));
-  $('#namahair').val($(this).data('name'));
-  $('#edithair').modal('show');
 });
 </script>
 <!-- Delete Modal -->
@@ -285,6 +266,16 @@ function readURL(input) {
         readURL(this);
     });
 </script>
+
+<script>
+    function hanyaAngka(evt) {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+       if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+        return false;
+      return true;
+    }
+  </script>
 
 <!-- Sweet Alert 2 -->
 <!-- <script>
