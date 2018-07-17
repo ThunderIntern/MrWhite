@@ -65,7 +65,7 @@
 	</div>
 	<!-- Modal tambah -->
 	<div class="modal fade" id="tambah" role="dialog">
-		<div class="modal-dialog modal-lg">
+		<div class="modal-dialog modal-lg" role="document">
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
@@ -154,10 +154,6 @@
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-sm-3">
-							<b class="col-sm-8" id=banner_pic></b>
-							<img id="banner_pic" width=150px />
-						</div>
 						<div class="col-sm-9">
 							<div class="row">
 								<p class="col-sm-3">ID</p>

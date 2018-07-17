@@ -220,14 +220,6 @@ class AdminController extends Controller
                 $bukalapak->save();
 
 
-             $tokopedia = new Link();
-             $tokopedia->tag = $request->tokopedia;
-             $tokopedia->link = $request->tokopediaa;
-             $tokopedia->catalog_id = $id_cat;
-             $tokopedia->save();
-         }
-         return redirect()->back();
-     }
 
                 $tokopedia = new Link();
                 $tokopedia->tag = $request->tokopedia;

@@ -163,7 +163,7 @@
     $('#banner_pic').text($(this).data('gambar'));
     $('#tampil').text($(this).data('date_show'));
     $('#sudah').text($(this).data('date_off'));
-    $('#link').text($(this).data('url_link'));
+    $('#link').text($(this).data('link'));
     $('#show').modal('show');
   });
 
