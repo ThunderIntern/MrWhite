@@ -12,8 +12,8 @@
  require('./owl_carousel.js')
  require('./all.js')
  require('./slider.js')
- // require('./jquery-ui.min.js')
- // require('./jquery.min.js')
+ require('./jquery-ui.min.js')
+ require('./jquery.min.js')
  // require('./drag_drop.js')
 
  // import 'owl.carousel';

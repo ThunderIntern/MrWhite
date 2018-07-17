@@ -20,9 +20,9 @@ class index_controller extends Controller
         $category=DB::table('categories')-> where('jenis','=', 'perawatan')->get();
 
     	$now = Carbon::today();
-    	$banner = Banner::whereDate('date_off','>=', $now)->WhereDate('date_show','<=',$now)->first();
+    	$banner = Banner::whereDate('date_off','>=', $now)->WhereDate('date_show','<=',$now)->get();
         $count = Banner::count();
-
+        // dd($banner);
         if ($banner) {
             return view('index', compact('offer', 'brand', 'product','category','banner','setting','count'));
         }else {

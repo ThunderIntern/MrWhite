@@ -17,7 +17,7 @@ class shop_controller extends Controller
     public function index()
     {
         $categories = Category::where('jenis', 'perawatan')->get();
-        $brand = Category::where('jenis', 'brand')->get();
+        
         $number = 6;
 
         if (request()->category) {
@@ -25,14 +25,15 @@ class shop_controller extends Controller
             //     $query->where('jenis', request()->category);
             // })->get();
             $product = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')->where('name', request()->category);
-
             $category_name = optional(Category::where('name', request()->category)->first())->name;
         }elseif (request()->brands) {
            $product = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')->where('name', request()->brands);
             $category_name = optional(Category::where('name', request()->brands)->first())->name;
-           }
+        }elseif(request()->substance){
+            $product = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')->where('name', request()->substance);
+            $category_name = optional(Category::where('name', request()->substance)->first())->name;
+        }
         else{
-
             $product = Catalog::take(8);
             $category_name = 'All Product';
         }
@@ -47,19 +48,23 @@ class shop_controller extends Controller
         }elseif (request()->sort == 'Z to A') {
             $product = $product->orderBy('nama','desc')->paginate($number);
         }elseif (request()->price == 'under') {
-            $product = Catalog::where('harga','<=',50000)->orderBy('harga')->paginate($number);
+            $product = $product->where('harga','<=',50000)->orderBy('harga')->paginate($number);
         }elseif(request()->price == 'mid'){
-            $product = Catalog::where([['harga','>',50000],['harga','<=',100000]])->orderBy('harga')->paginate($number);
+            $product = $product->where([['harga','>',50000],['harga','<=',100000]])->orderBy('harga')->paginate($number);
         }elseif(request()->price == 'high'){
-            $product = Catalog::where([['harga','>',100000],['harga','<=',200000]])->orderBy('harga')->paginate($number);
+            $product = $product->where([['harga','>=',100000],['harga','<=',200000]])->orderBy('harga')->paginate($number);
         }elseif(request()->price == 'over'){
-            $product = Catalog::where('harga','>',200000)->orderBy('harga')->paginate($number);
+            $product = $product->where('harga','>=',200000)->orderBy('harga')->paginate($number);
         }
-    else{
+        else{
             $product = $product->paginate($number);
         }
 
-        return view('shop', compact('product', 'categories', 'brand', 'category_name'));
+        $brand_hair = Category::where('jenis', 'brand')->where('parent_id','1')->get();
+        $brand_face = Category::where('jenis', 'brand')->where('parent_id','2')->get();
+        $sub_hair = Category::where('jenis', 'bahan')->where('parent_id','1')->get();
+        $sub_face = Category::where('jenis', 'bahan')->where('parent_id','2')->get();
+        return view('shop', compact('product', 'categories', 'brand_hair','brand_face','sub_face','sub_hair', 'category_name'));
     }
 
     public function search(Request $request){
@@ -69,18 +74,10 @@ class shop_controller extends Controller
         ]);
 
         $search = $request->input('search');
+        $result = Catalog::search($search, null, true, true)->groupBy('barcode')->paginate(8);
 
-        // $product = DB::table('catalog_category')->join('catalogs','catalog_category.catalog_id','=','catalogs.id')->join('categories','categories.id','=','catalog_category.category_id')
-        // ->where('jenis','like', "%$search%")
-        // ->orWhere('name','like', "%$search%")
-        // ->orWhere('deskripsi','like', "%$search%")
-        // ->orWhere('nama','like', "%$search%")
-        // ->distinct()
-        // ->paginate(8);
-
-        $product = Catalog::search($search)->groupBy('barcode')->paginate(8);
         // dd($product);
-        return view('search-result', compact('product'));
+        return view('search-result', compact('result', 'product'));
     }
     /**
      * Show the form for creating a new resource.

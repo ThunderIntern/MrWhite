@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Banner;
 use App\Setting;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -68,6 +69,14 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
+         $request->validate([
+            'name'=>'required|min:3',
+            'gambarban' => 'required|image|mimes:jpg,png,jpeg',
+            'today'=> Carbon::now(),
+            'date_show'=>'required|date|before:date_off|after_or_equal:today',   
+            'date_off'=>'required|date|after:date_show'
+        ]);
+
         $data = new Banner;
         $data->name = $request->name;
         $file = $request->file('gambarban');
@@ -76,6 +85,7 @@ class BannerController extends Controller
         $data->url_gambar = $fileName;
         $data->date_show = $request->date_show;
         $data->date_off = $request->date_off;
+        $data->url_link = $request->link;
 
         $data->save();
         return redirect()->back();
@@ -111,6 +121,13 @@ class BannerController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'name'=>'required|min:3',
+            'gambarban' => 'required|image|mimes:jpg,png,jpeg',
+            'today'=> Carbon::now(),
+            'date_show'=>'required|date|before:date_off|after_or_equal:today',   
+            'date_off'=>'required|date|after:date_show'
+        ]);
         $id = $request->id;
         $update = Banner::where('id', $id)->first();
         $update->name = $request->name;
@@ -120,6 +137,7 @@ class BannerController extends Controller
         $update->url_gambar = $fileName;
         $update->date_show = $request->date_show;
         $update->date_off = $request->date_off;
+        $update->url_link = $request->link;
 
         // if($request->file('gambar') == "")
         // {

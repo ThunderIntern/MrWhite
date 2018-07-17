@@ -15,23 +15,23 @@
 <div class="container">
 	<div class="">
 		<h1> Search Results</h1>
-		<p>{{ $product->total() }} result(s) for '{{ request()->input('search')}}'</p>
+		<p>{{ $result->total() }} result(s) for '{{ request()->input('search')}}'</p>
 	</div>
 	<div class="row text-center">
-		@forelse ($product as $products)
+		@forelse ($result as $results)
 		<div class="col-sm-3">
 			<div class="card-deck">
 				<div class="card text-dark invinsible ">
-					<a href="{{ route('shop.show', $products->barcode) }}"><img src="{{ URL::to('image/',$products->url_gambar) }}" class="image1"></a>
+					<a href="{{ route('shop.show', $results->barcode) }}"><img src="{{ URL::to('image/',$results->url_gambar) }}" class="image1"></a>
 					<div class="middle">
-						<p class="card-text">See Product Detail</p>
+						<p class="card-text">See result Detail</p>
 					</div>
 					<div class="card-footer invinsible">
-						<a href="{{ route('shop.show', $products->barcode) }}">
-							{{ ucwords($products->nama) }}
-							<p>Rp. {{ $products->presentPrice() }}</p>
+						<a href="{{ route('shop.show', $results->barcode) }}">
+							{{ ucwords($results->nama) }}
+							<p>Rp. {{ $results->presentPrice() }}</p>
 						</a>
-						{{-- <p>{{ $products->deskripsi }}</p> --}}
+						{{-- <p>{{ $results->deskripsi }}</p> --}}
 					</div>
 				</div>
 			</div>
@@ -44,10 +44,9 @@
 		@endforelse
 	</div>
 	<div>
-		{{ $product->appends(request()->input())->links() }}
+		{{ $result->appends(request()->input())->links() }}
 	</div>
 </div>
-{{-- @include('component.product-list-card') --}}
 @include('partials._footer')
 <script type="text/javascript" src="{{mix('js/app.js')}} "></script>
 

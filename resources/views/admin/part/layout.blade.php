@@ -164,6 +164,7 @@
     $('#banner_pic').text($(this).data('gambar'));
     $('#tampil').text($(this).data('date_show'));
     $('#sudah').text($(this).data('date_off'));
+    $('#link').text($(this).data('url_link'));
     $('#show').modal('show');
   });
 
@@ -188,6 +189,7 @@ $(document).on('click','.edit-modal', function(){
   $('#ban_pic').src($(this).data('gambar'));
   $('#shwdate').val($(this).data('date_show').getDate());
   $('#offdate').val($(this).data('date_off'));
+  $('#ur_link').val($(this).data('link'));
   $('#edit').modal('show');
 
   $('#nama').val($(this).data('name'));
