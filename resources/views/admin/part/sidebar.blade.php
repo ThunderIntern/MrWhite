@@ -31,15 +31,15 @@
                      <b class="caret"></b>
                   </p>
               </a>
-              <div class="collapse {{ set_show('admin.dataProduk') }}{{ set_show('admin.dataKategori') }}{{ set_show('admin.produkBaru') }}" id="katalog">
+              <div class="collapse {{ set_show('admin-dataProduk') }}{{ set_show('admin-dataKategori') }}{{ set_show('admin.produkBaru') }}{{ set_show('admin-editProduk') }}{{set_show('admin-editKategori') }}" id="katalog">
                   <ul class="nav">
-                      <li class="nav-item {{ set_active('admin.dataProduk') }}">
+                      <li class="nav-item {{ set_active('admin-dataProduk') }} {{ set_active('admin-editProduk') }}">
                           <a class="nav-link" href="{{URL::to('admin/katalog/dataProduk')}}">
                             <span class="sidebar-mini"> DP </span>
                             <span class="sidebar-normal"> Data Produk </span>
                           </a>
                       </li>
-                      <li class="nav-item {{ set_active('admin.dataKategori') }}">
+                      <li class="nav-item {{ set_active('admin-dataKategori') }} {{ set_active('admin-editKategori') }}">
                           <a class="nav-link" href="{{URL::to('admin/katalog/dataKategori')}}">
                             <span class="sidebar-mini"> DK </span>
                             <span class="sidebar-normal"> Data Kategori </span>

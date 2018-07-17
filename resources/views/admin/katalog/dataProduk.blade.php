@@ -7,6 +7,21 @@
   @endslot
 @endcomponent
 <div class="content">
+  <!-- Part Alert -->
+@if(Session::has('success'))
+<div class = "row">
+  <div class = "col-md-12 text-center">
+    <div class="alert alert-success" alert-{{
+      Session::get('message.alert') }}>
+      <button type="button" class="close" data-dismiss="alert">X</button>
+      <strong>{{
+        Session::get('success')
+      }}
+      </strong>
+    </div>
+  </div>
+</div>
+@endif
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -26,7 +41,6 @@
                         <th>Nama</th>
                         <th>Harga</th>
                         <th>Gambar</th>
-                        <!-- <th>Tersedia Di</th> -->
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -68,8 +82,8 @@
       </div>
       <div class="modal-body">
         <div class="row">
-        <div class="col-sm-3">
-          <img src = "{{ URL::TO('image/crew.jpeg') }}" width=150px />
+        <div id="gamb" class="col-sm-3">
+          <img src = "{{ URL::TO('image/logo2.png') }}" width=150px />
         </div>
         <div class="col-sm-9">
           <div class="row">
@@ -97,31 +111,10 @@
             <p class="col-sm-1">:</p>
             <b class="col-sm-8" id=desc></b>
           </div>
-          <div class="row">
-            <p class="col-sm-3">Tersedia Di </p>
-            <p class="col-sm-1">:</p>
-            <b class="col-sm-8" id=tag></b>
-          </div>
-          <div class="row">
-            <p class="col-sm-3">Link </p>
-            <p class="col-sm-1">:</p>
-            <b class="col-sm-8" href id=link></b>
-          </div>
-          <div class="row">
-            <p class="col-sm-3">Jenis </p>
-            <p class="col-sm-1">:</p>
-            <b class="col-sm-8" href id=jenis></b>
-          </div>
-          <div class="row">
-            <p class="col-sm-3">Kategori </p>
-            <p class="col-sm-1">:</p>
-            <b class="col-sm-8" href id=namaCategories></b>
-          </div>
         </div>
       </div>
       </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Edit</button>
           <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
         </div>
       </div>
@@ -142,7 +135,7 @@
       		{{csrf_field()}}
 	      <div class="modal-body">
 				<p class="text-center">
-					Are you sure you want to delete this?
+					Apa Anda yakin menghapus produk ini?
 				</p>
 	      		<input type="hidden" name="id" id="banid">
 

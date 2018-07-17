@@ -7,6 +7,34 @@
   @endslot
 @endcomponent
 <div class="content">
+  @if(Session::has('error'))
+<div class = "row">
+  <div class = "col-md-12 text-center">
+    <div class="alert alert-danger" alert-{{
+      Session::get('message.alert') }}>
+      <button type="button" class="close" data-dismiss="alert">X</button>
+      <strong>{{
+        Session::get('error')
+      }}
+      </strong>
+    </div>
+  </div>
+</div>
+@endif
+@if(Session::has('success'))
+<div class = "row">
+  <div class = "col-md-12 text-center">
+    <div class="alert alert-success" alert-{{
+      Session::get('message.alert') }}>
+      <button type="button" class="close" data-dismiss="alert">X</button>
+      <strong>{{
+        Session::get('success')
+      }}
+      </strong>
+    </div>
+  </div>
+</div>
+@endif
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -20,7 +48,7 @@
             <form method="post" action="{{route('admin.update',$catalog->id)}}" class="form-horizontal" enctype="multipart/form-data">
               {{ csrf_field() }}
               {{method_field('patch')}}
-              <div class="row">
+              <div class="row" hidden>
                 <label class="col-sm-2 col-form-label">ID Katalog</label>
                 <div class="col-sm-10">
                   <div class="form-group">
@@ -40,19 +68,20 @@
               </div>
               <div class="row">
                 <label class="col-sm-2 col-form-label">Barcode</label>
-                <div class="col-sm-10">
+                <div class="col-sm-2">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="barcode" value="{{$catalog->barcode}}">
-                    <span class="bmd-help">*Wajib diisi</span>
+                    <input type="text" class="form-control" name="barcode" value="{{$catalog->barcode}}" onkeypress="return hanyaAngka(event)">
+                    <span class="bmd-help">*Hanya Angka</span>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <label class="col-sm-2 col-form-label">Harga</label>
-                <div class="col-sm-10">
+                <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rp</label>
+                <div class="col-sm-2">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="harga" value="{{$catalog->harga}}">
-                    <span class="bmd-help">*Wajib diisi</span>
+                    <input type="text" class="form-control" name="harga" value={{$catalog->harga}} onkeypress="return hanyaAngka(event)">
+                    <span class="bmd-help">*Hanya Angka</span>
                   </div>
                 </div>
               </div>
@@ -60,7 +89,7 @@
                 <label class="col-sm-2 col-form-label">Deskripsi</label>
                 <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="deskripsi" value="{{$catalog->deskripsi}}">
+                    <textarea type="text" class="form-control" name="deskripsi">{{$catalog->deskripsi}}</textarea>
                     <span class="bmd-help">*Wajib diisi</span>
                   </div>
                 </div>
@@ -81,58 +110,52 @@
               <div class="row">
                 <label class="col-sm-2 col-form-label label-checkbox">Kategori Perawatan</label>
                 <div class="col-sm-10 checkbox-radios">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input perawatan" type="radio" name="perawatan" value="1" onClick="javascript:return yourfunction(1)" checked>Hair
-                      <span class="circle">
-                        <span class="check"></span>
-                      </span>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input perawatan" type="radio" name="perawatan" value="2" onClick="javascript:return yourfunction(2)">Face
-                      <span class="circle">
-                        <span class="check"></span>
-                      </span>
-                    </label>
-                  </div>
+                  @foreach($perawatan as $per)
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input perawatan" type="radio" name="perawatan" value="{{$per->id}}" onClick="javascript:return yourfunction({{$per->id}})" {{ $per->id == $category->id ? 'checked' : '' }}>{{$per->name}}
+                        <span class="circle">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  @endforeach
                 </div>
               </div>
               <div class="row">
                 <label class="col-sm-2 col-form-label">Brand</label>
-                <div id="brand_hair" class="col-sm-10">
+                <div id="brand_hair" class="col-sm-10" style="display:{{ $category->id == "1" ? 'block' : 'none' }}">
                   <select name="br" class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select">
-                    <option disabled selected>Pilih salah satu</option>
+                    <option disabled>Pilih salah satu</option>
                     @foreach($hair_brand as $hba)
-                    <option value="{{$hba->id}}">{{ucwords($hba->name)}}</option>
+                    <option value="{{$hba->id}}" {{ $hba->id == $brand->id ? 'selected' : '' }}>{{ucwords($hba->name)}}</option>
                     @endforeach
                   </select>
                 </div>
-                <div id="brand_face" class="col-sm-10" style="display:none">
+                <div id="brand_face" class="col-sm-10" style="display:{{ $category->id == "2" ? 'block' : 'none' }}">
                   <select name="br" class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select" >
-                    <option disabled selected>Pilih salah satu</option>
+                    <option disabled>Pilih salah satu</option>
                     @foreach($face_brand as $hba)
-                    <option value="{{$hba->id}}">{{ucwords($hba->name)}}</option>
+                    <option value="{{$hba->id}}" {{ $hba->id == $brand->id ? 'selected' : '' }}>{{ucwords($hba->name)}}</option>
                     @endforeach
                   </select>
                 </div>
               </div>
               <div class="row">
-                <label class="col-sm-2 col-form-label">Bahan</label>
-                <div id="bahan_hair" class="col-sm-10">
+                <label class="col-sm-2 col-form-label" >Bahan</label>
+                <div id="bahan_hair" class="col-sm-10" style="display:{{ $category->id == "1" ? 'block' : 'none' }}">
                   <select name="ba" class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select">
                     <option disabled selected>Pilih salah satu</option>
                     @foreach($hair_bahan as $hba)
-                    <option value="{{$hba->id}}">{{ucwords($hba->name)}}</option>
+                    <option value="{{$hba->id}}" {{ $hba->id == $bahan->id ? 'selected' : '' }}>{{ucwords($hba->name)}}</option>
                     @endforeach
                   </select>
                 </div>
-                <div id="bahan_face" class="col-sm-10" style="display:none">
+                <div id="bahan_face" class="col-sm-10" style="display:{{ $category->id == "2" ? 'block' : 'none' }}">
                   <select name="ba" class="selectpicker" data-size="7" data-style="select-with-transition" title="Single Select">
                     <option disabled selected>Pilih salah satu</option>
                     @foreach($face_bahan as $hba)
-                    <option value="{{$hba->id}}">{{ucwords($hba->name)}}</option>
+                    <option value="{{$hba->id}}" {{ $hba->id == $bahan->id ? 'selected' : '' }}>{{ucwords($hba->name)}}</option>
                     @endforeach
                   </select>
                 </div>
@@ -142,7 +165,7 @@
                 <div class="col-sm-10 checkbox-radios">
                   <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                      <input id="bukalapak" class="form-check-input" name="bukalapak" type="checkbox" value="Bukalapak"> Bukalapak
+                      <input id="bukalapak" class="form-check-input" name="bukalapak" type="checkbox" value="bukalapak" @foreach($tag as $t){{ $t->tag == "bukalapak" ? 'checked' : '' }} @endforeach> Bukalapak
                       <span class="form-check-sign">
                         <span class="check"></span>
                       </span>
@@ -150,7 +173,7 @@
                   </div>
                   <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                      <input id="tokopedia" class="form-check-input" name="tokopedia" type="checkbox" value="Tokopedia"> Tokopedia
+                      <input id="tokopedia" class="form-check-input" name="tokopedia" type="checkbox" value="tokopedia" @foreach($tag as $t){{ $t->tag == "tokopedia" ? 'checked' : '' }} @endforeach> Tokopedia
                       <span class="form-check-sign">
                         <span class="check"></span>
                       </span>
@@ -158,25 +181,32 @@
                   </div>
                 </div>
               </div>
-              <div id="bukalapakk" class="row" style="display:none">
-                <label class="col-sm-2 col-form-label">Link Bukalapak</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <input type="text" name="bukalapakk" class="form-control">
-                    <span class="bmd-help">*Wajib diisi</span>
+              <div name="linkss">
+                <div id="bukalapakk" style="display:@foreach($tag as $t){{ $t->tag == "bukalapak" ? 'block' : 'none' }} @endforeach">
+                  <div class="row">
+                    <label class="col-sm-2 col-form-label">Link Bukalapak</label>
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <textarea type="text" name="bukalapakk" class="form-control" value=>@foreach($tag as $t){{ $t->tag == "bukalapak" ? $linkbl->link : '' }} @endforeach</textarea>
+                        <span class="bmd-help">*Wajib diisi</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div id="tokopediaa" class="row" style="display:none">
-                <label class="col-sm-2 col-form-label">Link Tokopedia</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <input type="text" name="tokopediaa" class="form-control">
-                    <span class="bmd-help">*Wajib diisi</span>
+                <div id="tokopediaa" style="display:@foreach($tag as $t){{ $t->tag == "tokopedia" ? 'block' : 'none' }} @endforeach">
+                  <div class="row">
+                    <label class="col-sm-2 col-form-label">Link Tokopedia</label>
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <textarea type="text" name="tokopediaa" class="form-control" value=>@foreach($tag as $t){{ $t->tag == "tokopedia" ? $linktp->link : '' }} @endforeach</textarea>
+                        <span class="bmd-help">*Wajib diisi</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="text-right">
+                <a href="{{route('admin-dataProduk')}}" class="btn btn-danger">Cancel</a>
                 <button type="submit" class="btn btn-rose">Submit</button>
               </div>
             </form>

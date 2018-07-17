@@ -86,10 +86,10 @@ class CatalogsTableSeeder extends Seeder
         $product->categories()->attach(1);
         $product->categories()->attach(5);
         $product->categories()->attach(7);
-  
+
         $product = Catalog::find(4);
         $product->categories()->attach(1);
-        $product->categories()->attach(6);
+        $product->categories()->attach(5);
         $product->categories()->attach(8);
 
         $product = Catalog::find(5);
@@ -101,12 +101,12 @@ class CatalogsTableSeeder extends Seeder
         $product->categories()->attach(2);
         $product->categories()->attach(11);
         $product->categories()->attach(16);
-        
+
         $product = Catalog::find(7);
         $product->categories()->attach(2);
         $product->categories()->attach(9);
         $product->categories()->attach(17);
-        
+
         $product = Catalog::find(8);
         $product->categories()->attach(2);
         $product->categories()->attach(12);

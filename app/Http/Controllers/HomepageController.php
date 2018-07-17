@@ -55,22 +55,22 @@ class HomepageController extends Controller
     public function update(Request $request)
     {
         $id = $request->id;
-        $a = Setting::where('id', $id)->first();
-        $a->position = $request->sort_hp;
+        $a = Setting::where('id', '1')->first();
+        // dd($request->sort_hp1, $request->sort_hp2, $request->sort_hp3, $request->sort_hp4,$request->sort_hp5);
+        $a->position = $request->sort_hp1;
         $a->update();
-        $b = Setting::where('id', $id)->first();
-        $b->position = $request->sort_hp;
+        $b = Setting::where('id', '2')->first();
+        $b->position = $request->sort_hp2;
         $b->update();
-        $c = Setting::where('id', $id)->first();
-        $c->position = $request->sort_hp;
+        $c = Setting::where('id', '3')->first();
+        $c->position = $request->sort_hp3;
         $c->update();
-        $d = Setting::where('id', $id)->first();
-        $d->position = $request->sort_hp;
+        $d = Setting::where('id', '4')->first();
+        $d->position = $request->sort_hp4;
         $d->update();
-        $e = Setting::where('id', $id)->first();
-        $e->position = $request->sort_hp;
+        $e = Setting::where('id', '5')->first();
+        $e->position = $request->sort_hp5;
         $e->update();
-        // dd($a,$b,$c,$d,$e);
         return redirect()->back();
     }
 }
