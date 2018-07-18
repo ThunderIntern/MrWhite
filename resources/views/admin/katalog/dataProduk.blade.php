@@ -141,8 +141,8 @@
 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
-	        <button type="submit" class="btn btn-warning">Yes, Delete</button>
+	        <button type="button" class="btn btn-success" data-dismiss="modal">Tidak</button>
+            <button type="submit" class="btn btn-warning">Ya, Saya yakin</button>
 	      </div>
       </form>
     </div>

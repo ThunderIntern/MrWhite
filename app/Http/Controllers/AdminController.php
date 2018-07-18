@@ -21,7 +21,10 @@ class AdminController extends Controller
             return redirect('login')->with('alert','Anda harus login dulu');
         }
         else{
-            return view('admin/dashboard');
+            $jml_pro = Catalog::count();
+            $jml_brand = Category::where('jenis','brand')->count();
+            $jml_bahan = Category::where('jenis','bahan')->count(); 
+            return view('admin/dashboard', compact('jml_pro','jml_brand','jml_bahan'));
         }
 
     }

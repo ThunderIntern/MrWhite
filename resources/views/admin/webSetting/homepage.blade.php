@@ -16,7 +16,7 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="card-icon">
-									<i class="material-icons">assignment</i>
+									<i class="material-icons">storage</i>
 								</div>
 								<h4 class="card-title">Home Page</h4>
 							</div>
@@ -24,7 +24,7 @@
 								<form method="post" class="form-horizontal" action="{{ route('homepage.update','test') }}">
 									{{ csrf_field() }}
 									{{method_field('patch')}}
-									<button class="btn btn-info btn-round" onclick="location.href='{{ route('preview')}}'">
+									<button class="btn btn-info btn-round" onclick="location.href='{{ route('preview')}}'" disabled="disabled" title="sedang dalam perbaikan">
 										<i class="material-icons">remove_red_eye</i> Preview
 									</button>
 									<button class="btn btn-success btn-round">

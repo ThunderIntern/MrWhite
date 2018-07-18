@@ -17,7 +17,7 @@
                     <i class="material-icons">business_center</i>
                   </div>
                   <p class="card-category">Jumlah Produk</p>
-                  <h3 class="card-title">105.067</h3>
+                  <h3 class="card-title">{{ $jml_pro }}</h3>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -30,14 +30,14 @@
               <div class="card card-stats">
                   <div class="card-header card-header-rose card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">store</i>
+                      <i class="material-icons">confirmation_number</i>
                     </div>
-                    <p class="card-category">Total Toko</p>
-                    <h3 class="card-title">542</h3>
+                    <p class="card-category">Total Brand</p>
+                    <h3 class="card-title">{{ $jml_brand }}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          Jumlah toko yang ada
+                          Jumlah brand yang ada
                       </div>
                   </div>
               </div>
@@ -46,14 +46,14 @@
               <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">store</i>
+                      <i class="material-icons">gradient</i>
                     </div>
-                    <p class="card-category">Kunjungan Toko</p>
-                    <h3 class="card-title">105.067</h3>
+                    <p class="card-category">Total Bahan</p>
+                    <h3 class="card-title">{{ $jml_bahan }}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          Jumlah Kunjungan Link Toko Online
+                          Jumlah bahan yang ada
                       </div>
                   </div>
               </div>
@@ -67,8 +67,7 @@
             <div class="card-icon">
               <i class="material-icons">timeline</i>
             </div>
-            <h4 class="card-title">Coloured Bars Chart
-                <small> - Rounded</small>
+            <h4 class="card-title">Pencapaian VS Target Penjualan
             </h4>
           </div>
           <div class="card-body">
@@ -78,12 +77,11 @@
   </div>
   <div class="col-lg-7 col-md-6 col-sm-6">
     <div class="card">
-        <div class="card-header card-header-icon card-header-info">
+        <div class="card-header card-header-icon card-header-danger">
           <div class="card-icon">
-            <i class="material-icons">calendar</i>
+            <i class="material-icons">insert_invitation</i>
           </div>
-          <h4 class="card-title">Coloured Bars Chart
-              <small> - Rounded</small>
+          <h4 class="card-title">Agenda MR White
           </h4>
         </div>
         <div class="card-body">
